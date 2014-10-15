@@ -26,4 +26,5 @@ tags: [fop, pdf, java]
     </fo:bookmark>
 </fo:bookmark-tree>
 ````
+
 其中``internal-destination="sec0"`` 为目录与正文链接的锚点 id 定义。
