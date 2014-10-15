@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<!-- Title -->
+<h2>
+  {{ page.title }}
+  <div class="post-date"><a href="https://github.com/panxw/panxw.github.com/edit/master/{{ page.path }}" target="_blank">纠错</a>&nbsp;&nbsp;
+	<span class="glyphicon glyphicon-time"></span>
+	{{ page.date | date_to_string }}
+  </div>
+</h2>
+
+<hr>
+{{ content }}
+<hr>
