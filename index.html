@@ -10,7 +10,7 @@ title: 我的Blog
   </small>
 </h1>
 
-{% for post in paginator.posts %}
+{% for post in site.posts %}
 <h2>
   <a href="{{ post.url }}">
     {{ post.title }}
@@ -21,29 +21,6 @@ title: 我的Blog
   </div>
 </h2>
 <hr>
-{{ post.excerpt }}
-	<p> <a href="{{ post.url }}"><span >阅读全文 &raquo; </span></a></p>
+<p> <a href="{{ post.url }}"><span >阅读全文 &raquo; </span></a></p>
 <hr>
 {% endfor %}
-<!-- Pager -->
-<ul class="pager">
-  {% if paginator.previous_page %} {% if paginator.previous_page == 1 %}
-  <li class="previous">
-    <a href="{{ site.url }}/">
-      &larr; 更早的文章
-    </a>
-  </li>
-  {% else %}
-  <li class="previous">
-    <a href="{{ site.url }}/page{{ paginator.previous_page }}">
-      &larr; 更早的文章
-    </a>
-  </li>
-  {% endif %} {% endif %} {% if paginator.next_page %}
-  <li class="next">
-    <a href="{{ site.url }}/page{{ paginator.next_page }}">
-     最新的文章 &rarr;
-    </a>
-  </li>
-  {% endif %}
-</ul>
