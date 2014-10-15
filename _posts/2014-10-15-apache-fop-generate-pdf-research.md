@@ -8,7 +8,7 @@ tags: [fop, pdf, java]
 --------------------------------------------------
 中间文件*.fo的格式如下生成：
 
-```` xml
+````xml
 	<fo:bookmark-tree>
     		<fo:bookmark internal-destination="sec0">
        		<fo:bookmark-title>Adding Fonts to FOP</fo:bookmark-title>
@@ -22,7 +22,17 @@ tags: [fop, pdf, java]
             			<fo:bookmark-title>Register the fonts within FOP</fo:bookmark-title>
         		</fo:bookmark>
     		</fo:bookmark>
-</fo:bookmark-tree>
+	</fo:bookmark-tree>
 ````
 
 其中``internal-destination="sec0"`` 为目录与正文链接的锚点 id 定义。
+
+如何支持中文
+-------------------------------------
+
+````
+fop -c conf/userconfig.xml -xml historycreator.com/books.xml -xsl historycreator.com/books.xsl -pdf historycreator.com/books.pdf
+````
+
+注意这里使用了参数-c，指定使用我们自己写的userconfig.xml为配置文件。
+执行结果：在historycreator.com文件夹下生成了一个books.pdf文件,并且可以正确显示中文.
