@@ -26,7 +26,7 @@ whitelist: []
 gems:      []
 
 # Conversion
-markdown: rdiscount
+markdown: redcarpet
 pygments: true
 highlighter: pygments
 lsi:         false
