@@ -8,7 +8,7 @@ tags: [fop, pdf, java]
 --------------------------------------------------
 中间文件*.fo的格式如下生成：
 
-```xml
+~~~ xml
 <fo:bookmark-tree>
     	<fo:bookmark internal-destination="sec0">
        		<fo:bookmark-title>Adding Fonts to FOP</fo:bookmark-title>
@@ -23,7 +23,7 @@ tags: [fop, pdf, java]
         		</fo:bookmark>
     	</fo:bookmark>
 </fo:bookmark-tree>
-```
+~~~
 
 其中``internal-destination="sec0"`` 为目录与正文链接的锚点 id 定义。
 
