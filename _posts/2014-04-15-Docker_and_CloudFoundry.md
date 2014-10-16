@@ -1,6 +1,8 @@
 ---
 layout: post
-title: Docker and Cloud Foundry
+title: Docker与CloudFoundry博文解读
+summary: 
+tags: [docker cloudfoundry]
 ---
 
 > 这篇文章写于April 8, 2014. 作者是Phil Whelan(菲尔·惠兰), 任职ActiveState公司软件设计师. 从事私有云Stackato的研发.

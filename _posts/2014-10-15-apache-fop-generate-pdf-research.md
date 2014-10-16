@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用 Apache FOP 生成 PDF 文档研究记录
+summary: 解决了XML转换为PDF文档的相关问题。涉及了诸多方面的东西：字体、导航目录、样式等。
 tags: [fop, pdf, rtf, java]
 ---
 
