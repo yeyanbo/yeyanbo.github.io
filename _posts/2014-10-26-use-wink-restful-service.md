@@ -1,7 +1,7 @@
 ---
-layput: post
+layout: post
 title: 使用Apache Wink开发RESTful服务
-summary: 
+summary: 记录了学习Wink开发RESTful服务的一些心得
 tags: [wink RESTful java]
 ---
 
