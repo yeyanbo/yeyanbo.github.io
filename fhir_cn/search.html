@@ -1,0 +1,2911 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)./search.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="  ext-strict"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Search - FHIR v3.0.1</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="http://hl7.org/fhir">
+
+  <link rel="stylesheet" href="./media/fhir.css">
+  <link rel="Prev" href="./search.html">
+
+    <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./media/bootstrap.css">
+  <link rel="stylesheet" href="./media/bootstrap-fhir.css">
+
+    <!-- Project extras -->
+  <link rel="stylesheet" href="./media/project.css">
+  <link rel="stylesheet" href="./media/pygments-manni.css">
+	<link rel="stylesheet" href="./media/jquery-ui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- [if lt IE 9]>
+  <script src="./assets/js/html5shiv.js"></script>
+  <script src="./assets/js/respond.min.js"></script>
+  <![endif] -->
+
+    <!-- Favicons -->
+  <link sizes="144x144" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-144-precomposed.png">
+  <link sizes="114x114" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link sizes="72x72" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="http://hl7.org/fhir/assets/ico/favicon.png"><style type="text/css" media="screen">
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }
+
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }</style><style type="text/css" media="print">
+	.page-break	{ display:block; page-break-before:always; }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }</style><style type="text/css" media="all">
+	.page-break	{ display:none; }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1170px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1100px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }</style>
+
+</head>
+<body class=" ext-webkit ext-chrome ext-mac" id="syno-nsc-ext-gen3">
+	<div id="segment-header" class="segment">  <!-- segment-header -->	
+		<div class="container">  <!-- container -->
+			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./media/fhir-logo-www.png" alt="logo fhir"> </a>
+			<div id="hl7-status">
+				<b>FHIR Release 3 (STU)</b>
+			</div>       	
+			
+			<div id="hl7-nav">
+				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org/">
+					<img src="./media/hl7-logo.png" width="42" alt="visit the hl7 website" height="50">
+				</a> 
+			</div>       	
+			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="./search.cfm"><img src="./media/search.png" alt="Search FHIR"></a></div> 
+		</div>
+		<div class="container">  <!-- container -->
+	</div></div>  <!-- /segment-header -->	
+
+
+	<div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+		<div id="stripe"> </div>
+		<div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+ 	      		 	      		      		
+			<nav class="navbar navbar-inverse">
+				<div class="container">
+					<button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+					</button>
+					<a href="http://hl7.org/fhir/index.html" class="navbar-brand hidden">FHIR</a>
+					<div class="nav-collapse collapse navbar-inverse-collapse">
+						<ul class="nav navbar-nav">
+              <li><a href="http://hl7.org/fhir/index.html">首页</a></li>
+              <li><a href="./modules.html">开始</a></li>
+              <li><a href="./documentation.html">文档</a></li>
+              <li><a href="./resourcelist.html">资源</a></li>
+              <li><a href="./profilelist.html">规范</a></li>
+              <li><a href="./extensibility-registry.html">扩展</a></li>
+              <li><a href="./operationslist.html">操作</a></li>
+              <li><a href="./terminologies-systems.html">术语</a></li>
+						</ul>
+					</div>  <!-- /.nav-collapse -->
+				</div>  <!-- /.container -->
+			</nav>  <!-- /.navbar -->
+      		
+  <!-- /HEADER CONTENT -->				
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-navbar -->
+	
+
+	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+		<div class="container">  <!-- container -->	
+			<ul class="breadcrumb">
+        <li><a href="http://hl7.org/fhir/foundation-module.html"><img src="./media/foundation.png"> 基础 </a></li>
+        <li><a href="http://hl7.org/fhir/http.html">RESTful API</a></li>
+        <li><b>查询</b></li>          <!-- search.html / page / -->
+
+			</ul>	
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-breadcrumb -->
+	
+
+	<div id="segment-content" class="segment">  <!-- segment-content -->
+	<div class="container">  <!-- container -->
+            <div class="row">
+            	<div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+
+<div class="col-12">
+
+<a name="base"> </a>
+<h2 class="self-link-parent"><span class="sectioncount">2.21.1<a name="2.21.1"> </a></span> 查询 <a href="./search.html#2.21.1" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h2>
+<table class="colsi"><tbody><tr>
+<td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="./media/external.png" style="text-align: baseline"></a></td>
+<td id="fmm"><a href="http://hl7.org/fhir/versions.html#maturity">成熟度</a>: 5</td>
+<td id="ballot"><a href="http://hl7.org/fhir/versions.html#levels">投票状态</a>: <a href="http://hl7.org/fhir/versions.html#std-process">试用</a></td>
+</tr></tbody></table>
+
+<p>
+资源查询是FHIR的基础。查询操作遍历通过提供给搜索操作的参数过滤的现有资源集合。 下面的文字描述了FHIR的查询框架，先讲简单的案例再讲复杂的。实施者只需要实现他们要实现的内容即可。
+</p>
+
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.1<a name="2.21.1.1"> </a></span> 概览表 <a href="./search.html#2.21.1.1" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+
+<table class="grid">
+<tbody><tr><td><b>查询参数类型</b></td><td><b>适用于所有资源的参数</b></td><td><b>控制查询结果的参数</b></td></tr>
+<tr>
+<td>
+<a href="./search.html#number">Number</a><br>
+<a href="./search.html#date">Date/DateTime</a><br>
+<a href="./search.html#string">String</a><br>
+<a href="./search.html#token">Token</a><br>
+<a href="./search.html#reference">Reference</a><br>
+<a href="./search.html#composite">Composite</a><br>
+<a href="./search.html#quantity">Quantity</a><br>
+<a href="./search.html#uri">URI</a><br>
+
+</td>
+<td>
+<a href="./search.html#id"><code>_id</code></a><br>
+<a href="./search.html#lastUpdated"><code>_lastUpdated</code></a><br>
+<a href="./search.html#tag"><code>_tag</code></a><br>
+<a href="./search.html#profile"><code>_profile</code></a><br>
+<a href="./search.html#security"><code>_security</code></a><br>
+<a href="./search.html#text"><code>_text</code></a><br>
+<a href="./search.html#content"><code>_content</code></a><br>
+<a href="./search.html#list"><code>_list</code></a><br>
+<a href="./search.html#has"><code>_has</code></a><br>
+<a href="./search.html#_type"><code>_type</code></a><br>
+<a href="./search.html#query"><code>_query</code></a><br>
+</td>
+<td>
+<a href="./search.html#sort"><code>_sort</code></a><br>
+<a href="./search.html#count"><code>_count</code></a><br>
+<a href="./search.html#include"><code>_include</code></a><br>
+<a href="./search.html#revinclude"><code>_revinclude</code></a><br>
+<a href="./search.html#summary"><code>_summary</code></a><br>
+<a href="./search.html#elements"><code>_elements</code></a><br>
+<a href="./search.html#contained"><code>_contained</code></a><br>
+<a href="./search.html#containedType"><code>_containedType</code></a><br>
+</td>
+</tr>
+</tbody></table>
+<p>
+另外，还有一个特殊的查询参数<a href="./search.html#filter"><code>_filter</code></a>，该参数的使用展示了查询的另一种方式。
+</p>
+<p>
+同时, 还有专门一章用于罗列所有已注册的<a href="./searchparameter-registry.html">查询参数</a>.
+</p>
+
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.2<a name="2.21.1.2"> </a></span> 介绍 <a href="./search.html#2.21.1.2" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+<p>
+在最简单的例子中，一个查询是通过RESTful框架中的<code>GET</code>操作执行的:
+</p>
+<pre> GET [base]/[type]?name=value&amp;...{&amp;_format=[mime-type]}}
+</pre>
+<p>
+对于该RESTful查询(参见<a href="http://hl7.org/fhir/http.html#search">RESTful API定义</a>), the parameters are a series of name=[value] pairs encoded in the URL or as an
+application/x-www-form-urlencoded submission for a POST:
+</p>
+<pre> POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
+</pre>
+<p>
+服务器决定哪一个资源集合满足指定的查询条件，并在HTTP的返回消息中以<a href="./bundle.html">bundle</a>(包裹了符合查询条件的资源集合)的形式作为查询结果。Note that the <code>_format</code>
+parameter works for search <a href="http://hl7.org/fhir/http.html#mime-type">like for other interactions</a>.
+</p>
+<p>
+<a href="http://hl7.org/fhir/http.html#search">查询参数</a> are executed in one of three defined contexts that control which set of resources are being searched:
+</p>
+<ul>
+ <li>一个具体的资源类型: <code>GET [base]/[type]?parameter(s)</code></li>
+ <li>一个具体的<a href="http://hl7.org/fhir/compartmentdefinition.html">compartment</a>, perhaps with a specified resource type in that compartment: <code>GET [base]/Patient/[id]/[type]?parameter(s)</code></li>
+ <li>所有资源类型: <code>GET [base]?parameter(s)</code> (parameters common to all types only)</li>
+</ul>
+<p>
+查询操作也可能在<a href="http://hl7.org/fhir/messaging.html#search">消息框架</a>中被实现:
+</p>
+<p>
+The server determines which of their resources meet the criteria
+contained in the search parameters as described below. However
+the server has the prerogative to return additional search results
+if it believes them to be relevant. Note: There is a
+special search for the most relevant context in which the
+search set is indeterminate: <a href="http://hl7.org/fhir/patient.html#mpi">Patient MPI Search</a>.
+</p>
+<p>
+Search using <code>GET</code> may include sensitive information in the search parameters.  Therefore,
+secure communications and endpoint management are recommended, see <a href="http://hl7.org/fhir/security.html#http">Security Communications</a>
+</p>
+
+<a name="errors"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.3</span> 错误处理 <a href="./search.html#errors" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+<p>
+If a server is unable to execute a search request, it may return an error.
+A HTTP status code of <code>403</code> signifies that the server refused to perform the search,
+while other <code>4xx</code> and <code>5xx</code> codes signify that some sort of error has occurred. When
+the search fails, a server SHOULD return an <a href="http://hl7.org/fhir/operationoutcome.html">OperationOutcome</a>
+detailing the cause of the failure. Note: An empty search result is not a failure.
+</p>
+<p>
+在某些情况下，不当的参数可能会导致错误的产生。例如:
+</p>
+<ul>
+ <li>参数可能指向不存在的资源，例如：<code>GET [base]/Observation?subject=101</code>，而"101"不存在</li>
+ <li>参数可能指向未知编码，例如：<code>GET [base]/Observation?code=loinc|1234-1</code>，而服务器无法识别LOINC编码"1234-1"</li>
+ <li>参数可能指向超出范围的时间，例如：<code>GET [base]/Condition?onset=le1995</code>，而系统只可以追溯到2001年的数据</li>
+ <li>参数可能使用了非法或者不可接受的修饰符，例如：<code>GET [base]/Condition?onset:text=1995</code>，而服务器不能处理该修饰符</li>
+ <li>时间参数可能具有不正确的格式，例如：<code>GET [base]/Condition?onset=23%20May%202009</code></li>
+ <li>参数可能未知或不受支持（参见下文）</li>
+</ul>
+<p>
+Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.
+However, where the issue is a logical condition (e.g. unknown subject or code), the server
+SHOULD process the search, including processing the parameter - with the result of returning
+an empty search set, since the parameter cannot be satisfied.
+</p>
+<p>
+In such cases, the search process MAY include an <a href="http://hl7.org/fhir/operationoutcome.html">OperationOutcome</a>
+in the search set that contains additional hints and warnings about the search process.
+This is included in the search results as an entry with <a href="http://hl7.org/fhir/bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="http://hl7.org/fhir/valueset-search-entry-mode.html"><code>outcome</code></a>.
+Clients can use this information to improve future searches.
+</p>
+
+<p><b>未知的或者不被支持的参数</b></p>
+
+<p>
+服务器可能从客户端接收到一些它们无法识别的参数，或者可能接收它们可以识别但不支持的参数。通常，服务器<code>应该</code>忽略未知和不支持的参数，原因如下：
+</p>
+<ul>
+ <li>Various HTTP stacks and proxies may add parameters that aren't under the control of the client</li>
+ <li>The client can determine what parameters the server used by examining the self link in the return (see <a href="./search.html#conformance">below</a>)</li>
+</ul>
+<p>
+客户端可以使用<code>prefer</code>消息头指定服务器的行为方式
+</p>
+<ul>
+ <li><code>Prefer: handling=strict</code>: 客户端请求服务器为任何未知或不支持的参数返回错误</li>
+ <li><code>Prefer: handling=lenient</code>: 客户端请求服务器忽略任何未知或不支持的参数</li>
+</ul>
+<p>
+服务器<code>应该</code>遵循客户的请求，但不要求必须这样做。
+</p>
+
+<a name="standard"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.4</span> 标准参数 <a href="./search.html#standard" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+
+<a name="all"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.1</span> 适用于所有资源的参数 <a href="./search.html#all" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+下列参数适用于<a href="http://hl7.org/fhir/resource.html#search">所有资源</a>: <code>_content</code>, <code>_id</code>, <code>_lastUpdated</code>, <code>_profile</code>, <code>_query</code>, <code>_security</code>, <code>_tag</code>. 另外，查询参数<a href="./search.html#text"><code>_text</code></a>和<a href="./search.html#filter"><code>_filter</code></a>(下面有记录), 也适用于所有资源(查询结果参数也是如此).
+</p>
+<a name="id"> </a>
+<p>
+The search parameter <code>_id</code> refers to the logical id of the resource, and can be used when the search context specifies a resource type:
+</p>
+<pre> GET [base]/Patient?_id=23
+</pre>
+<p>
+This search finds the patient resource with the given id (there can only be one
+resource for a given id). Functionally, this is equivalent to a <a href="http://hl7.org/fhir/http.html#read">simple
+read operation</a>:
+</p>
+<pre> GET [base]/Patient/23
+</pre>
+<p>
+However, the search with parameter <code>_id</code> returns a bundle with the requested resource, instead of just the
+resource itself. Additional parameters can be added which may provide
+additional functionality on top of this base read equivalence (e.g. <a href="./search.html#include"><code>_include</code></a>).
+Note that although the _id parameter has a type of token, because servers SHALL use exact match with it, there is
+no system for the _id parameter.
+</p>
+<a name="lastUpdated"> </a>
+<p>
+The search parameter <code>_lastUpdated</code> can be used to select resources based
+on the last time they were changed:
+</p>
+<pre> GET [base]/Observation?_lastUpdated=gt2010-10-01
+</pre>
+<p>
+This search finds any observations changed since 1-Oct 2010. When
+this search parameter is used, applications should consider
+synchronization approaches (<a href="http://hl7.org/fhir/http.html#history">RESTful history</a>
+or the <a href="http://hl7.org/fhir/subscription.html">Subscription resource</a>).
+</p>
+<a name="tag"> </a>
+<a name="tags"> </a>
+<a name="profile"> </a>
+<a name="security"> </a>
+
+<p>
+The search parameters <a href="http://hl7.org/fhir/resource.html#simple-tags">_tag</a>, <a href="http://hl7.org/fhir/resource.html#profile-tags">_profile</a> and <a href="http://hl7.org/fhir/resource.html#security-labels">_security</a> parameters search
+on the equivalent elements in the <a href="http://hl7.org/fhir/resource.html#meta"><code>meta</code> element</a>.
+For example,
+</p>
+<pre> GET [base]/Condition?_tag=http://acme.org/codes|needs-review
+</pre>
+<p>
+searches for all Condition resources with the tag:
+</p>
+<pre class="json">{
+  "system" : "http://acme.org/codes",
+  "code" : "needs-review"
+}
+</pre>
+<p>
+In the same manner:
+</p>
+<pre> GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/StructureDefinition/lipid
+ GET [base]/DiagnosticReport?_profile=Profile/lipid
+</pre>
+<p>
+restricts the search to only DiagnosticReport resources that are tagged as conforming to a particular profile.
+The second reference is relative, and refers a local profile on the same server.
+</p>
+<p>
+<a href="http://hl7.org/fhir/resource.html#simple-tags">_tag</a>, <a href="http://hl7.org/fhir/resource.html#profile-tags">_profile</a> and <a href="http://hl7.org/fhir/resource.html#security-labels">_security</a> parameters are all token types (see <a href="./search.html#token">below</a>).
+</p>
+
+
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.2<a name="2.21.1.4.2"> </a></span> Parameters for each resource <a href="./search.html#2.21.1.4.2" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+In addition to the <code>_id</code> parameter which exists for all resources, each
+FHIR resource type defines its own set of search parameters with
+their names, types, and meanings. These search parameters are on the
+same page as the resource definitions, and are also published as part
+of the standard Capability statement (<a href="http://hl7.org/fhir/capabilitystatement-base.xml.html">XML</a> or <a href="http://hl7.org/fhir/capabilitystatement-base.json.html">JSON</a>).
+</p>
+<p>
+In general, the defined search parameters correspond to a
+single element in the resource, but this is not required, and some
+search parameters refer to the same type of element in multiple
+places, or refer to derived values.
+</p>
+<p>
+Some search parameters defined by resources are associated
+with more than one path in a resource. This means that the search
+parameter matches if any of the paths contain matching content.  If a
+path matches, the whole resource is returned in the
+search results. The client may have to examine the resource to determine
+which path contains the match.
+</p>
+<p>
+Servers are not required to implement any of the standard search parameters
+(except for the <code>_id</code> parameter described above), and may define their own
+ parameters.
+</p>
+
+<a name="ptypes"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.3</span> 查询参数类型 <a href="./search.html#ptypes" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>Each search parameter is defined by a type that specifies how the search parameter
+behaves. These are the defined parameter types:
+</p>
+<table class="codes">
+ <tbody><tr><td><a href="./search.html#number">number</a></td><td>Search parameter SHALL be a number (a whole number, or a decimal).</td></tr>
+ <tr><td><a href="./search.html#date">date</a></td><td>Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.</td></tr>
+ <tr><td><a href="./search.html#string">string</a></td><td>Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.</td></tr>
+ <tr><td><a href="./search.html#token">token</a></td><td>Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.</td></tr>
+ <tr><td><a href="./search.html#reference">reference</a></td><td>A reference to another resource.</td></tr>
+ <tr><td><a href="./search.html#composite">composite</a></td><td>A composite search parameter that combines a search on two values together.</td></tr>
+ <tr><td><a href="./search.html#quantity">quantity</a></td><td>A search parameter that searches on a quantity.</td></tr>
+ <tr><td><a href="./search.html#uri">uri</a></td><td>A search parameter that searches on a URI (RFC 3986).</td></tr>
+</tbody></table>
+
+<p>
+The search parameters can also append "modifiers" that control
+their behavior. The kinds of modifiers that available is dependent on the type
+of parameter being modified.
+</p>
+
+<a name="modifiers"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.4</span> 修饰词 <a href="./search.html#modifiers" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>每个资源都定义了查询参数。参数名称可以指定一个修饰符作为后缀。修饰符与参数名称通过冒号(<code>:</code>)进行分隔。修饰符包括:
+</p>
+<ul>
+ <li>对于所有参数(组合除外): <code>:missing</code>修饰符，例如<code>gender:missing=true</code> (或者false)。使用<code>gender:missing=true</code>的查询将返回没有<code>gender</code>参数值的所有资源（通常等同于资源中没有相关元素）。使用<code>gender:missing=false</code>的查询将返回具有<code>gender</code>参数值的所有资源。</li>
+ <li>对于字符串: 默认匹配规则是不区分大小写、不区分重音，在字符串起始位置匹配。我们可以使用修饰符<code>:exact</code>来要求必须进行绝对匹配，不是部分匹配、区分大小写和重音； 或者使用修饰符<code>:contains</code>来要求不区分大小写、不区分重音、可以在任意位置匹配。</li>
+ <li>对于token: <code>:text</code>修饰符（匹配对<code>CodeableConcept</code>的<code>text</code>部分或编码的<code>display</code>部分进行部分搜索），替代缺省情况下对编码的查询。其它修饰符如 <code>:in</code>、<code>:below</code>、<code>:above</code>和<code>:not-in</code>将在下面进行描述。</li>
+ <li>对于引用: 修饰符<code>:[type]</code>中的[type]是指资源的类型名称</li>
+ <li>对于uri: 修饰符<code>:below</code>、<code>:above</code>indicate that instead of an exact match, either the search term left matches the value，反之亦然。</li>
+</ul>
+<p>
+如果查询请求中包含了查询参数<b>不</b>支持的修饰符，服务器应拒绝该请求。例如，如果服务器支持查询参数<code>name</code>，但不支持<code>name</code>上的<code>:exact</code>修饰符，则服务器应拒绝使用参数<code>name:exact=Bill</code>的查询请求，返回<code>HTTP 400</code>错误，正文为携带<a href="http://hl7.org/fhir/operationoutcome-example-searchfail.html">清晰描述错误的消息</a>的<a href="http://hl7.org/fhir/operationoutcome.html">OperationOutcome</a>资源。
+
+对于uri :::下面，：上面表示不是完全匹配，而是左边的搜索项与值匹配，反之亦然。
+</p>
+
+<a name="prefix"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.5</span> 前缀符 <a href="./search.html#prefix" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+For the ordered parameter types of <a href="./search.html#number">number</a>, <a href="./search.html#date">date</a>, and <a href="./search.html#quantity">quantity</a>,
+a prefix to the parameter value may be used to control the nature of the matching. To avoid URL escaping and visual confusion,
+the following prefixes are used:
+</p>
+<table class="grid">
+ <tbody><tr>
+	<td><code>eq</code></td>
+	<td>the value for the parameter in the resource is equal to the provided value</td>
+	<td>the range of the search value fully contains the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>ne</code></td>
+	<td>the value for the parameter in the resource is not equal to the provided value</td>
+  <td>the range of the search value does not fully contain the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>gt</code></td>
+	<td>the value for the parameter in the resource is greater than the provided value</td>
+  <td>the range above the search value intersects (i.e. overlaps) with the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>lt</code></td>
+	<td>the value for the parameter in the resource is less than the provided value</td>
+  <td>the range below the search value intersects (i.e. overlaps) with the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>ge</code></td>
+	<td>the value for the parameter in the resource is greater or equal to the provided value</td>
+  <td>the range above the search value intersects (i.e. overlaps) with the range of the target value, or the range of the search value fully contains the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>le</code></td>
+	<td>the value for the parameter in the resource is less or equal to the provided value</td>
+  <td>the range below the search value intersects (i.e. overlaps) with the range of the target value or the range of the search value fully contains the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>sa</code></td>
+	<td>the value for the parameter in the resource starts after the provided value</td>
+  <td>the range of the search value does not overlap with the range of the target value, and the range above the search value contains the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>eb</code></td>
+	<td>the value for the parameter in the resource ends before the provided value</td>
+  <td>the range of the search value does overlap not with the range of the target value, and the range below the search value contains the range of the target value</td>
+ </tr>
+ <tr>
+	<td><code>ap</code></td>
+	<td>the value for the parameter in the resource is approximately the same to the provided value.<br>
+	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
+  <td>the range of the search value overlaps with the range of the target value</td>
+ </tr>
+</tbody></table>
+<p>
+If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
+is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
+<code>eb</code> (<code>ends-before</code>) are not used with integer values.
+</p>
+<p>
+For each prefix above, two interpretations are provided - the simple intent of the prefix and the
+interpretation of the parameter when applied to ranges. The range interpretation is provided
+for decimals and dates.  Searches are always performed on values that are implicitly
+or explicitly a range. For instance, the number 2.0 has an implicit range of
+1.95 to 2.05, and the date 2015-08-12 has an implicit range of the all the time during that day.
+If the target value is a <a href="http://hl7.org/fhir/datatypes.html#range">Range</a>, a <a href="http://hl7.org/fhir/datatypes.html#period">Period</a>,
+or a <a href="http://hl7.org/fhir/datatypes.html#timing">Timing</a>, then the target is explicitly a range. Three ranges
+are identified:
+</p>
+<table class="grid">
+ <tbody><tr>
+	<td>range of the value</td>
+	<td>The limits implied by the precision of the value</td>
+  <td>The number 2.0 has a range of 1.95 to 2.05<br>
+      The date 2015-08-12 has a range from 00:00 to 00:00 exclusive</td>
+ </tr>
+ <tr>
+	<td>range below the value</td>
+	<td>Up to the specified value</td>
+  <td>The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000<br>
+      The range before 2015-08-12T05:23:45 includes any time up to 2015-08-12T05:23:45.000000000000000</td>
+ </tr>
+ <tr>
+	<td>range above the value</td>
+	<td>The specified value and up</td>
+  <td>The range above 2.0 includes any value greater or equal to &lt;2.00000000000000000000<br>
+      The range after 2015-08-12T05:23:45 includes any time after 2015-08-12T05:23:45.000000000000000</td>
+ </tr>
+</tbody></table>
+<p>
+The proper use of these ranges is discussed further below.
+</p>
+
+<a name="number"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.6</span> 数字 <a href="./search.html#number" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+基于简单数值的查询. 示例如下:
+</p>
+<table class="grid">
+ <tbody><tr><td><code>[parameter]=100</code></td><td>等于100的数值, 精确到3位有效数字, 因此范围包括[99.5 ... 100.5)</td></tr>
+ <tr><td><code>[parameter]=100.00</code></td><td>等于100的数值，精确到5位有效数字，因此范围包括[99.995 ... 100.005)。这些数值都等于100.00，但不等于100.01</td></tr>
+ <tr><td><code>[parameter]=lt100</code></td><td>小于100的数值</td></tr>
+ <tr><td><code>[parameter]=le100</code></td><td>小于等于100的数值</td></tr>
+ <tr><td><code>[parameter]=gt100</code></td><td>大于100的数值</td></tr>
+ <tr><td><code>[parameter]=ge100</code></td><td>大于等于100的数值</td></tr>
+ <tr><td><code>[parameter]=ne100</code></td><td>不等于100的数值</td></tr>
+</tbody></table>
+<p>
+Note: Uncertainty does not factor in evaluations.  The precision of the numbers is considered arbitrarily high. (The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense).
+注意：不确定性不会影响评估。 数字的精确度被认为是任意高的。 （搜索参数在资源中操作的方式与两个数字在数学意义上是否彼此相等不同）。
+</p>
+
+<p>
+这还有一些查询示例:
+</p>
+<table>
+ <tbody><tr><td width="50%"><b>查询</b></td><td><b>描述</b></td></tr>
+ <tr><td><pre> GET [base]/Encounter?length=gt20</pre></td><td>查询所有就诊天数大于20天的就诊资源</td></tr>
+ <tr><td><pre> GET [base]/ImmunizationRecommendation?deo-number=2</pre></td><td>查询计免第二剂的所有免疫推荐资源</td></tr>
+</tbody></table>
+
+
+<a name="date"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.7</span> 日期 <a href="./search.html#date" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+A date parameter searches on a date/time or period. As is usual for date/time related functionality, while the
+concepts are relatively straight-forward, there are a number of subtleties involved in ensuring consistent behavior.
+</p>
+<p>
+The date parameter format is <code>yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]</code> (the standard XML format).
+</p>
+<p>
+Technically, this is any of the <a href="http://hl7.org/fhir/datatypes.html#date">date</a>, <a href="http://hl7.org/fhir/datatypes.html#dateTime">dateTime</a>,
+and <a href="http://hl7.org/fhir/datatypes.html#instant">instant</a> data types; e.g. Any degree of precision can be provided, but it SHALL
+be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if
+an hour is present, and you SHOULD provide a time zone if the time part is present. Note: Time can consist of hours and minutes with no seconds, unlike the XML Schema dateTime type. Some user agents may escape the <code>:</code>
+characters in the URL, and servers SHALL handle this correctly.
+</p>
+<p>
+Date parameters may be used with the following data types:
+</p>
+<table class="grid">
+ <tbody><tr><td><a href="http://hl7.org/fhir/datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
+ <tr><td><a href="http://hl7.org/fhir/datatypes.html#dateTime">dateTime</a></td><td>The range of the value as defined above; e.g. For example, the
+   date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013</td></tr>
+ <tr><td><a href="http://hl7.org/fhir/datatypes.html#instant">instant</a></td><td>An instant is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0</td></tr>
+ <tr><td><a href="http://hl7.org/fhir/datatypes.html#Period">Period</a></td><td>Explicit, though the upper or lower bound may not actually be specified in resources.</td></tr>
+ <tr><td><a href="http://hl7.org/fhir/datatypes.html#Timing">Timing</a></td><td>the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
+   31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is
+   to keep the server load processing queries reasonable.</td></tr>
+</tbody></table>
+<p>
+Implicitly, a missing lower boundary is "less than" any actual date.  A missing upper boundary is "greater than" any actual date.
+The use of the prefixes:
+</p>
+<table class="grid">
+ <tbody><tr>
+   <td><code>[parameter]=eq2013-01-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">2013-01-14T00:00 matches (obviously)</li>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">2013-01-14T10:00 matches</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">2013-01-15T00:00 does not match - it's not in the range</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=ne2013-01-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">2013-01-15T00:00 matches - it's not in the range</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">2013-01-14T00:00 does not match - it's in the range</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">2013-01-14T10:00 does not match - it's in the range</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=lt2013-01-14T10:00</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">2013-01-14 matches, because it includes the part of 14-Jan 2013 before 10am</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=gt2013-01-14T10:00</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">2013-01-14 matches, because it includes the part of 14-Jan 2013 after 10am</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=ge2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">"from 21-Jan 2013 onwards" is included because that period may include times after 14-Mar 2013</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=le2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">"from 21-Jan 2013 onwards" is included because that period may include times before 14-Mar 2013</li>
+    </ul>
+   </td>
+  </tr>
+ <tr>
+   <td><code>[parameter]=sa2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">"from 15-Mar 2013 onwards" is included because that period starts after 14-Mar 2013</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">"from 21-Jan 2013 onwards" is not included because that period starts before 14-Mar 2013</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">"before and including 21-Jan 2013" is not included because that period starts (and ends) before 14-Mar 2013</li>
+    </ul>
+   </td>
+  </tr>
+ <tr>
+   <td><code>[parameter]=eb2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">"from 15-Mar 2013 onwards" is not included because that period starts after 14-Mar 2013</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">"from 21-Jan 2013 onwards" is not included because that period starts before 14-Mar 2013, but does not end before it</li>
+     <li style="list-style-image: url(&#39;assets/images/tick2.gif&#39;)">"before and including 21-Jan 2013" is not included because that period ends before 14-Mar 2013</li>
+    </ul>
+   </td>
+  </tr>
+ <tr>
+   <td><code>[parameter]=ap2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url(&#39;assets/images/cross.gif&#39;)">14-Mar 2013 is included - as it exactly matches</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">21-Jan 2013 is not included because that is near 14-Mar 2013</li>
+     <li style="list-style-image: url(&#39;assets/images/cross.png&#39;)">15-Jun 2015 is not included - as it is not near 14-Mar 2013. Note that the exact value here is at the discretion of the system</li>
+    </ul>
+   </td>
+  </tr>
+</tbody></table>
+<p>
+Other notes:
+</p>
+<ul>
+ <li>When the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
+	<ul>
+		<li>Dates with only the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59].</li>
+		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59].</li>
+	</ul>
+ </li>
+ <li>Where possible, the system should correct for timezones when performing queries. Dates do not have time zones, and time zones
+   should not be considered. Where both search parameters and resource element date times do not have time zones, the servers local
+   time zone should be assumed.
+ </li>
+</ul>
+<p>
+To search for all the procedures in a patient compartment that occurred over a 2 year period:
+</p>
+<pre> GET [base]/Patient/23/Procedure?date=ge2010-01-01&amp;date=le2011-12-31
+</pre>
+
+
+<a name="string"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.8</span> string <a href="./search.html#string" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+对于简单的字符串搜索，字符序列对大小写和重音不敏感。
+默认情况下，进行比对的字符串首先应对大小写和重音规范化，然后再进行比对。如果等于给定字符串或以给定字符串开头，则匹配。
+修饰符<code>:contains</code>表示给定字符串可以在任何位置，不再局限于开头位置； 而修饰符<code>:exact</code>则表示查询字符串必须与给定字符串绝对匹配，包括大小写和重音必须绝对一致。
+
+</p>
+<p>
+示例如下:
+</p>
+<table class="grid">
+ <tbody><tr><td><code>[base]/Patient?given=eve</code></td><td>Any patients with a name containing a given part with "eve" at the start of the name. This would include patients with the given name "Eve", "Evelyn".</td></tr>
+ <tr><td><code>[base]/Patient?given:contains=eve</code></td><td>Any patients with a name with a given part containing "eve" at any position. This would include patients with the given name "Eve", "Evelyn", and also "Severine".</td></tr>
+ <tr><td><code>[base]/Patient?given:exact=Eve</code></td><td>Any patients with a name with a given part that is exactly "Eve". Note: This would not include patients with the given name "eve" or "EVE".</td></tr>
+</tbody></table>
+<p>
+An additional modifier <code>:text</code>
+can be used to specify a search with advanced text handling (see <a href="./search.html#text">below</a>)
+though only a few servers are expected to offer this facility.
+</p>
+<p>
+When a string search parameter refers to the types <a href="http://hl7.org/fhir/datatypes.html#HumanName">HumanName</a> and <a href="http://hl7.org/fhir/datatypes.html#Address">Address</a>,
+the search covers the elements of type string, and does not cover elements such as <code>use</code> and <code>period</code>.
+For robust search, servers should search the parts of a family name independently.
+E.g. Searching either Carreno or Quinones should match a family name of "Carreno Quinones".
+HL7 affiliates may make more specific recommendations about how search should work
+in their specific culture.
+</p>
+<p>
+It is at the discretion of the server whether to pre-process names, addresses,
+and contact details to remove separator characters prior to matching in order
+to ensure more consistent behavior. For example, a server might remove all
+spaces and <code>-</code> characters from phone numbers. What is most appropriate varies
+depending on culture and context.
+A server may also use a free-text style searches on this property to achieve the best results
+When searching whole names and addresses (not parts), servers may also use flexible match
+or a free-text style searches on names to achieve the best results.
+</p>
+
+  <!-- A server defined search (link to search page) that may consider matching any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text -->
+<a name="uri"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.9</span> uri <a href="./search.html#uri" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+uri查询参数指向一个URI(<a href="https://tools.ietf.org/html/rfc3986">RFC 3986 <img src="./media/external.png" style="text-align: baseline"></a>)元素。匹配是敏感的(例如：大小写、重音和转义)，整个URI必须绝对匹配。 修饰符<code>:above</code>或者<code>:below</code>可用于指示使用部分匹配。 例如:
+</p>
+<pre> GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123
+ GET [base]/ValueSet?url:below=http://acme.org/fhir/
+ GET [base]/ValueSet?url:above=http://acme.org/fhir/ValueSet/123/_history/5
+ GET [base]/ValueSet?url=urn:oid:1.2.3.4.5
+</pre>
+<ul>
+<li>第一行是使用绝对匹配url"http://acme.org/fhir/ValueSet/123"进行查找值域的查询请求。</li>
+<li>第二行执行查询，返回url是以"http://acme.org/fhir/"开头的的值域</li>
+<li>第三行显示了相反用法 - 查询指定URL之上的任何值域。这将匹配任何使用指定URL的值域，但也会匹配"http://acme.org/ValueSet/123"上的值域。 请注意，没有太多用例说使用<code>:above</code>查询比使用<code>:below</code>查询更有用。</li>
+<li>第四行显示了通过OID搜索的示例。请注意修饰符<code>:above</code>和<code>:below</code>仅适用于URL，而不适用于URN（如OID）。</li>
+</ul>
+
+<p>
+Note that for <a href="http://hl7.org/fhir/references.html#canonical">Canonical URLs</a>, servers SHOULD support searching by
+Canonical URL, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the
+Canonical URL, and interpreting that portion as a search on the version.
+</p>
+
+<a name="token"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.10</span> token <a href="./search.html#token" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+A token type is a parameter that provides an exact match search, either on a string of characters, potentially
+scoped by a URI. It is mostly used against a code or identifier data type where the value may have a
+URI that scopes its meaning, where the search is performed against the  pair from a Coding or an
+Identifier. Tokens are also used against other fields where exact matches are required - uris,
+booleans, and <a href="http://hl7.org/fhir/datatypes.html#ContactPoint">ContactPoints</a>. In these cases, the URI portion is not used.
+</p>
+<p>
+For tokens, matches are literal (e.g. not based on <a href="http://hl7.org/fhir/codesystem.html#subsumption">subsumption</a> or other code system features),
+but not case sensitive. To use subsumption based logic, use the modifiers below, or list
+all the codes in the hierarchy. The syntax for the value is one of the following:
+</p>
+<ul>
+ <li><b><code>[parameter]=[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
+ <li><b><code>[parameter]=[system]|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
+ <li><b><code>[parameter]=|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the Coding/Identifier has no system property</li>
+ <li><b><code>[parameter]=[system]|</code></b>: any element where the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
+</ul>
+<p>
+Note: The namespace URI and code both must be <a href="./search.html#escaping">escaped</a> correctly.
+If a system is not applicable (e.g. an element of type <a href="http://hl7.org/fhir/datatypes.html#uri">uri</a>,
+then just the form [parameter]=[code] is used.
+</p>
+<p>
+Token类型的查询参数可以用于如下的数据类型:
+</p>
+<table class="lines">
+ <tbody><tr>
+  <td><b>数据类型</b></td>
+  <td><b>URI</b></td>
+  <td><b>Code</b></td>
+  <td><b>注释</b></td>
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Coding">Coding</a></td>
+  <td>Coding.system</td>
+  <td>Coding.code</td>
+  <td>
+ </td></tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+  <td>CodeableConcept.coding.system</td>
+  <td>CodeableConcept.coding.code</td>
+  <td>Matches against any coding in the CodeableConcept</td>
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Identifier">Identifier</a></td>
+  <td>Identifier.system</td>
+  <td>Identifier.value</td>
+  <td>
+ </td></tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Identifier">ContactPoint</a></td>
+  <td>ContactPoint.use</td>
+  <td>ContactPoint.value</td>
+  <td>The use is prepended by <a href="http://hl7.org/fhir/valueset-contact-point-system.html">http://hl7.org/fhir/contact-point-system</a>/</td>
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#code">code</a></td>
+  <td>(implicit)</td>
+  <td>code</td>
+  <td>the system is defined in the value set (though it's not usually needed)</td>
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#boolean">boolean</a></td>
+  <td>(implicit)</td>
+  <td>boolean</td>
+  <td>The implicit system is <a href="http://hl7.org/fhir/valueset-special-values.html">http://hl7.org/fhir/special-values</a></td>
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#string">string</a></td>
+  <td>n/a</td>
+  <td>string</td>
+  <td>Token is sometimes used for string to indicate that exact matching is the correct default search stategy</td>
+ </tr>
+</tbody></table>
+<p>
+Note: The use of token search parameters for boolean fields: the boolean values "true" and "false" are also represented
+as formal codes in the <a href="http://hl7.org/fhir/valueset-special-values.html">Special Values</a> code system, which is useful when boolean values
+need to be represented in a <a href="http://hl7.org/fhir/datatypes.html#coding">Coding</a> data type. The namespace for these codes is
+http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
+</p>
+
+<p><b>修饰词:</b></p>
+<table class="lines">
+ <tbody><tr> <td><b>修饰词</b></td> <td><b>使用</b></td> </tr>
+ <tr> <td><code>:text</code></td> <td>查询参数作为字符串处理，查询与code/value相关联的文本 - <i>CodeableConcept.text</i>, <i>Coding.display</i>或 <i>Identifier.type.text</i>.</td> </tr>
+ <tr> <td><code>:not</code></td> <td>反转上面段落中描述的编码匹配。请注意，这包括了对应参数无值的资源。例如：<code>?gender:not=male</code>包括了所有性别不等于男性的患者，同时也包括那些资源中根本没有<code>gender</code>属性的患者</td> </tr>
+ <tr> <td><code>:above</code><a name="subsumption"> </a></td> <td>查询参数具有<code>[system]|[code]</code>形式，查询参数判断资源中的编码是否<a href="http://hl7.org/fhir/codesystem.html#subsumption">包含</a>查询中指定的编码。例如，查询中指定的编码与资源中的编码具有is-a关系，并且这包括编码本身。</td> </tr>
+ <tr> <td><code>:below</code></td> <td>查询参数具有<code>[system]|[code]</code>形式，查询参数判断资源中的编码是否包含在查询中指定的编码中。例如，资源中的编码与查询中指定的编码具有is-a关系，并且这包括编码本身。</td> </tr>
+ <tr> <td><code>:in</code></td> <td>查询参数是一个用于标识值域URI(相对路径或绝对路径)，查询参数用于判定编码值是否在指定的<a href="http://hl7.org/fhir/valueset.html">值域</a>中。 引用可以是字面值(可以找到值域的地址)或逻辑值(对ValueSet.url的引用)。如果服务器可以将引用视为字面值URL，则会执行，否则它会尝试匹配已知的指向ValueSet.url的逻辑值。</td> </tr>
+ <tr> <td><code>:not-in</code></td> <td>查询参数是一个用于标识值域URI(相对路径或绝对路径)，查询参数用于判定编码值是否不在指定的值域中。</td> </tr>
+</tbody></table>
+<blockquote class="stu-note">
+<p>
+译者注：要想理解修饰词<code>:below</code>和<code>:above</code>，必须先理解编码系统和值域中的编码是分层级的，是树形结构的。当你理解了这一点，再去看<code>:below</code>和<code>:above</code>，你应该就可以很好理解这个概念了。<code>:below</code>表示包含当前节点及其子级节点，而<code>:above</code>表示包含当前节点及其父级节点。
+</p>
+</blockquote>
+<p>
+大多数服务器仅处理内部已知/已注册/支持的值域。但是，服务器也可以选择接受对值域的任何有效引用。
+</p>
+<p>当检测编码之间的<code>包含</code>关系时，服务器可能会选择考虑编码映射。
+</p>
+<p>
+查询示例:
+</p>
+<table>
+ <tbody><tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
+ <tr><td><pre> GET [base]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has the code "male"</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender:not=male</pre></td><td>Search for any patient with a gender that does not have the code "male"</td></tr>
+ <tr><td><pre> GET [base]/Patient?active=true</pre></td><td>Search for any patients that are active</td></tr>
+ <tr><td><pre> GET [base]/Condition?code=http://acme.org/conditions/codes|ha125</pre></td><td>Search for any condition with a code "ha125" in the code system "http://acme.org/conditions/codes"</td></tr>
+ <tr><td><pre> GET [base]/Condition?code=ha125</pre></td><td>Search for any condition with a code "ha125". Note that there is not often any useful overlap in literal symbols between code systems, so the previous example is generally preferred </td></tr>
+ <tr><td><pre> GET [base]/Condition?code:text=headache</pre></td><td>Search for any Condition with a code that has a text "headache" associated with it (either in the text, or a display)</td></tr>
+ <tr>
+ <td><pre> GET [base]/Condition?code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F126851005</pre></td>
+ <td>Search for any condition in the SNOMED CT value set "http://snomed.info/sct?fhir_vs=isa/126851005" that includes all descendants of "Neoplasm of liver"</td></tr>
+ <tr>
+ <td><pre> GET [base]/Condition?code:below=126851005</pre></td>
+ <td>搜索任何符合编码归属于SNOMED CT编码“肝脏肿瘤”的Condition资源。 注意：这与上一个搜索的结果相同</td></tr>
+ <tr><td><pre> GET [base]/Condition?code:in=http://acme.org/fhir/ValueSet/cardiac-conditions</pre></td><td>Search for any condition that is in the institutions list of cardiac conditions</td></tr>
+</tbody></table>
+
+
+<a name="quantity"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.11</span> quantity <a href="./search.html#quantity" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+一个基于数据类型<a href="http://hl7.org/fhir/datatypes.html#Quantity">Quantity</a>的计量值参数查询具有如下语法形式:
+</p>
+<ul>
+ <li><b>[parameter]=[prefix][number]|[system]|[code]</b> 匹配一个带计量单位的计量值</li>
+</ul>
+<p>
+前缀是可选的，and is as described <a href="./search.html#prefix">above</a>, both regarding how precision and comparator/range operators are interpreted. Example searches:
+</p>
+
+<table>
+ <tbody><tr><td width="50%"><b>查询</b></td><td><b>描述</b></td></tr>
+ <tr><td><pre> GET [base]/Observation?value=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the unit - either the code or the stated human unit (<code>unit</code>) are "mg"</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=le5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
+ <tr><td><pre> GET [base]/Observation?value=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit</td></tr>
+</tbody></table>
+
+<p>
+The search processor may choose to perform a search based on <a href="http://hl7.org/fhir/datatypes.html#quantity">canonical units</a> (e.g. any value where the units can be converted to a value in mg in the case above).
+</p>
+
+
+<a name="reference"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.12</span> reference <a href="./search.html#reference" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+A reference parameter refers to <a href="http://hl7.org/fhir/references.html">references between resources</a>.  For example, find all
+Conditions where the subject reference is a particular patient, where the patient is selected by name or identifier.
+The interpretation of a <i>reference</i> parameter is either:
+</p>
+<ul>
+ <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
+ <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
+   for when the reference can point to different types of resources (e.g. <a href="http://hl7.org/fhir/observation-definitions.html#Observation.subject">Observation.subject</a>)</li>
+ <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location</li>
+</ul>
+<p>
+Note: A relative reference resolveing to the same value as a specified absolute URL, or vice versa, qualifies as a match.
+For example, if the search parameter value is Patient/123, then this will find references like this:
+</p>
+<pre> &lt;patient&gt;
+   &lt;reference value="Patient/123"/&gt;
+ &lt;/patient&gt;
+</pre>
+<p>
+If the server base address is http://example.org/fhir, then the full URL for that reference is
+http://example.org/fhir/Patient/123, which means that the search term also matches patient
+references like this:
+</p>
+<pre> &lt;patient&gt;
+   &lt;reference value="http://example.org/fhir/Patient/123"/&gt;
+ &lt;/patient&gt;
+</pre>
+<p>
+In addition, searching for <code>reference=http://example.org/fhir/Patient/123</code> will also
+match both references.
+</p>
+<p>
+Some references are allowed to point to more than one type of resource; e.g. subject : Reference(Patient|Group|Device|..).
+In these cases, multiple resources may have the same logical identifier. Servers SHOULD reject a search where
+the logical id refers to more than one matching resource across different types.
+In order to allow the client to perform a search in these situations the type is specified explicitly:
+</p>
+<pre> GET [base]/Observation?subject=Patient/23
+</pre>
+<p>
+This searches for any observations where the subject refers to the patient resource with the
+logical identifier "23". A modifier is also defined to to allow the client to be explicit
+about the intended type:
+</p>
+<pre> GET [base]/Observation?subject:Patient=23
+</pre>
+<p>
+This has the same effect as the previous search. The modifier becomes useful when used with chaining
+as explained in the next section. Note: The <code>[type]</code> modifier can't be used with a reference to a resource found on another server,
+since the server would not usually know what type that resource has.  However, since these are absolute references,
+there can be no ambiguity about the type.
+</p>
+<p>
+In some cases, search parameters are defined with an implicitly limited scope. For example,
+<a href="http://hl7.org/fhir/observation.html"><code>Observation</code></a> has an element <code>subject</code>, which is
+a reference to one of a number of types. This has a matching search parameter <code>subject</code>,
+which refers to any of the possible types. In addition to this, there is another search parameter
+<code>patient</code>, which also refers to <code>Observation.subject</code>, but is limited to
+only include references of type <a href="http://hl7.org/fhir/patient.html"><code>Patient</code></a>. When using
+the patient search parameter, there is no need to specify ":Patient" as a modifier, or "Patient/"
+in the search value, as this must always be true.
+</p>
+
+<a name="chaining"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.13</span> 链式参数 <a href="./search.html#chaining" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+为了避免客户端执行一系列查询操作，通过在引用类型参数后添加句点(<code>.</code>)，然后紧跟目标资源定义的查询参数名称来"链接"资源。这是可以通过资源之间关系图的逻辑路径递归地进行，资源间用<code>.</code>分隔。例如，假设资源<a href="http://hl7.org/fhir/diagnosticreport.html">DiagnosticReport</a>有一个<i>subject</i>查询参数，其通常是对<a href="http://hl7.org/fhir/patient.html">Patient</a>资源的引用，而Patient资源有一个<i>name</i>查询参数，用于搜索患者姓名，然后链式查询：
+</p>
+<pre> GET [base]/DiagnosticReport?subject.name=peter
+</pre>
+<p>
+请求服务器返回所有目标名称中包含"peter"的实验室报告。因为DiagnosticReport资源的<code>subject</code>元素可能具有不同的资源类型，所以限制一下<code>subject</code>的资源类型还是很有必要的:
+</p>
+<pre> GET [base]/DiagnosticReport?subject:Patient.name=peter
+</pre>
+<p>
+请求服务器返回所有实验室报告，其中目标类型为患者，且患者姓名包含"peter".
+</p>
+<p>
+高级搜索注意事项：
+Where a chained parameter searches a resource reference that may have more than one
+type of resource as its target, the parameter chain may end up referring
+to search parameters with the same name on more than one kind of resource at once.
+服务器应该拒绝那些逻辑id指向不同类型的多个匹配资源的查询。客户端必须使用上面第二个示例中的语法显式指定类型。
+</p>
+
+<a name="has"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.14</span> 反向参数链 <a href="./search.html#has" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+
+<p>
+The _has parameter provides limited support for reverse chaining - that is, selecting
+resources based on the properties of resources that refer to them (instead of chaining,
+above, where resources can be selected based on the properties of resources that they
+refer to). Here is an example of the _has parameter:
+</p>
+<pre>GET [base]/Patient?_has:Observation:patient:code=1234-5
+</pre>
+<p>
+This requests the server to return Patient resources, where the patient resource is
+referred to by at least one Observation where the observation has a code of 1234, and
+where the Observation refers to the patient resource in the patient search parameter.
+</p>
+<p>
+"Or" searches are allowed (e.g. GET [base]/Patient?_has:Observation:subject:code=123,456), and multiple _has
+parameters are allowed (e.g. GET [base]/Patient?_has:Observation:subject:code=123&amp;_has:Observation:subject:code=456).
+Note that each _has parameter is processed independently of other _has parameters.
+</p>
+<p>
+The _has parameter can be chained, like this:
+</p>
+<pre>GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=MyUserId
+</pre>
+<p>
+Fetch all the patients that have an Observation where the observation has an audit event from a specific user.
+</p>
+
+<a name="composite"> </a>
+<a name="combining"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.15</span> 复合查询参数 <a href="./search.html#combining" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+Composite search parameters support joining single values with a <code>$</code>. For example, the result
+of the search operation is the intersection of the resources that match the criteria specified by each
+individual search parameter. If a parameter repeats, such as <code>/Patient?language=FR&amp;language=NL</code>, then
+this matches a patient who speaks both languages. This is known as an AND search parameter, since the
+server is expected to respond only with results which match both values.
+</p>
+<p>
+If, instead, the search is to find patients that speak either
+language, then this is a single parameter with multiple values, separated by a <code>,</code>.
+For example, <code>/Patient?language=FR,NL</code>. This is known as an OR search parameter,
+since the server is expected to respond with results which match either value.
+</p>
+<p>
+AND parameters and OR parameters may also be combined, for example:
+<code>/Patient?language=FR,NL&amp;language=EN</code> would refer to any patient who speaks
+English, as well as either French or Dutch.
+</p>
+<p>
+This approach allows for simple combinations of and/or values, but doesn't allow a search based on
+a pair of values, such as all observations with a sodium value &gt;150 mmol/L (particularly
+as the end criteria of a chained search), or searching on Group.characteristic where you need
+find a combination of key/value, not an intersection of separate matches on key and value.
+Another example is spatial coordinates when doing geographical searches.
+</p>
+<p>
+To allow these searches, a resource may also specify <i>composite</i> parameters
+that take sequences of single values that match other defined parameters as an
+argument. The matching parameter of each component in such a sequence
+is documented in the definition of the parameter. These sequences are formed by
+joining the single values with a <code>$</code>.  Note: This sequence is a single
+value and itself can be composed into a set of values, so that, for example,
+multiple matching state-on-date parameters can be specified as
+<code>state-on-date=new$2013-05-04,active$2013-05-05</code>.
+</p>
+<p>
+Note: Modifiers are not used on composite parameters.
+  <!-- Future note: use \p and \m in search values? if we add a double = to parameter value for text, that would get rid
+of <code>:exact</code>.
+Won't try to get rid of type modifier - that's the real use for modifiers because it has to be in a chaining line.
+Other modifier is <code>:text</code> on token - use "~"? or ""? -->
+</p>
+
+<p>
+Examples of using composite parameters:
+</p>
+
+<table>
+ <tbody><tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
+ <tr><td><pre> GET [base]/DiagnosticReport?result.code-value-quantity=http://loinc.org|2823-3$gt5.4|http://unitsofmeasure.org|mmol/L</pre></td><td>Search for all diagnostic reports that contain on observation with a potassium value of &gt;5.4 mmol/L (UCUM)</td></tr>
+ <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the unit is assumed (everyone uses mmHg)</td></tr>
+ <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td><td>Search for all groups that have a characteristic "gender" with a text value of "mixed"</td></tr>
+</tbody></table>
+
+<a name="missing"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.16</span> 处理缺失值 <a href="./search.html#missing" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+考虑查询所有AllergyIntolerance资源的情况：
+</p>
+<pre>GET [base]/AllergyIntolerance?clinical-status=active
+</pre>
+<p>
+该查询结果仅返回那些具有clinicalStatus值的资源：
+</p>
+<pre fragment="AllergyIntolerance" class="json">{
+  "resourceType" : "AllergyIntolerance",
+  "clinicalStatus" : "active"
+}
+</pre>
+<p>
+缺少clinicalStatus元素的资源将不会被返回。这可能是不安全的 - 忽略具有未知临床状态的过敏警告，而仅返回那些具有明确临床状态的资源的做法通常是不适合的。
+相反，可能需要使用<code>clinicalStatus</code>的显式值或none来返回AllergyIntolerance资源：
+</p>
+<pre>GET [base]/AllergyIntolerance?clinical-status=active
+GET [base]/AllergyIntolerance?clinical-status:exists=false
+</pre>
+<p>
+请注意，这是2个单独的查询。它们可以 <a href="./http.html#transaction">组合在一个批处理</a>中，但不能在单个操作中组合。
+下面的查询将始终返回一个空列表，因为没有资源能同时满足这两个条件：
+</p>
+<pre>GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:exists=false
+</pre>
+<p>
+同样也无法使用如上面复合查询中的逗号语法（将:exists修饰符和查询值组合起来）的方法进行查询。
+</p>
+<p>
+另一种方法是使用<a href="./search.html#filter"><code>_filter</code></a>参数，当然得在服务器支持此参数的情况下。
+</p>
+
+<a name="escaping"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.17</span> 转义的查询参数 <a href="./search.html#escaping" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+In the rules described above, special rules are defined for the characters <code>$</code>, <code>,</code>, and <code>|</code>.
+As a consequence, if these characters appear in an actual parameter value,
+they must be differentiated from their use as separator characters. When
+any of these characters appear in an actual parameter value, they must be
+prepended by the character <code>\</code>, which also must be used to prepend itself.
+Therefore, <code>param=xxx$xxx</code> indicates that it is a composite parameter, while <code>param=xx\$xx</code> indicates that
+the parameter has the literal value <code>xx$xx</code>. The parameter value <code>xx\xx</code> is illegal,
+and the parameter value <code>param=xx\\xx</code> indicates a literal value of <code>xx\xx</code>.
+</p>
+<p>
+This specification defines this additional form of escape
+for a reason. The classic <code>%xx</code> escaping which is part of
+normal HTTP URLs ensures that the character appears at the FHIR server
+correctly, while the <code>,</code> versus <code>\</code> becomes important once it has
+reached the server and the query is parsed. Therefore:
+</p>
+<pre>GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueSet/125
+</pre>
+<p>
+uses url escaping to make sure the FHIR server received:
+</p>
+<pre>GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125
+</pre>
+<p>
+This request will compare the URL against three values: the last one being a relative and incorrect url,
+which is likely not the actual intent. However:
+</p>
+<pre>GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,125
+</pre>
+<p>
+is equivalent to:
+</p>
+<pre>GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\%2C125
+</pre>
+<p>
+which would mean: url = <code>http://.....123</code> OR  <code>http://....124,125</code>.
+</p>
+
+<a name="text"> </a>
+<a name="content"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.18</span> 面向文本的查询参数 <a href="./search.html#content" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+The special text search parameters, <code>_text</code> and <code>_content</code>, search
+on the narrative of the resource, and the entire content of the resource respectively.
+These parameters SHOULD support a sophisticated search functionality of the type
+offered by typical text indexing services.
+The value of the parameter is a text based search, which may involve searching
+multiple words with thesaurus and proximity considerations, and logical operations
+such as AND, OR etc. For example:
+</p>
+<pre> GET [base]/Condition?_text=(bone OR liver) and metastases
+</pre>
+<p>
+This request returns all Condition resources with the word "metastases" and either
+"bone" or "liver" in the narrative. The server MAY choose to search
+for related words as well.
+</p>
+<blockquote class="stu-note">
+<a name="dstu2"> </a>
+<p>
+<b>STU Note:</b>  The issues around standardizing text search are not fully resolved.
+During the trial use period for this specification, we recommend that systems use
+the rules specified by <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
+the OData specification for the $<code>search</code> parameter <img src="./media/external.png" style="text-align: baseline"></a>.
+Typical implementations would use Lucene, an sql-based full text search,
+or some indexing service.
+</p>
+<p>
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here <img src="./media/external.png" style="text-align: baseline"></a>.
+</p>
+</blockquote>
+
+<a name="list"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.19</span> 在List中查询 <a href="./search.html#list" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+
+<p>
+The <code>_list</code> parameter allows for the retrieval of resources that are referenced by a <a href="http://hl7.org/fhir/list.html">List</a>
+resource.
+</p>
+<pre> GET [base]/Patient?_list=42
+</pre>
+<p>
+This request returns all Patient resources that are referenced from the list found at <code>[base]/List/42</code>) in List.entry.item.
+While it is possible to retrieve the list, and then iterate the entries in the list fetching each
+patient, using a list as a search criteria allows for additional search criteria to be specified. For
+instance:
+</p>
+<pre> GET [base]/Patient?_list=42&amp;gender=female
+</pre>
+<p>
+This request will return all female patients in the list. The server can return the list referred
+to in the search parameter as an included resource, but is not required to do so.
+In addition, a system can support searching by lists by their logical function. For example:
+</p>
+<pre> GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies
+</pre>
+<p>
+This request will return all allergies in patient 42's "Current Allergy List".
+The server returns all relevant AllergyIntolerance resources, and can also choose
+to return the list. For further information, refer to the <a href="http://hl7.org/fhir/lifecycle.html#current">definition of "$current-allergies"</a>,
+and the <a href="http://hl7.org/fhir/list-operations.html#find">List Operation "Find"</a>.
+Note: Servers are not required to make these lists available to the clients as list resources,
+but may choose to do so.
+</p>
+
+<a name="filter"> </a>
+<a name="_filter"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.20</span> 高级过滤 <a href="./search.html#_filter" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+
+<p>
+The search mechanism described above is flexible, and easy to implement
+for simple cases, but is limited in its ability to express combination
+queries. To complement this mechanism, a the "_filter" search expression
+parameter can be used.
+</p>
+<p>
+For example, "Find all the
+observations for patient with a name including <code>peter</code> that have a LOINC code <code>1234-5</code>":
+</p>
+<pre>GET [base]/Observation?code=http://loinc.org|1234-5&amp;subject.name=peter
+</pre>
+<p>
+Using the <code>_filter</code> parameter, the search would be expressed like this:
+</p>
+<pre>GET [base]/Observation?_filter=name eq http://loinc.org|1234-5 and subject.name co "peter"
+</pre>
+<p>
+The <code>_filter</code> parameter is described in detail on the <a href="http://hl7.org/fhir/search_filter.html">"_Filter Parameter" page</a>.
+</p>
+
+<a name="type"> </a>
+<a name="_type"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.4.21</span> Specifying the type of Resource <a href="./search.html#_type" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+
+<p>
+Normally, a search is initiated against a known type of resource, e.g.
+</p>
+<pre>GET [base]/Observation?params...
+</pre>
+<p>
+However, in some circumstances, a search is executed where there is no fixed
+type of resource:
+</p>
+<ul>
+ <li>Using search across all resource types (GET [base]?params...)</li>
+ <li>Using search with <a href="http://hl7.org/fhir/messaging.html">messaging</a></li>
+ <li>Some search specifications inside other services e.g. decision support usage</li>
+</ul>
+<p>
+In these circumstances, the search criteria may need to specify one or more
+resource types that the search applies to. This can be done by using the
+<code>_type</code> parameter:
+</p>
+<pre>GET [base]/?_type=Observation,Condition&amp;other params...
+</pre>
+<p>
+Note that the only search parameters that be can be used in global search like
+this are the base parameters that apply to all resources. In other contexts,
+searches on multiple types may allow resource specific search parameters, but
+implementation experience will be required to determine the correct behaviour in
+these cases.
+</p>
+<p>
+Technically, the <code>_type</code> parameter is a token parameter on the
+<a href="http://hl7.org/fhir/valueset-resource-types.html">Resource Types</a> Value Set.
+</p>
+
+<a name="return"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.5</span> 返回资源的控制 <a href="./search.html#return" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+
+<a name="sort"> </a>
+<a name="_sort"> </a>
+
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.1</span> 排序 <a href="./search.html#_sort" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+客户端能够通过参数<code>_sort</code>指示结果集如何排序，参数值是一个有优先级的、逗号分隔的排序规则列表:
+</p>
+<pre>GET [base]/Observation?_sort=status,-date,category
+</pre>
+<p>
+逗号分隔列表中的每一项都是查询参数。前缀符号'-'可选，表示降序排列，如果没有该前缀则表示升序排列。
+</p>
+<p>
+注意:
+</p>
+<ul>
+ <li>排序时，服务器不会为每个资源显式的返回实际排序值，只是资源内容。</li>
+ <li>要按相关性排序，请使用<code>_score</code>。</li>
+ <li>The server returns the sort it performs as part of the returned
+     search parameters服务器返回它作为返回的搜索参数的一部分执行的排序（见<a href="./search.html#conformance">下文</a>）。</li>
+ <li>A search parameter can refer to an element that repeats, and therefore
+     there can be multiple values for a given search parameter for a single
+     resource. In this case, the sort is based on the item in the set of
+     multiple parameters that comes earliest in the specified sort order
+     when ordering the returned resources.</li>
+ <li>搜索参数可以指代重复的元素，因此对于单个资源的给定搜索参数可以存在多个值。在这种情况下，排序基于订购返回资源时在指定排序顺序中最早出现的多个参数集中的项。</li>
+  <li>对字符串类型的查询参数进行排序时，排序应该在执行时忽略大小写。重音可以忽略或者按照地域习惯进行排序。</li>
+  <li>此规范未指定跨服务器排序一致性的精确规则。一般来说，这被认为不如过滤的一致性那么重要（尽管这只是一个小变量）。 排序的目的是以“合理”的顺序为最终用户提供数据。“合理”可能因场景和地域而异，特别是对于重音字符。</li>
+</ul>
+
+<a name="count"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.2</span> 分页大小 <a href="./search.html#count" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+
+<p>
+为了使客户端、服务器和网络上的负载最小化，服务器可以选择以一系列的分页形式返回结果集。
+查询结果集同时包含客户端用于请求其他分页的URL。
+对于简单的RESTful查询，分页引用是<a href="http://hl7.org/fhir/http.html#paging">以链接形式包含在返回结果集中</a>。
+</p>
+<p>
+通常，在这些链接中服务器会提供自己的参数，用于获取分页后管理查询状态。这些参数对于客户端来说无需理解或处理。
+</p>
+
+<p>
+参数 <code>_count</code>被定义为一个提示，用于告知服务器应在每个分页中最多返回多少资源。
+服务器不会返回比请求更多的资源，即使它们不支持分页，但允许返回少于客户端请求数量的资源。
+服务器应在其返回的分页链接中重复原始<code>_count</code>参数，以便后续的分页请求沿用原始<code>_count</code>值。
+注意：查询引擎可以自行决定在查询过程中如何处理对资源的持续更新。
+</p>
+
+<p>
+注意：对<code>_sort</code>和<code>_count</code>的组合可用于仅返回满足特定条件的最新资源 - 设置查询条件，然后按日期降序排序，设置<code>_count=1</code>。这样，将返回最新的一个匹配资源。
+</p>
+
+<p>
+如果<code>_count</code>的值为0，则应将其视为与<code>_summary=count</code>等价：服务器返回一个结果集，该结果集仅通过<code>Bundle.total</code>记录匹配资源的总数，没有条目，也没有<code>prev/next/last</code>之类的分页链接。请注意，<code>Bundle.total</code>仅仅记录匹配资源的总数。它不计算结果集中可能返回额外的资源，例如<a href="http://hl7.org/fhir/operationoutcome.html">OperationOutcome</a>或者<a href="./search.html#include">被包含进来的资源</a>。
+</p>
+
+<a name="include"> </a>
+<a name="revinclude"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.3</span> 在结果中包含其它资源 (<code>_include</code> and <code>_revinclude</code>) <a href="./search.html#revinclude" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+客户端可以请求引擎返回与查询结果相关的资源，以减少二次查询相关资源造成整体的网络延迟。 当客户端查询临床资源时非常有用，但是对于返回的每个资源，客户端还将需要再次查询临床资源所指的主题（患者）资源。客户端可以使用<code>_include</code>参数指示主题资源包含在结果中。 另一种情况是客户端希望获取特定资源以及引用它的任何资源。 例如，客户可能希望获取MedicationRequest资源以及涉及该处方的任何来源资源。 这被称为反向包含，通过使用<code>_revinclude</code>参数来指定。
+</p>
+<p>
+<code>_include</code>和<code>_revinclude</code>都是基于资源的查询参数的，而不是使用资源中路径表示法，因为连接，例如<a href="./search.html#chaining">链式</a>，已经由查询参数完成。
+</p>
+<p>
+Each <code>_include</code> parameter specifies a search parameter to join on:
+</p>
+<pre> GET [base]/MedicationRequest?_include=MedicationRequest:patient&amp;criteria...
+ GET [base]/MedicationRequest?_revinclude=Provenance:target&amp;criteria...
+</pre>
+<p>
+The first search requests all matching MedicationRequests, to include
+any patient that the medication prescriptions in the result set refer to.
+The second search requests all matching prescriptions, return all
+the provenance resources that refer to them.
+</p>
+<p>
+<code>_include</code>和<code>_revinclude</code>的参数值有三个组成部分，它们之间使用字符<code>:</code>进行分隔：
+</p>
+<ol>
+ <li>The name of the source resource from which the join comes</li>
+ <li>The name of the search parameter which must be of type <i>reference</i></li>
+ <li>(可选) A specific of type of target resource (for when the search parameter refers to multiple possible target types)</li>
+</ol>
+<p>
+<code>_include</code> and <code>_revInclude</code> parameters do not include multiple values. Instead, the
+parameters are repeated for each different include criteria.
+</p>
+<p>
+For each returned resource, the server identifies the resources that meet the criteria expressed in the join, and adds to the results, with the <a href="http://hl7.org/fhir/bundle-definitions.html#Bundle.entry.search.mode">entry.search.mode</a> set to "include" (in some searches, it is not obvious which resources are matches, and which are includes). If there is no reference, or no matching resource, the resource cannot be retrieved (e.g. on a different server), then the resource is omitted, and no error is returned.
+</p>
+<p>
+对于每个返回的资源，服务器识别出符合连接条件的资源，将其添加到结果集中，并将<a href="http://hl7.org/fhir/bundle-definitions.html#Bundle.entry.search.mode">entry.search.mode</a>设置为“include”（在某些搜索中，哪些资源匹配并不明显） ，包括）。 如果因为指向的引用不存在或者没有匹配到资源，导致无法获取到资源（例如在不同的服务器上），则忽略该引用资源，并且不会产生错误反馈。
+</p>
+<p>
+The inclusion process can be recursive, if the modifier <code>:recurse</code> is included.
+  For example, this search returns all <a href="http://hl7.org/fhir/medicationrequest.html">Medication
+Request</a> resources and their <a href="http://hl7.org/fhir/practitioner.html">prescribing Practitioner</a> Resources
+for the matching <a href="http://hl7.org/fhir/medicationdispense.html">Medication Dispense</a> resources:
+</p>
+<pre>GET [base]/MedicationDispense?_include=MedicationDispense:authorizingPrescription
+    &amp;_include:recurse=MedicationRequest:prescriber&amp;criteria...
+</pre>
+<p>
+This technique applies to circular relationships as well. For example,
+the first of these two searches includes any related observations to the
+target relationships, but only those directly related. The second search
+asks for the <code>_include</code> based on <code>related</code> parameter to be executed
+recursively, so it will retrieve observations that are directly related, and
+also any related observations to any other included observation.
+</p>
+<pre>GET [base]/Observation?_include=Observation:related-target&amp;criteria...
+GET [base]/Observation?_include:recurse=Observation:related-target&amp;criteria...
+</pre>
+<p>
+Both <code>_include</code> and <code>_revInclude</code> use the wild card "*" for the search parameter name, indicating that any search parameter of type=reference be included.  Though both clients and servers need to take care not to request or return too many resources when doing this. Most notably, using recursive inclusions might lead to the retrieval of the full patient's record, or even more: resources are organized into an interlinked network and broad <code>_include</code> paths may eventually traverse all possible paths on the server. For servers, these recursive and wildcard <code>_include</code>s are demanding and may slow the search response time significantly.
+</p>
+<p>
+由服务器自行评估包含关系的递归深度。 服务器被期望限制迭代次数到一个适当的级别，并且没有义务遵守在查询结果中包括额外资源的请求。
+</p>
+<p>
+当查询结果被分页时，查询结果的每个分页都应同时包含与分页中资源的指定包含关系相匹配的资源，以便每个分页都能独立作为相一致的包。
+</p>
+
+<a name="contained"> </a>
+<a name="containedType"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.4</span> 嵌入资源 <a href="./search.html#containedType" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+
+<p>
+默认情况下，查询仅在非嵌入式资源中进行查找。链式查询条件可以在嵌入资源中进行匹配。 为了说明这一点，想象一个含有嵌入Medication资源的MedicationRequest资源，该嵌入资源表示一个自定义配方，该配方具有一个用<code>itemCodeableConcept</code>表示的的成分“abc”（取值于编码系统“http://acme.com./medications”中）。 在这种情况下，如下的查询：
+</p>
+<pre>GET MedicationRequest?medication.ingredient-code=abc
+</pre>
+<p>
+将会在结果集中包含MedicationRequest资源。然而，下面的查询：
+</p>
+<pre>GET Medication?ingredient-code=abc
+</pre>
+<p>
+不会在查询结果集中包含嵌入式的Medication资源。
+（以下的说明文字逻辑不正确，不翻译了）since either the
+wrong type of resource would be returned, or the contained resource would be returned
+without its container resource, which provides context to the contained resource.
+
+容器资源指的是为嵌入式资源提供上下文的资源。
+</p>
+<p>
+客户端可以使用参数<code>_contained</code>来改变这种情况，该参数可能的取值如下：
+</p>
+<ul>
+ <li>false (默认)：不包含嵌入式资源</li>
+ <li>true: 仅返回嵌入式资源</li>
+ <li>both: 同时返回嵌入式和非嵌入式 (正常) 资源</li>
+</ul>
+<p>
+当嵌入式资源要被返回时，服务器可以返回容器资源，也可以返回单独的嵌入式资源。 
+客户端可以使用<code>_containedType</code>参数指定返回哪一种，取值如下：
+</p>
+<ul>
+ <li>container (默认): 返回容器资源</li>
+ <li>contained: 仅返回嵌入式资源</li>
+</ul>
+<p>
+当返回容器资源时，服务器仅需简单的将该资源放到查询结果集中即可：
+</p>
+<pre class="xml">&lt;Bundle&gt;
+  ...
+  &lt;entry&gt;
+    &lt;resource&gt;
+      &lt;MedicationRequest&gt;
+        &lt;id value="23"&gt;
+        ....
+        &lt;contained&gt;
+          &lt;Medication&gt;
+            &lt;id value="m1"&gt;
+            ...
+          &lt;/Medication&gt;
+        &lt;contained&gt;
+
+      &lt;/MedicationRequest&gt;
+    &lt;/resource&gt;
+    &lt;search&gt;
+      &lt;mode value="match"/&gt;
+    &lt;/search&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+</pre>
+<p>
+在返回容器资源的情况下，服务器必须填充<code>entry.search.mode</code>元素，如图所示，以便客户端可以选择匹配模式和包含模式（因为按类型查询的常用方法可能不起作用）。
+</p>
+<p>
+如果返回类型是嵌入式资源，则稍有不同：
+</p>
+<pre class="xml">&lt;Bundle&gt;
+  ...
+  &lt;entry&gt;
+    &lt;fullUrl value="http://example.com/fhir/MedicationRequest/23#m1"/&gt;
+    &lt;resource&gt;
+      &lt;Medication&gt;
+        &lt;id value="m1"&gt;
+        ...
+      &lt;/Medication&gt;
+    &lt;/resource&gt;
+    &lt;search&gt;
+      &lt;mode value="match"/&gt;
+    &lt;/search&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+</pre>
+<p>
+在这种情况下，<code>fullUrl</code>告知客户端这是一个嵌入式的资源，同时指出嵌入式资源的标识符。
+</p>
+
+<a name="external"> </a>
+
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.5</span> 外部引用 <a href="./search.html#external" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+如果<code>_include</code>中的路径引用指向另一服务器上的资源，则服务器可以选择在查询结果集中包含该资源以方便客户端使用。
+</p>
+<p>
+如果<code>_include</code>中的路径引用指向一个不是资源类型的实体（例如图像附件），则服务器也可以选择将其作为<a href="http://hl7.org/fhir/binary.html">Binary</a>资源包含在返回的结果集中。 例如，<code>_include</code>路径可以通过引用指向一个附件，如下所示：
+</p>
+<pre> &lt;content&gt;
+   &lt;contentType&gt;image/jpeg&lt;/contentType&gt;
+   &lt;url&gt;http://example.org/images/2343434/234234.jpg&lt;/url&gt;
+ &lt;/content&gt;
+</pre>
+<p>
+服务器能够获取此引用指向的目标，并将其添加到结果集中以方便客户端使用。
+</p>
+
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.6<a name="2.21.1.5.6"> </a></span> 分页 <a href="./search.html#2.21.1.5.6" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+当使用<code>_include</code>资源返回搜索的分页结果时，与返回分页中主资源相关的所有<code>_include</code>资源也应该作为同一分页的一部分返回，即使之前的分页已经返回了其中一些资源实例。这种方法可使发送方和接收方避免缓存其他分页的结果。
+</p>
+
+<a name="summary"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.7</span> 摘要模式 <a href="./search.html#summary" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+客户端可以使用参数<code>_summary</code>请求服务器仅返回资源的一部分内容:
+</p>
+<pre>   GET [base]/ValueSet?_summary=true
+</pre>
+<p>
+参数<code>_summary</code>请求服务器返回资源的部分内容。可能的取值如下:
+</p>
+<table class="codes">
+ <tbody><tr><td><a href="./search.html#summary-true">true</a></td><td>仅返回资源定义中被标记为"summary"的元素 (参见<a href="http://hl7.org/fhir/elementdefinition-definitions.html#ElementDefinition.isSummary">ElementDefinition.isSummary</a>)</td></tr>
+ <tr><td><a href="./search.html#summary-text">text</a></td><td>仅返回'text'元素、'id' 元素、'meta'元素和顶层的必选元素</td></tr>
+ <tr><td><a href="./search.html#summary-data">data</a></td><td>移除'text'元素</td></tr>
+ <tr><td><a href="./search.html#summary-count">count</a></td><td>仅返回相匹配资源的总数，无需返回相匹配的实际资源</td></tr>
+ <tr><td><a href="./search.html#summary-false">false</a></td><td>（默认情况）返回资源的全部内容</td></tr>
+</tbody></table>
+<p>
+参数<code>_summary</code>的目的是减少服务器、客户端和它们之间，例如网络，的总处理负载。
+它对于大型资源最有用，特别是那些包含图像或者包含多个可重复元素的资源。
+摘要模式的目的是允许客户端快速获取巨大的资源集合，并允许用户适当选择资源的部分内容。 
+The summary for an element is defined to allow a user to quickly sort and filter the
+resources, and typically omit important content on the basis that the entire
+resource will be retrieved when the user selects a resource.
+（不理解这种说法，以下为翻译：定义元素的摘要以允许用户快速排序和过滤资源，并且通常在用户选择资源时将检索整个资源的基础上省略重要内容）。
+</p>
+<p>
+服务器没有义务按要求返回摘要。这里仅为资源定义了有限数量的摘要，以便允许服务器提前存储资源的摘要信息。服务器应该使用标签<a href="http://hl7.org/fhir/v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>标记资源，以确保不完整的资源不会被意外地用于覆盖完整的资源。
+</p>
+<p>
+注意参数<code>_include</code>和<code>_revinclude</code>不能与参数<code>_summary=text</code>混合使用。
+</p>
+
+<blockquote class="stu-note">
+<a name="dstu-tc"> </a>
+<p>
+<b>标准试用版备注:</b>
+关于每个资源哪些元素应定义在摘要中存在未解决的问题。现有定义中存在两类问题：
+</p>
+<ul>
+ <li>元素标记为“包含在摘要中”，但它们的父元素不是</li>
+ <li>元素基数的最小值大于0，但未包含在摘要中（并且它们的父元素是）- 因此该摘要化的资源将不具有有效格式</li>
+</ul>
+<p>
+这些问题将在FHIR第4版中得到解决。与此同时，实施者可以选择覆盖哪些被标记为“包含在摘要中”的元素，并且实现可能会有所不同。
+</p>
+<p>
+欢迎进入<a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">这里 <img src="./media/external.png" style="text-align: baseline"></a> 提交关于哪些元素应该放在摘要中的反馈。
+</p>
+</blockquote>
+
+<a name="elements"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.8</span> 元素 <a href="./search.html#elements" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+If one of the summary views defined above is not appropriate, a client can
+request a specific set of elements be returned as part of a resource using
+the <code>_elements</code> parameter:
+</p>
+<pre>   GET [base]/Patient?_elements=identifier,active,link
+</pre>
+<p>
+The <code>_elements</code> parameter consists of a comma separated list of base element
+names such as, elements defined at the root level in the resource. Only
+elements that are listed are to be returned. Clients SHOULD list all mandatory and modifier
+elements in a resource as part of the list of elements. The list of elements
+does not apply to <a href="./search.html#include">included resources</a>.
+</p>
+<p>
+Servers are not obliged to return just the requested elements.
+Servers SHOULD always return mandatory elements whether they are
+requested or not. Servers SHOULD mark the resources with the
+tag <a href="http://hl7.org/fhir/v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
+to ensure that the incomplete resource is not actually used to overwrite
+a complete resource.
+</p>
+
+<a name="score"> </a>
+<h4 class="self-link-parent"><span class="sectioncount">2.21.1.5.9</span> Relevance <a href="./search.html#score" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h4>
+<p>
+Where a search specifies a non-deterministic sort, the search algorithm
+may generate some kind of ranking score to indicate which resources meet
+the specified criteria better than others. The server can return this
+score in <a href="http://hl7.org/fhir/bundle-definitions.html#Bundle.entry.score">entry.score</a>:
+</p>
+<pre class="xml">  &lt;entry&gt;
+    &lt;score value=".45"/&gt;
+    &lt;Patient&gt;
+      ... patient data ...
+    &lt;/Patient&gt;
+  &lt;/entry&gt;
+</pre>
+<p>
+The score is a decimal number with a value between (and including) 0 and 1, where 1 is best match, and 0 is least match.
+</p>
+
+<a name="conformance"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.6</span> 服务一致性 <a href="./search.html#conformance" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+<p>
+为了能够让客户能够了解服务器当前使用哪些查询参数作为过滤条件，服务器应返回实际用于处理查询的参数。 处理查询结果的应用程序在必要时应检查这些返回值。 例如，如果服务器不支持查询中某些指定的过滤参数，客户端可能会手动将这些过滤参数应用于查询返回的结果集、向用户显示警告消息或者执行一些其他操作。
+</p>
+<p>
+In the case of a RESTful search, these parameters are encoded in the
+self link in the bundle that is returned:
+在RESTful查询的情况下，这些参数在返回的包中的自链接中进行编码:
+</p>
+<pre class="xml">  &lt;link&gt;
+    &lt;relation value="self"/&gt;
+    &lt;url value="http://example.org/Patient?name=peter"/&gt;
+  &lt;/link&gt;
+</pre>
+<p>
+在其他方面，服务器在查询支持方面拥有相当大的自由决定权:
+</p>
+<ul>
+ <li>服务器可以选择支持哪些参数（上面的<code>_id</code>除外）。</li>
+ <li>服务器可以选择在什么时候什么位置实现参数链，以及什么时候什么位置支持<code>_include</code>参数。</li>
+ <li>服务器能够在其<code>CapabilityStatement</code>中通过<code>Profile</code>声明附加的查询参数。 服务器应自定义以"-"字符开头的搜索参数，以确保它们选择的名称不会与此规范将来定义的参数发生冲突。</li>
+ <li>服务器不能被强制要求对参数名称区分大小写，尽管名称大小写敏感（像URL通常是大小写敏感的）</li>
+ <li>服务器可以选择返回多少结果，尽管客户端可以使用如上所述的<code>_count</code>参数</li>
+ <li>服务器可以选择如何排序返回结果集，尽管它们应该遵循<code>_sort</code>参数。</li>
+</ul>
+
+<hr>
+<a name="advanced"> </a>
+<a name="query"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.7</span> 高级查询 <a href="./search.html#query" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+<p>
+The search framework described above is a useful framework
+for providing a simple search based on indexed criteria,
+but more sophisticated query capability is needed to handle precise
+queries, complex decision support based requests, and
+direct queries that have human resolution.
+</p>
+<p>
+More advanced search operations are specified by the
+<code>_query</code> parameter:
+</p>
+<pre>   GET [base]/Patient?_query=name&amp;parameters...
+</pre>
+<p>
+The <code>_query</code> parameter names a custom search profile that
+describes a specific query operation. The named query
+may define additional named parameters that are used with that
+particular named query. Servers can define their own additional
+named queries to meet their own uses using an <a href="http://hl7.org/fhir/operationdefinition.html">OperationDefinition</a>.
+</p>
+<p>
+There can only ever be one <code>_query</code> parameter in a set of search
+parameters. Servers processing search requests SHALL
+refuse to process a search request if they do not recognize
+the <code>_query</code> parameter value.
+</p>
+
+<a name="currency"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.8</span> Search Result Currency <a href="./search.html#currency" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+
+<p>
+The results of a search operation are only guaranteed to be current
+at the moment the operation is executed. After the operation is executed,
+ongoing actions performed on the resources against which the search was
+executed will render the results increasingly stale. The significance
+of this depends on the nature of the search, and the kind of use that
+is being made of the results.
+</p>
+<p>
+This is particularly relevant when the server is returning the results
+in a series of pages. It is at the discretion of the search engine of
+how to handle ongoing updates to the resources while the search
+is proceeding.
+</p>
+<p>
+Note: Performing a search operation does not change the set of
+resources on the server, with the exception of the creation
+of <a href="http://hl7.org/fhir/auditevent.html">Audit Event</a> resources
+auditing the search itself.
+</p>
+
+<a name="table"> </a>
+<h3 class="self-link-parent"><span class="sectioncount">2.21.1.9</span> 列表总结 <a href="./search.html#table" title="link to here" class="self-link"><img src="./media/link.svg" width="20" class="self-link" height="20"></a></h3>
+
+<table class="list">
+<tbody><tr><td colspan="4">适用于所有资源的通用参数:</td></tr>
+<tr><td><b>名称</b></td><td><b>数据类型</b></td><td><b>描述</b></td><td><b>路径</b></td></tr>
+<tr><td><a href="./search.html#id"><code>_id</code></a></td><td><a href="./search.html#token">token</a></td><td>资源id (非完整URL)</td><td>Resource.id</td></tr>
+<tr><td><a href="./search.html#lastUpdated"><code>_lastUpdated</code></a></td><td><a href="./search.html#date">date</a></td><td>最后更新时间. 服务器自行决定时间精度</td><td>Resource.meta.lastUpdated</td></tr>
+<tr><td><a href="./search.html#tag">_tag</a></td><td><a href="./search.html#token">token</a></td><td>通过资源Tag进行查询</td><td>Resource.meta.tag</td></tr>
+<tr><td><a href="./search.html#profile"><code>_profile</code></a></td><td><a href="./search.html#uri">uri</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
+<tr><td><a href="./search.html#security"><code>_security</code></a></td><td><a href="./search.html#token">token</a></td><td>通过安全标签进行查询</td><td>Resource.meta.security</td></tr>
+<tr><td><a href="./search.html#text"><code>_text</code></a></td><td><a href="./search.html#string">string</a></td><td>Text search against the narrative</td><td></td></tr>
+<tr><td><a href="./search.html#content"><code>_content</code></a></td><td><a href="./search.html#string">string</a></td><td>Text search against the entire resource</td><td></td></tr>
+<tr><td><a href="./search.html#list"><code>_list</code></a></td><td><a href="./search.html#string">string</a></td><td>获取指定列表中的所有资源(通过id指定，而不是完整的URL)</td><td></td></tr>
+<tr><td><a href="./search.html#query">_query</a></td><td><a href="./search.html#string">string</a></td><td>自定义命名查询</td><td></td></tr>
+<tr><td colspan="4">查询结果控制参数：</td></tr>
+<tr><td><b>名称</b></td><td><b>数据类型</b></td><td><b>描述</b></td><td><b>允许取值</b></td></tr>
+<tr><td><a href="./search.html#sort"><code>_sort</code></a></td><td><a href="./search.html#string">string</a></td><td>Order to sort results in (can repeat for inner sort orders)</td><td>Name of a valid search parameter</td></tr>
+<tr><td><a href="./search.html#count"><code>_count</code></a></td><td><a href="./search.html#number">number </a></td><td>Number of results per page</td><td>Whole number</td></tr>
+<tr><td><a href="./search.html#include"><code>_include</code></a></td><td><a href="./search.html#string">string</a></td><td>Other resources to include in the search results that search matches point to</td><td>SourceType:searchParam(:targetType)</td></tr>
+<tr><td><a href="./search.html#revinclude"><code>_revinclude</code></a></td><td><a href="./search.html#string">string</a></td><td>Other resources to include in the search results when they refer to search matches</td><td>SourceType:searchParam(:targetType)</td></tr>
+<tr><td><a href="./search.html#summary"><code>_summary</code></a></td><td><a href="./search.html#string">string</a></td><td>Just return the summary elements (for resources where this is defined)</td><td><code>true</code> | <code>false</code> (默认值为<code>false</code>)</td></tr>
+<tr><td><a href="./search.html#contained"><code>_contained</code></a></td><td><a href="./search.html#string">string</a></td><td>Whether to return resources contained in other resources in the search matches</td><td><code>true</code> | <code>false</code> | <code>both</code> (默认值为<code>false</code>)</td></tr>
+<tr><td><a href="./search.html#containedType"><code>_containedType</code></a></td><td><a href="./search.html#string">string</a></td><td>If returning contained resources, whether to return the contained or container resources</td><td><code>container</code> | <code>contained</code></td></tr>
+</tbody></table>
+
+<p>
+Cross-map between search parameter types and Data types:
+</p>
+<table class="list">
+ <tbody><tr>
+  <td><b>Data Type</b></td>
+  <td><b><a href="./search.html#number">number</a></b></td>
+  <td><b><a href="./search.html#date">date</a></b></td>
+  <td><b><a href="./search.html#string">string</a></b></td>
+  <td><b><a href="./search.html#token">token</a></b></td>
+  <td><b><a href="./search.html#reference">reference</a></b></td>
+  <td><b><a href="./search.html#quantity">quantity</a></b></td>
+  <td><b><a href="./search.html#uri">uri</a></b></td>
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#boolean">boolean</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="font-weight: bold">Y</span> . true|false (System = http://hl7.org/fhir/special-values but not usually needed)</td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#code">code</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="font-weight: bold">Y</span> . (System, if desired, is defined in the underlying value set for eeach code)</td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#date">date</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#dateTime">dateTime</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#decimal">decimal</a></td>
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#instant">instant</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#integer">integer</a></td>
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#string">string</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- string -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#uri">uri</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span> </td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Address">Address</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="font-weight: bold">Y</span>  search on any string element in the address</td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Annotation">Annotation</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#CodeableConcept">CodeableConcept</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Coding">Coding</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#ContactPoint">ContactPoint</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Duration">Duration</a></td>
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#HumanName">HumanName</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="font-weight: bold">Y</span>  Search on any string element in the name</td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Identifier">Identifier</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Period">Period</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Quantity">Quantity</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Range">Range</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Reference">Reference</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#SampledData">SampledData</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="color: grey">N</span></td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+ <tr>
+  <td><a href="http://hl7.org/fhir/datatypes.html#Timing">Timing</a></td>
+  <td><span style="color: grey">N</span></td>   <!-- number -->
+  <td><span style="font-weight: bold">Y</span> </td>   <!-- date -->
+  <td><span style="color: grey">N</span></td>   <!-- string -->
+  <td><span style="color: grey">N</span></td>   <!-- token -->
+  <td><span style="color: grey">N</span></td>   <!-- reference -->
+  <td><span style="color: grey">N</span></td>   <!-- quantity -->
+  <td><span style="color: grey">N</span></td>   <!-- uri -->
+ </tr>
+</tbody></table>
+
+</div>
+
+
+				</div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+        
+    </div>  <!-- /segment-content -->
+
+
+	<div id="segment-footer" class="segment">  <!-- segment-footer -->
+		<div class="container">  <!-- container -->
+			<div class="inner-wrapper">
+				<p>
+        ®© HL7.org 2011+. FHIR Release 3 (STU; v3.0.1-11917) generated on Wed, Apr 19, 2017 07:49+1000. <a href="http://hl7.org/fhir/qa.html">QA Page</a>
+        <br>
+        <span style="color: #FFFF77">
+        Links: <a style="color: #81BEF7" href="./search.cfm">Search <img src="./media/external.png" style="text-align: baseline"></a> | 
+               <a style="color: #81BEF7" href="http://hl7.org/fhir/history.html">Version History</a> | 
+               <a style="color: #81BEF7" href="http://hl7.org/fhir/toc.html">Table of Contents</a> | 
+               <a style="color: #81BEF7" href="http://hl7.org/fhir/credits.html">Credits</a> | 
+               <a style="color: #81BEF7" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FDSTU2%2Fsearch.html&amp;doc2=http%3A%2F%2Fhl7.org%2Ffhir%2Fsearch.html">Compare to DSTU2 <img src="./media/external.png" style="text-align: baseline"></a> |                
+               <a rel="license" style="color: #81BEF7" href="http://hl7.org/fhir/license.html"><img src="./media/cc0.png" alt="CC0" style="border-style: none;"></a> | 
+               <a style="color: #81BEF7" href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677" target="_blank">Propose a change <img src="./media/external.png" style="text-align: baseline"></a>   
+        </span>
+        </p>
+			</div>  <!-- /inner-wrapper -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->        
+	
+	<div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+		<div class="container">  <!-- container -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-post-footer -->
+    
+      <!-- JS and analytics only. -->
+      <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+<script src="./media/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+<script src="./media/bootstrap.min.js"> </script>
+<script src="./media/respond.min.js"> </script>
+
+<script src="./media/fhir.js"> </script>
+
+  <!-- Analytics Below
+================================================== -->
+
+
+<div id="syno-nsc-ext-comp-1008" class=" x-tip-invalid" style="position: absolute; z-index: 11000; visibility: hidden; display: none;"><div class="x-tip-invalid-tl"><div class="x-tip-invalid-tr"><div class="x-tip-invalid-tc"><div class="x-tip-invalid-header x-unselectable" id="syno-nsc-ext-gen4"><span class="x-tip-invalid-header-text"></span></div></div></div></div><div class="x-tip-invalid-bwrap" id="syno-nsc-ext-gen5"><div class="x-tip-invalid-ml"><div class="x-tip-invalid-mr"><div class="x-tip-invalid-mc" id="syno-nsc-ext-gen8"><div class="x-tip-invalid-body" id="syno-nsc-ext-gen6" style="height: auto;"></div></div></div></div><div class="x-tip-invalid-bl x-panel-nofooter" id="syno-nsc-ext-gen7"><div class="x-tip-invalid-br"><div class="x-tip-invalid-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="syno-nsc-ext-gen9" style="z-index: 11001;"></div></div></body></html>

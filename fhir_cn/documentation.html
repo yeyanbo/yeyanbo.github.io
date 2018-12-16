@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://build.fhir.org/documentation.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="  ext-strict"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Documentation - FHIR v4.0.0</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="http://hl7.org/fhir">
+
+  <link rel="stylesheet" href="./media/fhir.css">
+  <link rel="Prev" href="http://hl7.org/fhir/documentation.html">
+
+    <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./media/bootstrap.css">
+  <link rel="stylesheet" href="./media/bootstrap-fhir.css">
+
+    <!-- Project extras -->
+  <link rel="stylesheet" href="./media/project.css">
+  <link rel="stylesheet" href="./media/pygments-manni.css">
+	<link rel="stylesheet" href="./media/jquery-ui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- [if lt IE 9]>
+  <script src="./assets/js/html5shiv.js"></script>
+  <script src="./assets/js/respond.min.js"></script>
+  <![endif] -->
+
+    <!-- Favicons -->
+  <link sizes="144x144" rel="apple-touch-icon-precomposed" href="http://build.fhir.org/assets/ico/apple-touch-icon-144-precomposed.png">
+  <link sizes="114x114" rel="apple-touch-icon-precomposed" href="http://build.fhir.org/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link sizes="72x72" rel="apple-touch-icon-precomposed" href="http://build.fhir.org/assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="http://build.fhir.org/assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="http://build.fhir.org/assets/ico/favicon.png"><style type="text/css" media="screen">
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }
+
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }</style><style type="text/css" media="print">
+	.page-break	{ display:block; page-break-before:always; }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }</style><style type="text/css" media="all">
+	.page-break	{ display:none; }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1170px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1100px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }</style>
+
+</head>
+<body class=" ext-webkit ext-chrome ext-mac" id="syno-nsc-ext-gen3">
+	<div id="segment-header" class="segment">  <!-- segment-header -->	
+		<div class="container">  <!-- container -->
+			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./media/fhir-logo-www.png" alt="logo fhir"> </a>
+			<div id="hl7-status">
+				<b>Current Build</b>
+			</div>       	
+			
+			<div id="hl7-nav">
+				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org/">
+					<img src="./media/hl7-logo.png" width="42" alt="visit the hl7 website" height="50">
+				</a> 
+			</div>       	
+			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://hl7.org/fhir/search.cfm"><img src="./media/search.png" alt="Search FHIR"></a></div> 
+		</div>
+		<div class="container">  <!-- container -->
+	</div></div>  <!-- /segment-header -->	
+
+
+	<div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+		<div id="stripe"> </div>
+		<div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+ 	      		 	      		      		
+			<nav class="navbar navbar-inverse">
+				<div class="container">
+					<button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+					</button>
+					<a href="http://build.fhir.org/index.html" class="navbar-brand hidden">FHIR</a>
+					<div class="nav-collapse collapse navbar-inverse-collapse">
+						<ul class="nav navbar-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li><a href="./modules.html">开始</a></li>
+              <li><a href="./documentation.html">文档</a></li>
+              <li><a href="./resourcelist.html">资源</a></li>
+              <li><a href="./profilelist.html">规范</a></li>
+              <li><a href="./extensibility-registry.html">扩展</a></li>
+              <li><a href="./operationslist.html">操作</a></li>
+              <li><a href="./terminologies-systems.html">术语</a></li>
+						</ul>
+					</div>  <!-- /.nav-collapse -->
+				</div>  <!-- /.container -->
+			</nav>  <!-- /.navbar -->
+      		
+  <!-- /HEADER CONTENT -->				
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-navbar -->
+	
+
+	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+		<div class="container">  <!-- container -->	
+			<ul class="breadcrumb">
+        <li><a href="http://build.fhir.org/toc.html"><img src="./media/index.png"> 目录</a></li>
+        <li><b>文档索引</b></li>          <!-- documentation.html / page / -->
+
+			</ul>	
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-breadcrumb -->
+	
+
+	<div id="segment-content" class="segment">  <!-- segment-content -->
+	<div class="container">  <!-- container -->
+            <div class="row">
+            	<div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+
+<div class="col-12">
+
+<h1 class="self-link-parent"><span class="sectioncount">1.1<a name="1.1"> </a></span> 文档索引 <a href="http://build.fhir.org/documentation.html#1.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+
+<table class="colsi"><tbody><tr>
+<td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="./media/external.png" style="text-align: baseline"></a></td>
+<td id="fmm"><a href="http://hl7.org/fhir/versions.html#maturity">成熟度</a>: N/A</td>
+<td id="ballot"><a href="http://hl7.org/fhir/versions.html#levels">投票状态</a>: <a href="http://hl7.org/fhir/versions.html#std-process">信息提供</a></td>
+</tr></tbody></table>
+<p>
+此页面提供FHIR规范中关键的常用文档页面的索引。
+</p>
+
+<table width="100%" style="table-layout: fixed">
+ <tbody><tr>
+
+<td width="33%" style="border-left: 1px solid #eeeeee">
+<p><b>框架</b></p>
+<ul>
+  <li><a href="http://build.fhir.org/conformance-rules.html">一致性规则(中文)</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/lifecycle.html">资源的生命周期</a></li>
+  <li><a href="http://build.fhir.org/references.html">资源间的引用</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/compartmentdefinition.html">Compartments</a></li>
+  <li><a href="http://build.fhir.org/narrative.html">Narrative</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/extensibility.html">扩展</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/formats.html">格式:</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> 
+    <a href="http://build.fhir.org/xml.html">XML</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>, 
+    <a href="http://build.fhir.org/json.html">JSON</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>, &amp; <a href="http://build.fhir.org/rdf.html">RDF</a></li>
+  <li><a href="http://build.fhir.org/terminologies.html">术语</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> (<a href="http://build.fhir.org/terminologies-systems.html">Code Systems</a>, <a href="http://build.fhir.org/terminologies-valuesets.html">Value Sets</a>)</li>
+  <li><a href="http://build.fhir.org/fhirpath.html">FHIRPath</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/mappings.html">Mappings</a> to other standards</li>
+</ul>
+<p><b>版本管理</b></p>
+<ul>
+  <li><a href="http://build.fhir.org/versions.html">Change Management &amp; Versioning</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/versioning.html">FHIR多版本管理</a></li>
+  <li><a href="http://build.fhir.org/history.html">版本历史</a></li>
+  <li><a href="http://build.fhir.org/diff.html">Differences to Release 3</a></li>
+  <li><a href="http://build.fhir.org/r3maps.html">Transforms between Release 3 and Release 4</a></li>
+</ul>
+<p><b>背景</b></p>
+<ul>
+  <li>概述: <a href="http://build.fhir.org/overview.html">General</a>, <a href="http://build.fhir.org/overview-dev.html">开发者</a>, 
+    <br><a href="http://build.fhir.org/overview-clinical.html">Clinical</a>, <a href="./overview-arch.html">架构(中文)</a></li>
+  <li><a href="http://build.fhir.org/summary.html">1 page Summary</a> (<a href="http://build.fhir.org/fhir-glossy.pdf">Glossy</a>)</li>
+  <li><a href="http://build.fhir.org/help.html">Glossary</a> (<a href="http://build.fhir.org/glossary.html">X-Language</a>) </li>
+  <li><a href="http://build.fhir.org/license.html">License and Legal Terms</a></li>
+  <li><a href="http://build.fhir.org/credits.html">Community &amp; Credits</a></li>
+  <li><a href="http://build.fhir.org/todo.html">Outstanding Issues</a></li>
+  <li><a href="http://build.fhir.org/change.html">Appendix: Coming Challenges for Healthcare</a></li>
+</ul>
+</td>
+
+<td>
+<p><b><a href="http://build.fhir.org/exchange-module.html">Exchanging Resources</a></b></p>
+<ul>
+  <li><a href="http://build.fhir.org/http.html"><b>RESTful API (HTTP)</b></a>  <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>
+    <ul>
+      <li><a href="http://build.fhir.org/search.html">查询(中文)</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> (<a href="http://build.fhir.org/searchparameter-registry.html">查询参数注册</a>)</li>
+      <li><a href="http://build.fhir.org/operations.html">操作</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+      <li><a href="http://build.fhir.org/async.html">异步</a></li>
+      <li><a href="http://build.fhir.org/graphql.html">Using GraphQL</a></li>
+    </ul>
+  </li>
+  <li><a href="http://build.fhir.org/documents.html">文档</a></li>
+  <li><a href="http://build.fhir.org/messaging.html">消息</a></li>
+  <li><a href="http://build.fhir.org/services.html">服务</a></li>
+  <li><a href="http://build.fhir.org/storage.html">Persistence/Data bases</a></li>
+</ul>
+<p><b>类型基础</b></p>
+<ul>
+  <li><a href="http://build.fhir.org/datatypes.html">数据类型(基本)</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/metadatatypes.html">元数据类型</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/resource.html">资源</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/domainresource.html">DomainResource</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/element.html">元素</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/backboneelement.html">BackboneElement</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/elementdefinition.html">元素定义</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li>+ <a href="http://build.fhir.org/dosage.html">Dosage</a> (用于药物治疗)</li>
+</ul>
+<p><b>设计模式</b></p>
+<ul>
+  <li><a href="http://build.fhir.org/fivews.html">FiveWs (Attribution)</a></li>
+  <li><a href="http://build.fhir.org/event.html">事件</a></li>
+  <li><a href="http://build.fhir.org/request.html">Request</a></li>
+  <li><a href="http://build.fhir.org/definition.html">Definition</a></li>
+</ul>
+</td>
+
+<td style="border-left: 1px solid #eeeeee">
+<p><b>FHIR规范的使用和适配</b></p>
+<ul>
+  <li><a href="http://build.fhir.org/profiling.html">Profiling FHIR(中文)</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
+  <li><a href="http://build.fhir.org/workflow.html">FHIR Workflow</a></li>
+  <li><a href="http://build.fhir.org/downloads.html">下载 - Schemas, Code, Tools</a></li>
+  <li><a href="http://build.fhir.org/versioning.html">Managing Multiple FHIR Versions</a></li>
+  <li><a href="http://build.fhir.org/validation.html">Validating Resources</a></li>
+  <li><a href="http://build.fhir.org/best-practices.html">实现者的最佳实践</a></li>
+  <li><a href="http://build.fhir.org/mapping-language.html">Mapping Language</a> (<a href="http://build.fhir.org/mapping-tutorial.html">tutorial</a>)</li>
+  <li><a href="http://build.fhir.org/testing.html">Testing Implementations</a></li>
+</ul>
+<hr>
+<div style="background-color: #ffe6e6">
+<p><b>安全</b></p>
+<ul>
+  <li><a href="http://build.fhir.org/security.html">安全</a>, <a href="http://build.fhir.org/security-labels.html">安全标签</a> &amp; <a href="http://build.fhir.org/signatures.html">签名</a> </li>
+  <li><a href="http://build.fhir.org/safety.html">Clinical Safety</a></li>
+</ul>
+</div>
+<p><b>实现指导</b></p>
+<ul>
+  <li><a href="http://build.fhir.org/managing.html">如何管理资源的标识</a></li>
+  <li><a href="http://build.fhir.org/resourceguide.html">Guide to Resources</a></li>
+  <li><a href="http://build.fhir.org/languages.html">多语言支持</a></li>
+  <li><a href="http://build.fhir.org/updates.html">Variations between Submitted data and Retrieved data</a></li>
+  <li><a href="http://build.fhir.org/pushpull.html">推模式 vs 拉模式</a></li>
+  <li><a href="http://build.fhir.org/integrated-examples.html">集成示例</a></li>
+  <li><a href="http://build.fhir.org/usecases.html">常见用例场景</a></li>
+</ul>
+<p><a href="http://build.fhir.org/comparison.html"><b>其它标准</b></a></p>
+<ul>
+ <li><a href="http://build.fhir.org/comparison-v2.html">V2消息</a></li>
+ <li><a href="http://build.fhir.org/comparison-v3.html">V3消息</a></li>
+ <li><a href="http://build.fhir.org/comparison-cda.html">CDA</a> (参见<a href="http://build.fhir.org/cda-intro.html">CDA on FHIR</a>)</li>
+ <li><a href="http://build.fhir.org/comparison-other.html">其它规范</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+Note: the <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> symbol indicates that the target of the link contains <a href="http://build.fhir.org/versions.html#std-process">Normative content</a>.
+</p>
+
+</div>
+
+
+				</div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+        
+    </div>  <!-- /segment-content -->
+
+
+	<div id="segment-footer" class="segment">  <!-- segment-footer -->
+		<div class="container">  <!-- container -->
+			<div class="inner-wrapper">
+				<p>
+        ®© HL7.org 2011+. FHIR Release 4 Candidate (v4.0.0-0d7a3630) generated on Sat, Dec 15, 2018 04:13+0000. <a style="color: #ffffff" href="http://build.fhir.org/qa.html">QA Page</a>
+        <br>
+        <span style="color: #FFFF77">
+        Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search <img src="./media/external.png" style="text-align: baseline"></a> | 
+               <a style="color: #b8dcf9" href="http://build.fhir.org/history.html">Version History</a> | 
+               <a style="color: #b8dcf9" href="http://build.fhir.org/toc.html">Table of Contents</a> | 
+               <a style="color: #b8dcf9" href="http://build.fhir.org/credits.html">Credits</a> | 
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fdocumentation.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F%2Fdocumentation.html">Compare to R3 <img src="./media/external.png" style="text-align: baseline"></a> |                
+               <a rel="license" style="color: #b8dcf9" href="http://build.fhir.org/license.html"><img src="./media/cc0.png" alt="CC0" style="border-style: none;"></a> | 
+               <a style="color: #b8dcf9" href="http://hl7.org/fhir-issues" target="_blank">Propose a change <img src="./media/external.png" style="text-align: baseline"></a>   
+        </span>
+        </p>
+			</div>  <!-- /inner-wrapper -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->        
+	
+	<div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+		<div class="container">  <!-- container -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-post-footer -->
+    
+      <!-- JS and analytics only. -->
+      <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+<script src="./media/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+<script src="./media/bootstrap.min.js"> </script>
+<script src="./media/respond.min.js"> </script>
+
+<script src="./media/fhir.js"> </script>
+
+  <!-- Analytics Below
+================================================== -->
+
+
+
+
+<div id="syno-nsc-ext-comp-1008" class=" x-tip-invalid" style="position: absolute; z-index: 11000; visibility: hidden; display: none;"><div class="x-tip-invalid-tl"><div class="x-tip-invalid-tr"><div class="x-tip-invalid-tc"><div class="x-tip-invalid-header x-unselectable" id="syno-nsc-ext-gen4"><span class="x-tip-invalid-header-text"></span></div></div></div></div><div class="x-tip-invalid-bwrap" id="syno-nsc-ext-gen5"><div class="x-tip-invalid-ml"><div class="x-tip-invalid-mr"><div class="x-tip-invalid-mc" id="syno-nsc-ext-gen8"><div class="x-tip-invalid-body" id="syno-nsc-ext-gen6" style="height: auto;"></div></div></div></div><div class="x-tip-invalid-bl x-panel-nofooter" id="syno-nsc-ext-gen7"><div class="x-tip-invalid-br"><div class="x-tip-invalid-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="syno-nsc-ext-gen9" style="z-index: 11001;"></div></div></body></html>
