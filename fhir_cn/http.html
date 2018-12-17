@@ -1049,22 +1049,22 @@ In addition to a number of <a href="http://build.fhir.org/http.html#general">Gen
 <a name="interactions"></a>
 <a name="operations"></a>
 <table class="list">
-  <tbody><tr><td><b>Instance Level Interactions</b></td><td></td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#read">read</a></td><td>Read the current state of the resource</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#vread">vread</a></td><td>Read the state of a specific version of the resource</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#update">update</a></td><td>Update an existing resource by its id (or create it if it is new)</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#patch">patch</a></td><td>Update an existing resource by posting a set of changes to it</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#delete">delete</a></td><td>Delete a resource</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#history">history</a></td><td>Retrieve the change history for a particular resource</td></tr>
-  <tr><td colspan="2"><b>Type Level Interactions</b></td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#create">create</a></td><td>Create a new resource with a server assigned id</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#search">search</a></td><td>Search the resource type based on some filter criteria</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#history">history</a></td><td>Retrieve the change history for a particular resource type</td></tr>
-  <tr><td colspan="2"><b>Whole System Interactions</b></td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#capabilities">capabilities</a></td><td>Get a capability statement for the system</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#transaction">batch/transaction</a></td><td>Update, create or delete a set of resources in a single interaction</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#history">history</a></td><td>Retrieve the change history for all resources</td></tr>
-  <tr><td><a href="http://build.fhir.org/http.html#search">search</a></td><td>Search across all resource types based on some filter criteria</td></tr>
+  <tbody><tr><td><b>实例级交互</b></td><td></td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#read">read</a></td><td>读取指定资源的当前内容</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#vread">vread</a></td><td>读取指定资源的指定版本的内容</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#update">update</a></td><td>通过指定的id更新资源内容(如果不存在则创建新的)</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#patch">patch</a></td><td>通过提供资源的部分变化内容更新已存在的资源</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#delete">delete</a></td><td>删除一个资源</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#history">history</a></td><td>获取指定资源的变化历史</td></tr>
+  <tr><td colspan="2"><b>类型级交互</b></td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#create">create</a></td><td>创建一个新的资源，由服务器赋于id</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#search">search</a></td><td>基于过滤条件对某种类型的资源进行查询</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#history">history</a></td><td>获取指定资源类型的变化历史</td></tr>
+  <tr><td colspan="2"><b>系统级交互</b></td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#capabilities">capabilities</a></td><td>获取系统的能力声明</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#transaction">batch/transaction</a></td><td>在单个的交互过程中进行一组资源的创建、更新、删除操作</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#history">history</a></td><td>获取所有资源的变化历史</td></tr>
+  <tr><td><a href="http://build.fhir.org/http.html#search">search</a></td><td>基于过滤条件对所有类型的资源进行查询</td></tr>
 </tbody></table>
 <p>
 In addition to these interactions, there is an <a href="http://build.fhir.org/operations.html">operations framework</a>, which includes endpoints
@@ -1081,62 +1081,54 @@ than is mandated in the underlying HTTP protocol.
 </p>
 
 <a name="styleguide"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.1</span> Style Guide <a href="http://build.fhir.org/http.html#styleguide" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.1</span> 格式指南 <a href="http://build.fhir.org/http.html#styleguide" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-The interactions on this page are defined like this:
+本章节中的交互操作如下定义::
 </p>
 
 <pre>  VERB [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <ul>
- <li>The first word is the HTTP verb used for the interaction</li>
- <li>Content surrounded by [] is mandatory, and will be replaced by the string literal identified. Possible insertion values:
+ <li>第一部分是用于交互的HTTP动词</li>
+ <li>被<code>[]</code>包裹的内容是必选的，在应用中会被字符串字面值所替代。可能的取值为:
    <ul>
-     <li><code>base</code>: The <a href="http://build.fhir.org/http.html#root">Service Base URL</a></li>
-     <li><code>mime-type</code>: The <a href="http://build.fhir.org/http.html#mime-type">Mime Type</a></li>
-     <li><code>type</code>: The name of a resource type (e.g. "Patient")</li>
-     <li><code>id</code>: The <a href="http://build.fhir.org/resource.html#id">Logical Id</a> of a resource</li>
-     <li><code>vid</code>: The <a href="http://build.fhir.org/resource.html#metadata">Version Id</a> of a resource</li>
-     <li><code>compartment</code>: The name of a <a href="http://build.fhir.org/compartmentdefinition.html">compartment</a></li>
-     <li><code>parameters</code>: URL parameters as defined for the particular interaction</li>
+     <li><code>base</code>: The <a href="http://build.fhir.org/http.html#root">服务的根URL</a></li>
+     <li><code>mime-type</code>: <a href="http://build.fhir.org/http.html#mime-type">内容格式类型</a></li>
+     <li><code>type</code>: 资源的类型名称 (例如: "Patient")</li>
+     <li><code>id</code>: 资源的<a href="http://build.fhir.org/resource.html#id">逻辑id</a></li>
+     <li><code>vid</code>: 资源的<a href="http://build.fhir.org/resource.html#metadata">版本id</a></li>
+     <li><code>compartment</code>: <a href="http://build.fhir.org/compartmentdefinition.html">compartment</a>的名称</li>
+     <li><code>parameters</code>: 为指定交互定义的URL参数</li>
    </ul>
  </li>
- <li>Content surrounded by <code>{}</code> is optional</li>
+ <li>被<code>{}</code>包裹的内容是可选的</li>
 </ul>
 <p>
 Implementations constructing URLs using these patterns SHOULD conform to <a href="https://tools.ietf.org/html/rfc3986#appendix-A">RFC 3986 Section 6 Appendix A <img src="./media/external.png" style="text-align: baseline"></a>
 which requires percent-encoding for a number of characters that occasionally appear in the URLs (mainly in search parameters).
 </p>
 <p>
-This specification uses the underscore as a prefix to disambiguate reserved names from other names in 3 cases:
+本规范在如下3种情况下使用下划线作为前缀的保留字，以消除与其它名称的歧义：
 </p>
 <ul>
  <li>To differentiate system wide history and search interactions from interactions on Resource Types</li>
  <li>To differentiate search, history and similar interactions from instances of a resource type</li>
- <li>To differentiate search parameters defined for all resources from those defined for specific resource types</li>
+ <li>区分为所有资源定义的查询参数与为特定资源类型定义的搜索参数</li>
 </ul>
 <p>
-In addition, the character <code>$</code> is used as a prefix to operation names that are RPC-like additions to the base
-API defined either by this specification or by implementers.
+此外，使用字符<code>$</code>用作操作名称的前缀，这些是由本规范或者实现者定义的在基础API之外扩充的类RPC调用方法。
 </p>
 
 <a name="root"></a>
 <a name="general"></a>
 <h4 class="self-link-parent"><span class="sectioncount">3.1.0.1.2</span> Service Base URL <a href="http://build.fhir.org/http.html#general" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p>
-The Service Base URL is the address where all of the
-resources defined by this interface are found. The Service
-Base URL takes the form of
+服务基础URL为访问此接口定义的所有资源的根服务地址。该URL的形式如下:
 </p>
 <pre>http{s}://server{/path}
 </pre>
 <p>
-The path portion is optional, and does not include a trailing slash. Each
-resource type defined in this specification has a manager (or "entity set")
-that lives at the address <code>/[type]</code> where the
-<code>[type]</code> is the name of the resource type.
-For instance, the resource manager for the type
-<code>Patient</code> will live at:
+路径部分是可选的，不包括尾部斜线。在本说明书中定义的每个资源类型都有一个管理者(或称之为实体集合)，它位于路径中的<code>/[type]</code>位置，<code>[type]</code>是资源类型的名称。例如：<code>Patient</code>类型的资源管理者在：
 </p>
 <pre>https://server/path/Patient
 </pre>
@@ -1595,18 +1587,18 @@ Servers are permitted to reject update interactions because of integrity concern
 Note that there are potential security issues relating to how rejections are handled. See the <a href="http://build.fhir.org/security.html#AccessDenied">security page</a> for more information.
 </p>
 <p>
-Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
+如下所示为与FHIR相关的HTTP错误状态码（与安全性、 HTTP头和内容类型相关的普通HTTP错误除外):
 </p>
 <ul>
- <li><b><code>400</code> Bad Request</b> - resource could not be parsed or failed basic FHIR validation rules (or multiple matches were found for conditional criteria)</li>
- <li><b><code>401</code> Not Authorized</b> - authorization is required for the interaction that was attempted</li>
- <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
- <li><b><code>405</code> Method Not allowed</b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
- <li><b><code>409</code>/<code>412</code></b> - version conflict management - see <a href="http://build.fhir.org/http.html#concurrency">below</a></li>
- <li><b><code>422</code> Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules</li>
+ <li><b><code>400</code> Bad Request</b> - 资源不能被解析, 或者FHIR基本规则验证失败 (或者多个符合条件的资源被匹配）</li>
+ <li><b><code>401</code> Not Authorized</b> - 试图进行的操作必须经过授权</li>
+ <li><b><code>404</code> Not Found</b> - 资源类型不被支持, 或者不是一个有效的FHIR端点</li>
+ <li><b><code>405</code> Method Not allowed</b> - 资源在更新之前不存在，或者服务器不允许客户端定义id</li>
+ <li><b><code>409</code>/<code>412</code></b> - 版本管理冲突，参见<a href="http://build.fhir.org/http.html#concurrency">如下章节</a></li>
+ <li><b><code>422</code> Unprocessable Entity</b> - 提交的资源违反适用的FHIR规范或服务端业务规则</li>
 </ul>
 <p>
-Any of these errors SHOULD be accompanied by an <a href="http://build.fhir.org/operationoutcome.html">OperationOutcome</a> resource providing additional detail concerning the issue.
+这些错误的详细信息都应该放入一个被返回的<a href="http://build.fhir.org/operationoutcome.html">OperationOutcome</a>资源，以提供该问题的更多细节。
 In general, if an instance fails the constraints documented in the CapabilityStatement then the response should be a 400,
 whereas if the instance fails other non-externally described business rules, the response would be a 422 error. However, 
 there's no expectation that servers will tightly adhere to this differentiation (nor is it clear that it makes much difference 
@@ -1618,7 +1610,7 @@ For additional information on how systems may behave when processing updates, re
 
 <div class="draft-content">
 <a name="cond-update"></a>
-<h4 class="self-link-parent"><span class="sectioncount">3.1.0.4.3</span> Conditional update <a href="http://build.fhir.org/http.html#cond-update" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
+<h4 class="self-link-parent"><span class="sectioncount">3.1.0.4.3</span> 条件更新 <a href="http://build.fhir.org/http.html#cond-update" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h4>
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Unlike this rest of this page, the conditional create, update, patch and delete are trial use until 
 further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
@@ -1780,13 +1772,12 @@ Patch is not defined for all resources - see <a href="http://build.fhir.org/bina
 <a name="delete"></a>
 <h3 class="self-link-parent"><span class="sectioncount">3.1.0.7</span> delete <a href="http://build.fhir.org/http.html#delete" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The <code>delete</code> interaction removes an existing resource. The interaction
-is performed by an HTTP <code>DELETE</code> command as shown:
+<code>删除</code>操作移除一个已存在的资源。该交互可以通过如下的HTTP<code>DELETE</code>命令执行：
 </p>
 <pre>  DELETE [base]/[type]/[id]
 </pre>
 <p>
-The request body SHALL be empty. 
+请求的信息体必须为空。
 </p>
 <p>
 A delete interaction means that subsequent <a href="http://build.fhir.org/http.html#read">non-version specific reads</a> of a resource
