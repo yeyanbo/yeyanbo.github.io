@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0040)http://build.fhir.org/documentation.html -->
+<!-- saved from url=(0034)http://build.fhir.org/updates.html -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="  ext-strict"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Documentation - FHIR v4.0.0</title>
+  <title>Updates - FHIR v4.0.0</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="http://hl7.org/fhir">
 
   <link rel="stylesheet" href="./media/fhir.css">
-  <link rel="Prev" href="http://hl7.org/fhir/documentation.html">
+  <link rel="Prev" href="http://hl7.org/fhir/updates.html">
 
     <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="./media/bootstrap.css">
@@ -993,8 +993,8 @@
 	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
 		<div class="container">  <!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="http://build.fhir.org/toc.html"><img src="./media/index.png"> 目录</a></li>
-        <li><b>文档索引</b></li>          <!-- documentation.html / page / -->
+        <li><a href="http://build.fhir.org/implsupport-module.html"><img src="./media/implsupport.png"> 实现支持</a></li>
+        <li><b>更新规则</b></li>          <!-- updates.html / page / -->
 
 			</ul>	
 		</div>  <!-- /container -->
@@ -1010,136 +1010,164 @@
 
 <div class="col-12">
 
-<h1 class="self-link-parent"><span class="sectioncount">1.1<a name="1.1"> </a></span> 文档索引 <a href="http://build.fhir.org/documentation.html#1.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+<h2 class="self-link-parent"><span class="sectioncount">7.14<a name="7.14"> </a></span> 提交数据和读取数据之间的变化 <a href="http://build.fhir.org/updates.html#7.14" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<table class="colstu"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="./media/external.png" style="text-align: baseline"></a> Work Group</td><td id="fmm"><a href="http://build.fhir.org/versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="http://build.fhir.org/versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="http://build.fhir.org/versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+<a name="community"></a>
 
-<table class="colsi"><tbody><tr>
-<td id="wg">工作组: <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure <img src="./media/external.png" style="text-align: baseline"></a></td>
-<td id="fmm"><a href="http://hl7.org/fhir/versions.html#maturity">成熟度</a>: N/A</td>
-<td id="ballot"><a href="http://hl7.org/fhir/versions.html#levels">投票状态</a>: <a href="http://hl7.org/fhir/versions.html#std-process">信息提供</a></td>
-</tr></tbody></table>
 <p>
-此页面提供FHIR规范中关键的常用文档页面的索引。
+Some of the time when using a FHIR interface, requests to create or update resource instances will behave
+exactly as the initiator requested.  The desired record(s) will be created or revised within the target
+system and a subsequent query of the data would show the exact same information as was submitted.
+However, FHIR systems are not guaranteed to behave this way.  Without any other agreement between exchange
+partners, FHIR systems are not obligated to store and return data as it was received.  In fact, for some
+interoperability paradigms, they're not obligated to store any data at all.  This page discusses some of the
+considerations around system behavior, including differences in expectations for systems interoperating using
+REST, messaging, documents and services.
 </p>
 
-<table width="100%" style="table-layout: fixed">
- <tbody><tr>
-
-<td width="33%" style="border-left: 1px solid #eeeeee">
-<p><b>框架</b></p>
-<ul>
-  <li><a href="./conformance-module.html">一致性(中文)</a>，<a href="./conformance-rules.html">一致性规则</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/lifecycle.html">资源的生命周期</a></li>
-  <li><a href="http://build.fhir.org/references.html">资源间的引用</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/compartmentdefinition.html">Compartments</a></li>
-  <li><a href="http://build.fhir.org/narrative.html">Narrative</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/extensibility.html">扩展</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/formats.html">格式:</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> 
-    <a href="http://build.fhir.org/xml.html">XML</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>, 
-    <a href="http://build.fhir.org/json.html">JSON</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>, &amp; <a href="http://build.fhir.org/rdf.html">RDF</a></li>
-  <li><a href="http://build.fhir.org/terminologies.html">术语</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> (<a href="http://build.fhir.org/terminologies-systems.html">Code Systems</a>, <a href="http://build.fhir.org/terminologies-valuesets.html">Value Sets</a>)</li>
-  <li><a href="http://build.fhir.org/fhirpath.html">FHIRPath</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/mappings.html">Mappings</a> to other standards</li>
-</ul>
-<p><b>版本管理</b></p>
-<ul>
-  <li><a href="http://build.fhir.org/versions.html">Change Management &amp; Versioning</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/versioning.html">FHIR多版本管理</a></li>
-  <li><a href="http://build.fhir.org/history.html">版本历史</a></li>
-  <li><a href="http://build.fhir.org/diff.html">Differences to Release 3</a></li>
-  <li><a href="http://build.fhir.org/r3maps.html">Transforms between Release 3 and Release 4</a></li>
-</ul>
-<p><b>背景</b></p>
-<ul>
-  <li>概述: <a href="http://build.fhir.org/overview.html">General</a>, <a href="http://build.fhir.org/overview-dev.html">开发者</a>, 
-    <br><a href="http://build.fhir.org/overview-clinical.html">Clinical</a>, <a href="./overview-arch.html">架构(中文)</a></li>
-  <li><a href="http://build.fhir.org/summary.html">1 page Summary</a> (<a href="http://build.fhir.org/fhir-glossy.pdf">Glossy</a>)</li>
-  <li><a href="http://build.fhir.org/help.html">Glossary</a> (<a href="http://build.fhir.org/glossary.html">X-Language</a>) </li>
-  <li><a href="http://build.fhir.org/license.html">License and Legal Terms</a></li>
-  <li><a href="http://build.fhir.org/credits.html">Community &amp; Credits</a></li>
-  <li><a href="http://build.fhir.org/todo.html">Outstanding Issues</a></li>
-  <li><a href="http://build.fhir.org/change.html">Appendix: Coming Challenges for Healthcare</a></li>
-</ul>
-</td>
-
-<td>
-<p><b><a href="http://build.fhir.org/exchange-module.html">Exchanging Resources</a></b></p>
-<ul>
-  <li><a href="./http.html"><b>RESTful API (HTTP)</b></a>  <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a>
-    <ul>
-      <li><a href="./search.html">查询(中文)</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> (<a href="http://build.fhir.org/searchparameter-registry.html">查询参数注册</a>)</li>
-      <li><a href="http://build.fhir.org/operations.html">操作</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-      <li><a href="http://build.fhir.org/async.html">异步</a></li>
-      <li><a href="http://build.fhir.org/graphql.html">Using GraphQL</a></li>
-    </ul>
-  </li>
-  <li><a href="http://build.fhir.org/documents.html">文档</a></li>
-  <li><a href="http://build.fhir.org/messaging.html">消息</a></li>
-  <li><a href="http://build.fhir.org/services.html">服务</a></li>
-  <li><a href="http://build.fhir.org/storage.html">Persistence/Data bases</a></li>
-</ul>
-<p><b>类型基础</b></p>
-<ul>
-  <li><a href="http://build.fhir.org/datatypes.html">数据类型(基本)</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/metadatatypes.html">元数据类型</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/resource.html">资源</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/domainresource.html">DomainResource</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/element.html">元素</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/backboneelement.html">BackboneElement</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/elementdefinition.html">元素定义</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li>+ <a href="http://build.fhir.org/dosage.html">Dosage</a> (用于药物治疗)</li>
-</ul>
-<p><b>设计模式</b></p>
-<ul>
-  <li><a href="http://build.fhir.org/fivews.html">FiveWs (Attribution)</a></li>
-  <li><a href="http://build.fhir.org/event.html">事件</a></li>
-  <li><a href="http://build.fhir.org/request.html">Request</a></li>
-  <li><a href="http://build.fhir.org/definition.html">Definition</a></li>
-</ul>
-</td>
-
-<td style="border-left: 1px solid #eeeeee">
-<p><b>FHIR规范的使用和适配</b></p>
-<ul>
-  <li><a href="./profiling.html">Profiling FHIR(中文)</a> <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a></li>
-  <li><a href="http://build.fhir.org/workflow.html">FHIR Workflow</a></li>
-  <li><a href="http://build.fhir.org/downloads.html">下载 - Schemas, Code, Tools</a></li>
-  <li><a href="http://build.fhir.org/versioning.html">Managing Multiple FHIR Versions</a></li>
-  <li><a href="http://build.fhir.org/validation.html">Validating Resources</a></li>
-  <li><a href="http://build.fhir.org/best-practices.html">实现者的最佳实践</a></li>
-  <li><a href="http://build.fhir.org/mapping-language.html">Mapping Language</a> (<a href="http://build.fhir.org/mapping-tutorial.html">tutorial</a>)</li>
-  <li><a href="http://build.fhir.org/testing.html">Testing Implementations</a></li>
-</ul>
-<hr>
-<div style="background-color: #ffe6e6">
-<p><b>安全</b></p>
-<ul>
-  <li><a href="http://build.fhir.org/security.html">安全</a>, <a href="http://build.fhir.org/security-labels.html">安全标签</a> &amp; <a href="http://build.fhir.org/signatures.html">签名</a> </li>
-  <li><a href="http://build.fhir.org/safety.html">Clinical Safety</a></li>
-</ul>
-</div>
-<p><b>实现指导</b></p>
-<ul>
-  <li><a href="./managing.html">如何管理资源的标识</a></li>
-  <li><a href="http://build.fhir.org/resourceguide.html">Guide to Resources</a></li>
-  <li><a href="http://build.fhir.org/languages.html">多语言支持</a></li>
-  <li><a href="./updates.html">提交数据和读取数据之间的变化(中文)</a></li>
-  <li><a href="http://build.fhir.org/pushpull.html">推模式 vs 拉模式</a></li>
-  <li><a href="http://build.fhir.org/integrated-examples.html">集成示例</a></li>
-  <li><a href="http://build.fhir.org/usecases.html">常见用例场景</a></li>
-</ul>
-<p><a href="http://build.fhir.org/comparison.html"><b>其它标准</b></a></p>
-<ul>
- <li><a href="http://build.fhir.org/comparison-v2.html">V2消息</a></li>
- <li><a href="http://build.fhir.org/comparison-v3.html">V3消息</a></li>
- <li><a href="http://build.fhir.org/comparison-cda.html">CDA</a> (参见<a href="http://build.fhir.org/cda-intro.html">CDA on FHIR</a>)</li>
- <li><a href="http://build.fhir.org/comparison-other.html">其它规范</a></li>
-</ul>
-</td>
-</tr>
-</tbody></table>
-
+<h3 class="self-link-parent"><span class="sectioncount">7.14.1<a name="7.14.1"> </a></span> Data element support <a href="http://build.fhir.org/updates.html#7.14.1" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-Note: the <a href="http://build.fhir.org/versions.html#std-process" title="Normative Content" class="normative-flag">N</a> symbol indicates that the target of the link contains <a href="http://build.fhir.org/versions.html#std-process">Normative content</a>.
+The most common reason for differences between what data is submitted to a system and what data can be extracted
+from it is that the system doesn't support all of the data elements present in the instance received.  In the
+base resource, no systems are required to support any particular set of extensions or even any particular subset
+of core elements.
+</p>
+<p>
+For elements that are part of the resource, the expectation is that "most" systems will support the element.
+i.e. most systems will support capturing a patient's name, gender and date of birth.  But "most" does not mean
+"all". It is possible to be fully FHIR conformant and claim to support the Patient resource, but be incapable
+of storing any of those data elements.  There are use-cases where names may be unnecessary (e.g. agricultural
+veterinary systems, anonymized reporting, etc.) and similar use-cases for almost every data element.  No FHIR
+resource elements start off as <a href="http://build.fhir.org/elementdefinition-definitions.html#ElementDefinition.mustSupport">mustSupport</a>
+and very few resource elements start off with a minimum cardinality other than "0".
+</p>
+<p>
+In the case of extensions, the very nature of a concept being an extension means that the designers of the
+specification expected that fewer than "most" systems would support the element, though support might vary
+widely by context.  An extension might be used by 100% of systems in some country, discipline, etc. and not
+used by any systems in another context.  In any event, there is no guarantee that an arbitrary
+receiver will recognize and be able to persist any given extension.
+</p>
+<p>
+In order to know whether a particular data element is likely to be stored by a given server, a client should
+check the <a href="http://build.fhir.org/capabilitystatement.html">Capability statement</a> of that server.  If, for a given resource,
+the <a href="http://build.fhir.org/structuredefinition.html">StructureDefinition</a> pointed to indicates that the element or
+extension is "mustSupport=true", and the server is capable of storing and returning data in general,
+then it would be expected that the system will be capable of storing and returning that data element.
+(Some servers such as decision support systems might not be capable of storing or returning any received data.)
+</p>
+<p>
+All of these concerns around possibly not storing resource elements or extensions can hold whether the
+data is sent using <a href="http://build.fhir.org/http.html">REST</a>, <a href="http://build.fhir.org/messaging.html">Messaging</a> or <a href="http://build.fhir.org/services.html">Services</a>.
+However, with <a href="http://build.fhir.org/documents.html">documents</a>, a consuming system is expected to accept the entire
+contents of the document without losing any information or altering it in any way.
+</p>
+
+<h3 class="self-link-parent"><span class="sectioncount">7.14.2<a name="7.14.2"> </a></span> System behavior <a href="http://build.fhir.org/updates.html#7.14.2" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>
+Even if a system supports all of the data elements provided, not all systems will actually persist the data
+received or be capable of returning it in response to a query.  <i>mustSupport</i> indicates that a system
+supports an element but does not prescribe exactly what the system must do with supported elements.  Data might
+be persisted, displayed, relayed, analyzed, tabulated or used in a variety of other fashions.  The behavior of a
+given system should be unsurprising given its context, but it is still important to recognize that not all
+systems will persist the data they receive.
+</p>
+
+<h3 class="self-link-parent"><span class="sectioncount">7.14.3<a name="7.14.3"> </a></span> Access permissions <a href="http://build.fhir.org/updates.html#7.14.3" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>
+Even if a system stores a given data element, that does not mean it will always include that element when responding
+to queries.  Systems will have access permission rules that restrict who can see a given resource instance and,
+occasionally, who can see a particular data element within a resource.  Systems responding to queries might
+suppress records or may adjust the content of resource instances to exclude data elements the querying system
+is not permitted to see.
+</p>
+
+<h3 class="self-link-parent"><span class="sectioncount">7.14.4<a name="7.14.4"> </a></span> Generated and inferred data <a href="http://build.fhir.org/updates.html#7.14.4" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>
+Some servers may add additional data elements (or more commonly, extensions) based on information they
+have generated or inferred from data in the resource, from other resources or other information of
+which the server is aware.  i.e. an instance queried after being created or updated might have <i>more</i>
+information present than was included on the originally submitted record
+</p>
+
+<h3 class="self-link-parent"><span class="sectioncount">7.14.5<a name="7.14.5"> </a></span> Data integration <a href="http://build.fhir.org/updates.html#7.14.5" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>
+Servers receiving updates from multiple sources may choose to be selective about what sources they
+choose to trust for updates to certain information.  For example, a patient registry system might
+choose to only allow updates to name, gender and date of birth from administrative systems but not
+clinical systems.  If a system filters out patient address information from being disclosed to a
+system when it queries, it will likely choose to not replace or eliminate the addresses it has on
+file when it receives an update from that system.
+</p>
+<p>
+One approach commonly followed by HL7 version 2 messaging interfaces is to not update any elements
+not included in an instance.  For example, if a Patient instance were received with no telecom or
+contact information, all existing telecom and contact information would be retained and only those
+elements included in the instance would be updated.  This same approach can be followed with FHIR,
+however, unlike <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2 <img src="./media/external.png" style="text-align: baseline"></a>, FHIR does not have a defined construct to use to indicate that a particular
+data element should explicitly be set to empty.  Systems wishing to fully emulate HL7 v2 behavior
+will need to use an extension to mirror this behavior.
+</p>
+
+<h3 class="self-link-parent"><span class="sectioncount">7.14.6<a name="7.14.6"> </a></span> Ramifications of storage/retrieval variations <a href="http://build.fhir.org/updates.html#7.14.6" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>
+While changing data prior to storage or prior to returning query results is possible, it
+should not be considered "normal" behavior.  It creates several challenges:
+</p>
+<ul>
+<li>
+Digital signatures will no longer be valid.  Any change to submitted data will break standard
+signatures.  In theory, this could be mitigated by using a custom canonicalization for the
+signature that excludes malleable elements.  However, this would require both sender and receiver
+to agree on the alternate signature canonicalization.  The signature would still be considered
+invalid by systems that were not party to the agreement.
+</li>
+<li>
+Workflows can be made more complex.  A system that sends a create and then sends an update
+presuming that it has seen the most "current" version, could accidentally overwrite information
+set by the server as part of the create process.
+</li>
+<li>
+Audit becomes more complicated.  The <a href="http://build.fhir.org/auditevent.html">AuditEvent</a> resource points
+to a specific resource version when tracking what data was returned by a query.  If the record
+is modified when it is returned, then the audit record will likely need to be supplemented with
+information about what elements were filtered.
+</li>
+<li>
+Multiple views of the same information by different people (or even by the same people in
+different contexts) may cause confusion, particularly when attempting to coordinate care across a
+team.  Providing OperationOutcome instances containing warnings if information has been
+suppressed may be helpful, though doing this might not be possible, depending on security
+policy rules.
+</li>
+<li>
+If data is lost as part of the transmission process, then multiple stages of transmission
+(or even round-tripping of data) could result in significant degradation as information
+passes through multiple systems.
+</li>
+</ul>
+
+<h3 class="self-link-parent"><span class="sectioncount">7.14.7<a name="7.14.7"> </a></span> Mitigation approaches for storage/retrieval variations <a href="http://build.fhir.org/updates.html#7.14.7" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p>
+FHIR does provide a couple of mechanisms that can help with the issue
+of a system that has received only partial data overwriting data that
+was filtered from its record:
+</p>
+<ul>
+<li>
+For systems that enforce the use of <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETags <img src="./media/external.png" style="text-align: baseline"></a> for
+updates, the server can choose to not include an ETag when returning resource instances that have been modified in some way.
+This will prevent updates from being performed.
+</li>
+<li>
+The <a href="http://build.fhir.org/v3/vs/SecurityIntegrityObservationValue/cs.html#SUBSETTED">SUBSETTED</a> <a href="http://build.fhir.org/security-labels.html">Security Label</a>
+can be used to flag data that has had information removed.
+</li>
+</ul>
+<p>
+Note that using either of the above mechanisms may constitute a security breach in circumstances where the
+individual or system accessing the data should not know that the record being reviewed has been
+modified in any way.  (The presence of digital signatures would present a similar issue.)
 </p>
 
 </div>
@@ -1156,14 +1184,14 @@ Note: the <a href="http://build.fhir.org/versions.html#std-process" title="Norma
 		<div class="container">  <!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        ®© HL7.org 2011+. FHIR Release 4 Candidate (v4.0.0-0d7a3630) generated on Sat, Dec 15, 2018 04:13+0000. <a style="color: #ffffff" href="http://build.fhir.org/qa.html">QA Page</a>
+        ®© HL7.org 2011+. FHIR Release 4 Candidate (v4.0.0-e61b1f5b) generated on Thu, Dec 27, 2018 19:09+0000. <a style="color: #ffffff" href="http://build.fhir.org/qa.html">QA Page</a>
         <br>
         <span style="color: #FFFF77">
         Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search <img src="./media/external.png" style="text-align: baseline"></a> | 
                <a style="color: #b8dcf9" href="http://build.fhir.org/history.html">Version History</a> | 
                <a style="color: #b8dcf9" href="http://build.fhir.org/toc.html">Table of Contents</a> | 
                <a style="color: #b8dcf9" href="http://build.fhir.org/credits.html">Credits</a> | 
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fdocumentation.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F%2Fdocumentation.html">Compare to R3 <img src="./media/external.png" style="text-align: baseline"></a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fupdates.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F%2Fupdates.html">Compare to R3 <img src="./media/external.png" style="text-align: baseline"></a> |                
                <a rel="license" style="color: #b8dcf9" href="http://build.fhir.org/license.html"><img src="./media/cc0.png" alt="CC0" style="border-style: none;"></a> | 
                <a style="color: #b8dcf9" href="http://hl7.org/fhir-issues" target="_blank">Propose a change <img src="./media/external.png" style="text-align: baseline"></a>   
         </span>
