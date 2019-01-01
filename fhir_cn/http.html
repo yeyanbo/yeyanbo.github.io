@@ -1831,69 +1831,48 @@ update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="
 </div>
 
 <a name="create"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.0.8</span> create <a href="./http.html#create" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.0.8</span> 创建资源 <a href="./http.html#create" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The <code>create</code> interaction creates a new resource in a server-assigned location. If the client
-wishes to have control over the id of a newly submitted resource, it should use the <a href="./http.html#update">update</a>
-interaction instead. The <code>create</code> interaction is performed by an HTTP <code>POST</code> command as shown:
+<code>创建</code>交互操作在服务器分配的位置创建新资源。如果客户端希望控制新提交资源的ID，那么应该使用<a href="./http.html#update">更新</a>交互操作。<code>创建</code>交互操作由HTTP的<code>POST</code>命令执行，如下所示:
 </p>
 <pre class="http">  POST [base]/[type] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a FHIR Resource. The resource does not need to have an <code>id</code> element (this is 
-one of the few cases where a resource exists without an <code>id</code> element). If an <code>id</code> is provided, the
-server SHALL ignore it. If the request body includes a <a href="./resource.html#meta">meta</a>, the server SHALL
-ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
-The server SHALL populate the <code>id</code>, <code>meta.versionId</code> and <code>meta.lastUpdated</code>
-with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD
-refrain from doing so (see <a href="./resource.html#meta">metadata description</a> for further information).
+请求消息体应为FHIR资源。资源不需要<code>id</code>元素(这是少数不需要资源<code>id</code>元素存在的情况之一)。如果提供了<code>id</code>元素，那么服务器应忽略它。如果请求消息体包含一个<a href="./resource.html#meta">meta</a>元素，服务器应忽略其中存在的<code>versionId</code>和<code>lastUpdated</code>元素。服务器应使用新的正确值填充<code>id</code>、<code>meta.versionId</code>和<code>meta.lastUpdated</code>元素。服务器能查看和更改其它的元数据值，但应避免这样做(有关详细信息，请参阅<a href="./resource.html#meta">元数据描述</a>)。
 </p>
 <p>
-A server SHOULD otherwise accept the resource as submitted when it accepts the create, and return the same
-content when it is subsequently read. However some systems might not be able to do this; see
-the note on <a href="./http.html#transactional-integrity">transactional integrity</a> for discussion.
+在其它情况下，服务器应接受创建时接收到的提交资源，并在随后读取时返回相同的内容。但是，有些系统可能无法做到这一点。请参阅有关<a href="./http.html#transactional-integrity">事务完整性</a>的说明进行讨论。
 </p>
 <p>
-The server returns a <code>201</code> Created HTTP status code, and SHALL also return a <code>Location</code> header which
-contains the new <a href="./resource.html#metadata">Logical Id</a> and <a href="./resource.html#metadata">Version Id</a> of
-the created resource version:
+服务器除了返回一个<code>201 Created</code>HTTP状态码，还应返回一个<code>Location</code>消息头，其中包含新建资源的<a href="./resource.html#metadata">逻辑标识</a>和<a href="./resource.html#metadata">版本标识</a>:
 </p>
 <pre class="http">  Location: [base]/[type]/[id]/_history/[vid]
 </pre>
 <p>
-where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id for the resource version. 
-The Location header should be as specific as possible - if the server understands versioning, the version is 
-included. If a server does not track versions, the Location header will just contain [base]/[type]/[id]. The
-Location MAY be an absolute or relative URL.
+其中<code>[id]</code>和<code>[vid]</code>是新建资源当前版本的逻辑标识和版本标识。<code>Location</code>消息头应尽可能具体-如果服务器支持版本控制，则包含版本信息。如果服务器不跟踪版本，则<code>Location</code>消息头将只包含<code>[base]/[type]/[id]</code>。位置可以是绝对或相对URL。
 </p>
 <p>
-Servers SHOULD return an <code>ETag</code> header with the <code>versionId</code> (if versioning is supported) and a <code>Last-Modified</code> header.
-The body of response is as described in <a href="./http.html#return">Managing Return Content</a>.
+服务器应该返回带有<code>versionId</code>的<code>ETag</code>消息头(如果支持版本控制的话)和<code>Last-Modified</code>消息头。反馈消息体如<a href="./http.html#return">管理返回内容</a>中所述。
 </p>
 <p>
-When the resource syntax or data is incorrect or invalid, and cannot be used to create a new resource, the server returns a <code>400</code> Bad Request HTTP status code.
-When the server rejects the content of the resource because of business rules, the server returns a <code>422</code> Unprocessable Entity error HTTP status code.
-In either case, the server SHOULD include a response body containing an <a href="./operationoutcome.html">OperationOutcome</a> with detailed error messages describing the reason for the error.
+当资源语法或数据不正确或无效，并且无法用于创建新资源时，服务器将返回<code>400 BAD REQUEST</code>的HTTP状态码。当服务器由于业务规则拒绝资源的内容时，服务器返回一个<code>422 Unprocessable Entity</code>的HTTP状态码。在这两种情况下，服务器都应该包含一个包含<a href="./operationoutcome.html">OperationOutcome</a>的响应消息体，其中包含描述错误原因的详细错误消息。
 </p>
 <p>
-Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+注意: 服务器可以选择在接收创建资源时保留XML注释、说明和格式或JSON空白，但不是必须这样做。可能需要考虑这对数字签名的影响。
 </p>
 <p>
-Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
+与FHIR错误返回相关的常见HTTP状态码(除了与安全性、头和内容类型协商问题相关的正常HTTP错误之外):
 </p>
 <ul>
- <li><b><code>400</code> Bad Request</b> - resource could not be parsed or failed basic FHIR validation rules</li>
- <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
- <li><b><code>422</code> Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="./operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>
+ <li><b><code>400</code> 错误请求</b> - 资源不能被解析或者基本的FHIR规则验证失败</li>
+ <li><b><code>404</code> 未发现</b> - 资源类型不支持或者不是有效的FHIR端点</li>
+ <li><b><code>422</code> 不能处理的实体</b> - 建议的资源违反了适用的FHIR配置文件或服务器业务规则。该错误应携带一个提供额外详细信息的<a href="./operationoutcome.html">OperationOutcome</a>资源。</li>
 </ul>
 <p>
-In general, if an instance fails the constraints documented in the CapabilityStatement then the response should be a 400,
-whereas if the instance fails other non-externally described business rules, the response would be a 422 error. However, 
-there's no expectation that servers will tightly adhere to this differentiation (nor is it clear that it makes much difference 
-whether they do or not). In practice, servers may also return 5xx errors in these cases without being deemed non-conformant.
+通常情况下，如果一个实例未能满足<code>能力声明</code>中记录的约束，那么响应应该是<code>400</code>状态码，而如果该实例未能满足其他非外部描述的业务规则，那么响应将是<code>422</code>状态码。但是，不应期望服务器会严格遵守这种差异(也不清楚服务器是否会有很大的差异)。实际上，在这些情况下，服务器还可能返回<code>5xx</code>状态码，而不会被视为不一致。
 </p>
 <p>
-For additional information on how systems may behave when processing updates, refer to the <a href="./updates.html">Variations between Submitted data and Retrieved data</a> page.
+有关处理更新时系统的行为的其他信息，请参阅<a href="./updates.html">提交数据和读取数据之间的变化</a>。
 </p>
 
 <div class="draft-content">
@@ -2332,11 +2311,9 @@ the matching process to the server.
 
 
 <a name="history"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.0.12</span> history <a href="./http.html#history" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.0.12</span> 版本历史查询 <a href="./http.html#history" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The history interaction retrieves the history of either a particular resource, all resources of
-a given type, or all resources supported by the system. These three variations of the history
-interaction are performed by HTTP <code>GET</code> command as shown:
+版本历史查询操作支持查询特定资源、给定类型所有资源和系统支持的所有资源的历史版本。该操作是由HTTP的<code>GET</code>命令执行，这三种操作方式如下所示:
 </p>
 <pre>  GET [base]/[type]/[id]/_history{?[parameters]&amp;_format=[mime-type]}
   GET [base]/[type]/_history{?[parameters]&amp;_format=[mime-type]}
@@ -2364,7 +2341,7 @@ history, as do updates to the resources that result from interactions outside th
 RESTful interface.
 </p>
 <p>
-A HEAD request can also be used - <a href="./http.html#head">see below</a>.
+也能使用<code>HEAD</code>请求 - <a href="./http.html#head">见下文</a>。
 </p>
 <p>
 A <code>create</code> interaction is represented in a history interaction in the following way:
@@ -2542,15 +2519,12 @@ integrity is handled, in the documentation in the <a href="./capabilitystatement
 <a name="paging"></a>
 <h3 class="self-link-parent"><span class="sectioncount">3.1.0.14</span> 分页 <a href="./http.html#paging" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-Servers SHOULD support paging for the results of a <a href="./http.html#search">search</a> or <a href="./http.html#history">history</a> interaction,
-and if they do, they SHALL conform to this method (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed
-Paging and Archiving) <img src="./media/external.png" style="text-align: baseline"></a> for sending continuation links to the client when returning a <a href="./bundle.html">Bundle</a>
-(e.g. with <code>history</code> and <code>search</code>). If the server does not do this then there is no way to continue paging.
+服务器应支持<a href="./http.html#search">search</a>或<a href="./http.html#history">history</a>交互操作的结果集分页功能。如果支持，则服务器应遵循改编自<a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed
+Paging and Archiving)<img src="./media/external.png" style="text-align: baseline"></a>的方法，以便在返回<a href="./bundle.html">Bundle</a>(例如:<code>history</code>和<code>search</code>)时向客户端发送连续链接。如果服务器不这样做，那么就无法继续分页请求。
 </p>
 <p>
-This example shows the third page of a search result:
+如下示例展示了查询结果集的第3页:
 </p>
-
 <pre class="xml">&lt;Bundle xmlns="http://hl7.org/fhir"&gt;
   &lt;!-- snip metadata --&gt;
   &lt;!-- This Search url starts with base search, and adds the effective
@@ -2611,15 +2585,13 @@ client to convert the follow up requests to be made via a POST.
 </p>
 
 <a name="head"></a>
-<h3 class="self-link-parent"><span class="sectioncount">3.1.0.15</span> Support for HEAD <a href="./http.html#head" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<h3 class="self-link-parent"><span class="sectioncount">3.1.0.15</span> HEAD支持<a href="./http.html#head" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 
 <p>
-Anywhere that a GET request can be used, a HEAD request is also allowed. HEAD requests are treated as 
-specified in HTTP: same response as a GET, but with no body.
+所有GET请求可以用的位置，HEAD请求也能使用。HEAD请求遵循了HTTP协议的指定方式: 除去没有消息体，其它与GET请求一模一样。
 </p>
 <p>
-Servers that do not support HEAD MUST respond in accordance with the HTTP specification, 
-for example using a 405 ("method not allowed") or a 501 ("not implemented").
+如果服务器不支持HEAD请求，那么必须按照HTTP规范进行响应，例如使用<code>405</code>(“不允许的方法”)或<code>501</code>(“未实现”)。
 </p>
 
 <a name="custom"> </a>
