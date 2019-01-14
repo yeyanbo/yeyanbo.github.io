@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)http://hl7.org/fhir/smart-app-launch/conformance/index.html#using-well-known -->
+<html class="  ext-strict"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>SMART App Launch: Conformance</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="http://hl7.org/fhir" name="author">
+
+  <style class="anchorjs"></style><link rel="stylesheet" href="./media/fhir.css">
+  <link rel="Prev" href="http://hl7.org/fhir/smart-app-launch/history/index.md">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="./media/bootstrap.css">
+    <link rel="stylesheet" href="./media/bootstrap-fhir.css">
+    <link rel="stylesheet" href="./media/bootstrap-glyphicons.css">
+
+    <!-- Project extras -->
+    <link rel="stylesheet" href="./media/project.css">
+    <link rel="stylesheet" href="./media/pygments-manni.css">
+    <link rel="stylesheet" href="./media/jquery-ui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- [if lt IE 9]>
+  <script src="./assets/js/html5shiv.js"></script>
+  <script src="./assets/js/respond.min.js"></script>
+  <![endif] -->
+
+    <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/smart-app-launch/dist/apple-touch-icon-144-precomposed.png">
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/smart-app-launch/dist/apple-touch-icon-114-precomposed.png">
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/smart-app-launch/dist/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/smart-app-launch/dist/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://hl7.org/fhir/smart-app-launch/dist/favicon.png"><style type="text/css" media="screen">
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }
+
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }</style><style type="text/css" media="print">
+	.page-break	{ display:block; page-break-before:always; }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }</style><style type="text/css" media="all">
+	.page-break	{ display:none; }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1170px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1100px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }</style>
+
+</head>
+<body class=" ext-webkit ext-chrome ext-mac" id="syno-nsc-ext-gen3">
+	<div id="segment-header" class="segment">  <!-- segment-header -->
+<!-- ======================== Title Bar ======================= -->
+    <div class="container"><!-- container -->
+
+  <!-- hl7 logo -->
+      <a no-external="true" href="http://hl7.org/fhir">
+        <img alt="FHIR Homepage" class="img-responsive logo" src="./media/fhir-logo-www.png">
+      </a>
+  <!-- end hl7 logo -->
+
+
+   <!-- org logo -->
+
+
+
+            <a id="project-logo" no-external="true" href="https://smarthealthit.org/">
+              <img alt="visit the SMART website" class="img-responsive project-logo" src="./media/smart-logo.png">
+           </a>
+
+
+
+   				 <a id="project-logo" no-external="true" href="http://www.hl7.org/">
+              <img alt="visit the hl7 website" class="img-responsive project-logo" src="./media/hl7-logo.png">
+   				</a>
+
+
+    <!-- end org logo -->
+
+
+        <div id="project-status" class="project-status"> <!-- ig title text -->
+
+        
+        <strong>SMART Application Launch Framework Implementation Guide Release 1.0.0</strong>
+        
+
+      </div><!-- end ig title text -->
+
+    </div><!-- end container -->
+    <!-- ======================== End Title Bar ======================= -->
+
+
+		<div class="container">  <!-- container -->
+	</div></div>  <!-- /segment-header -->
+
+	<div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+		<div id="stripe"> </div>
+		<div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+
+			<nav class="navbar navbar-inverse">
+				<div class="container">
+					<button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+					</button>
+					<a class="navbar-brand hidden" href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#">Navbar</a>
+						<div class="nav-collapse collapse navbar-inverse-collapse">
+							<ul class="nav navbar-nav">
+								<li>
+									<a class="nav-link" href="./index.html">启动与认证</a>
+                </li>
+								<li>
+									<a class="nav-link" href="./scopes-and-launch-context.html">范围与内容</a>
+								</li>
+								<li class="dropdown">
+									<a href="./#" data-toggle="dropdown" class="dropdown-toggle">一致性<b class="caret">
+										</b>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a class="nav-link" href="./conformance.html">声明一致性</a>
+										</li>
+										<li>
+											<a class="nav-link" href="./fhir-conformance-artifacts.html">一致性: FHIR一致性Artifacts</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a class="nav-link" href="./download.html">下载</a>
+								</li>
+							</ul>
+						</div>
+						<!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+			</nav>  <!-- /.navbar -->
+
+
+  <!-- /HEADER CONTENT -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-navbar -->
+
+	<div id="segment-content" class="segment">  <!-- segment-content -->
+	<div class="container">  <!-- container -->
+            <div class="row">
+            	<div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+
+<div class="col-12">
+
+<!--status-bar-->
+<p id="publish-box">
+
+This is the   Version 1.0.0 Release  of the SMART Application Launch Framework Implementation Guide,  based on <a href="http://hl7.org/fhir/STU3/index.html">FHIR Version 3.0.1</a>.  See the <a href="http://hl7.org/fhir/smart-app-launch/history.cfml">Directory of published versions</a>
+
+</p>
+
+
+<h1>SMART App Launch: Conformance</h1>
+
+<p>The SMART’s App Launch specification enables apps to launch and securely interact with EHRs.
+The specification can be described as a set of capabilities and a given SMART on FHIR server implementation
+may implement a subset of these.  The methods of declaring a server’s SMART authorization endpoints and launch capabilities are described in the sections below.</p>
+
+<h2 id="smart-on-fhir-oauth-authorization-endpoints">SMART on FHIR OAuth authorization Endpoints<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#smart-on-fhir-oauth-authorization-endpoints" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>The server SHALL convey the FHIR OAuth authorization endpoints that are listed in the table below to app developers.  The server SHALL use <em>both</em>:</p>
+
+<ol>
+  <li>A <a href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#using-cs">FHIR CapabilityStatement</a></li>
+  <li>A <a href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#using-well-known">Well-Known Uniform Resource Identifiers (URIs)</a> JSON file.</li>
+</ol>
+
+<p>to declare its SMART authorization endpoints. (Note that we require both because the specification is transitioning away from CapabilityStatement, but needs to preserve compatibility with existing implementations.)</p>
+
+<p><em>Note</em> that while this specification does not require that absolute URIs be used for OAuth authorization endpoints, absolute URIs are a recommended practice and may be required in a future release.</p>
+
+<h2 id="smart-on-fhir-core-capabilities-and-capability-sets">SMART on FHIR Core Capabilities and Capability Sets<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#smart-on-fhir-core-capabilities-and-capability-sets" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>The server SHALL convey the <em>optional</em> SMART Core Capabilities it supports using:</p>
+
+<ul>
+  <li>A <a href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#using-well-known">Well-Known Uniform Resource Identifiers (URIs)</a> JSON file.</li>
+</ul>
+
+<h3 id="core-capabilities">Core Capabilities<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#core-capabilities" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>To promote interoperability, the following SMART on FHIR <em>Core Capabilities</em> have been defined:</p>
+
+<h4 id="launch-modes">Launch Modes<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#launch-modes" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<ul>
+  <li><code class="highlighter-rouge">launch-ehr</code>: support for SMART’s EHR Launch mode</li>
+  <li><code class="highlighter-rouge">launch-standalone</code>: support for SMART’s Standalone Launch mode</li>
+</ul>
+
+<h4 id="client-types">Client Types<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#client-types" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<ul>
+  <li><code class="highlighter-rouge">client-public</code>: support for SMART’s public client profile (no client authentication)</li>
+  <li><code class="highlighter-rouge">client-confidential-symmetric</code>: support for SMART’s confidential client profile (symmetric client secret authentication)</li>
+</ul>
+
+<h4 id="single-sign-on">Single Sign-on<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#single-sign-on" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<ul>
+  <li><code class="highlighter-rouge">sso-openid-connect</code>: support for SMART’s OpenID Connect profile</li>
+</ul>
+
+<h4 id="launch-context">Launch Context<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#launch-context" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>The following capabilities convey that a SMART on FHIR server is capable of providing basic context
+to an app at launch time. These capabilities apply during an EHR Launch or a Standalone Launch:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">context-banner</code>: support for “need patient banner” launch context (conveyed via <code class="highlighter-rouge">need_patient_banner</code> token parameter)</li>
+  <li><code class="highlighter-rouge">context-style</code>: support for “SMART style URL” launch context (conveyed via <code class="highlighter-rouge">smart_style_url</code> token parameter)</li>
+</ul>
+
+<h5 id="launch-context-for-ehr-launch">Launch Context for EHR Launch<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#launch-context-for-ehr-launch" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
+
+<p>When a SMART on FHIR server supports the launch of an app from <em>within</em> an
+existing user session (“EHR Launch”), the server has an opportunity to pass
+existing, already-established context (such as the current patient ID) through
+to the launching app. Using the following capabilities, a server declares its
+ability to pass context through to an app at launch time:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">context-ehr-patient</code>: support for patient-level launch context (requested by <code class="highlighter-rouge">launch/patient</code> scope, conveyed via <code class="highlighter-rouge">patient</code> token parameter)</li>
+  <li><code class="highlighter-rouge">context-ehr-encounter</code>: support for encounter-level launch context (requested by <code class="highlighter-rouge">launch/encounter</code> scope, conveyed via <code class="highlighter-rouge">encounter</code> token parameter)</li>
+</ul>
+
+<h5 id="launch-context-for-standalone-launch">Launch Context for Standalone Launch<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#launch-context-for-standalone-launch" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
+
+<p>When a SMART on FHIR server supports the launch of an app from <em>outside</em> an
+existing user session (“Standalone Launch”), the server may be able to
+proactively resolve new context to help establish the details required for an
+app launch. For example, an external app may request that the SMART on FHIR
+server should work with the end-user to establish a patient context before
+completing the launch.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">context-standalone-patient</code>: support for patient-level launch context (requested by <code class="highlighter-rouge">launch/patient</code> scope, conveyed via <code class="highlighter-rouge">patient</code> token parameter)</li>
+  <li><code class="highlighter-rouge">context-standalone-encounter</code>: support for encounter-level launch context (requested by <code class="highlighter-rouge">launch/encounter</code> scope, conveyed via <code class="highlighter-rouge">encounter</code> token parameter)</li>
+</ul>
+
+<h4 id="permissions">Permissions<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#permissions" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<ul>
+  <li><code class="highlighter-rouge">permission-offline</code>: support for refresh tokens (requested by <code class="highlighter-rouge">offline_access</code> scope)</li>
+  <li><code class="highlighter-rouge">permission-patient</code>: support for patient-level scopes (e.g. <code class="highlighter-rouge">patient/Observation.read</code>)</li>
+  <li><code class="highlighter-rouge">permission-user</code>: support for user-level scopes (e.g. <code class="highlighter-rouge">user/Appointment.read</code>)</li>
+</ul>
+
+<p><br></p>
+
+<h3 id="capability-sets">Capability Sets<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#capability-sets" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Additionally, Four <em>Capability Sets</em> are defined.  Any individual SMART server will publish a granular list of its capabilities; from this list a client can determine which of these Capability Sets are supported:</p>
+
+<h4 id="patient-access-for-standalone-apps">Patient Access for Standalone Apps<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#patient-access-for-standalone-apps" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<ol>
+  <li><code class="highlighter-rouge">launch-standalone</code></li>
+  <li>At least one of <code class="highlighter-rouge">client-public</code> or <code class="highlighter-rouge">client-confidential-symmetric</code></li>
+  <li><code class="highlighter-rouge">context-standalone-patient</code></li>
+  <li><code class="highlighter-rouge">permission-patient</code></li>
+</ol>
+
+<h4 id="patient-access-for-ehr-launch-ie-from-portal">Patient Access for EHR Launch (i.e. from Portal)<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#patient-access-for-ehr-launch-ie-from-portal" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<ol>
+  <li><code class="highlighter-rouge">launch-ehr</code></li>
+  <li>At least one of <code class="highlighter-rouge">client-public</code> or <code class="highlighter-rouge">client-confidential-symmetric</code></li>
+  <li><code class="highlighter-rouge">context-ehr-patient</code></li>
+  <li><code class="highlighter-rouge">permission-patient</code></li>
+</ol>
+
+<h4 id="clinician-access-for-standalone">Clinician Access for Standalone<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#clinician-access-for-standalone" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<ol>
+  <li><code class="highlighter-rouge">launch-standalone</code></li>
+  <li>At least one of <code class="highlighter-rouge">client-public</code> or <code class="highlighter-rouge">client-confidential-symmetric</code></li>
+  <li><code class="highlighter-rouge">permission-user</code></li>
+  <li><code class="highlighter-rouge">permission-patient</code></li>
+</ol>
+
+<h4 id="clinician-access-for-ehr-launch">Clinician Access for EHR Launch<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#clinician-access-for-ehr-launch" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<ol>
+  <li><code class="highlighter-rouge">launch-ehr</code></li>
+  <li>At least one of <code class="highlighter-rouge">client-public</code> or <code class="highlighter-rouge">client-confidential-symmetric</code></li>
+  <li><code class="highlighter-rouge">context-ehr-patient</code> support</li>
+  <li><code class="highlighter-rouge">context-ehr-encounter</code> support</li>
+  <li><code class="highlighter-rouge">permission-user</code></li>
+  <li><code class="highlighter-rouge">permission-patient</code></li>
+</ol>
+
+<h2 id="using-cs">使用FHIR能力声明获取授权服务端点和能力发现<a class="anchorjs-link " href="./conformance.html#using-cs" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="declaring-support-for-oauth2-endpoints">Declaring Support for OAuth2 Endpoints<a class="anchorjs-link " href="./conformance.html#declaring-support-for-oauth2-endpoints" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>If a server supports SMART on FHIR authorization for access, it declares support for
+automated discovery of OAuth2 endpoints in its <a href="http://hl7.org/fhir/STU3/capabilitystatement.html">CapabilityStatement</a> using the <a href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#oauth-uris-extension">OAuth Uri extension</a> on the <code class="highlighter-rouge">rest.security</code> element (or, when using FHIR DSTU2, the
+<code class="highlighter-rouge">Conformance.rest.security</code> element). Any time a client sees this extension, it
+must be prepared to authorize using SMART’s OAuth2-based protocol.</p>
+
+<p>OAuth扩展有如下组成部分:</p>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>组成</th>
+      <th>可选性</th>
+      <th>数据类型</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>authorize</td>
+      <td><strong>必选</strong></td>
+      <td><code class="highlighter-rouge">valueUri</code></td>
+      <td>指向OAuth2授权服务端点的URL地址。</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td><strong>必选</strong></td>
+      <td><code class="highlighter-rouge">valueUri</code></td>
+      <td>指向OAuth2的token服务端点的URL地址。</td>
+    </tr>
+    <tr>
+      <td>register</td>
+      <td><strong>可选</strong></td>
+      <td><code class="highlighter-rouge">valueUri</code></td>
+      <td>如果存在，URL to the OAuth2 dynamic registration endpoint for this FHIR server.</td>
+    </tr>
+    <tr>
+      <td>manage</td>
+      <td><strong>可选</strong></td>
+      <td><code class="highlighter-rouge">valueUri</code></td>
+      <td>如果存在，URL where an end-user can view which applications currently have access to data and can make adjustments to these access rights.</td>
+    </tr>
+    <tr>
+      <td>introspect</td>
+      <td><strong>可选</strong></td>
+      <td><code class="highlighter-rouge">valueUri</code></td>
+      <td>指向用于验证<code>token</code>的自省服务端点URL地址。</td>
+    </tr>
+    <tr>
+      <td>revoke</td>
+      <td><strong>可选</strong></td>
+      <td><code class="highlighter-rouge">valueUri</code></td>
+      <td>指向用于废止<code>token</code>的服务端点URL地址。</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- =======  reference to formal definition ============== -->
+
+<h4 id="oauth-uris-extension">OAuth URIs Extension<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#oauth-uris-extension" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/StructureDefinition-oauth-uris.html"><strong>STU3 StructureDefinition for OAuth-URI</strong></a></li>
+  <li><a href="http://hl7.org/fhir/smart-app-launch/StructureDefinition-dstu2-oauth-uris.html"><strong>DSTU2  StructureDefinition for OAuth-URI</strong></a></li>
+</ul>
+
+<!-- 
+{ % include StructureDefinition-oauth-uris-inline.html % }
+  -->
+
+<!-- =======   reference to formal definition ============== -->
+
+<!--
+### Publishing Additional Conformance Details
+
+A SMART on FHIR server should also describe which *optional* SMART core set of capabilities is it supports by declaring it within the CapabilityStatement [capabilities extension](#capabilities-extension) on the `rest.security` element (or, when using FHIR DSTU2, the
+`Conformance.rest.security` element).
+
+
+=======  inline view of extension ==============
+
+#### SMART Capabilities Extension
+
+Full StructureDefinition: [STU3](/StructureDefinition-extension-smart-capabilities.html), [DSTU2](/todo.html)
+
+{% include StructureDefinition-extension-smart-capabilities-inline.html %}
+
+ =======    end inline view of extension ==============
+
+-->
+
+<h3 id="example">示例<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#example" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "resourceType": "CapabilityStatement",
+...
+  "rest": [{
+   ...
+      "security": {
+        "service": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/restful-security-service",
+                "code": "SMART-on-FHIR"
+              }
+            ],
+            "text": "OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org)"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://my-server.org/token"
+              },
+              {
+                "url": "authorize",
+                "valueUri": "https://my-server.org/authorize"
+              },
+              {
+                "url": "manage",
+                "valueUri": "https://my-server.org/authorizations/manage"
+              }
+              ,
+              {
+                "url": "introspect",
+                "valueUri": "https://my-server.org/authorizations/introspect"
+              },
+              {
+                "url": "revoke",
+                "valueUri": "https://my-server.org/authorizations/revoke"
+              }
+            ]
+          }
+        ]      ...
+</code></pre></div></div>
+
+<p>(完整示例请见<a href="http://hl7.org/fhir/smart-app-launch/CapabilityStatement-smart-app-launch-example.html">CapabilityStatement Example</a>)</p>
+
+<h2 id="using-well-known">FHIR Authorization Endpoint and Capabilities Discovery using a Well-Known Uniform Resource Identifiers (URIs)<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#using-well-known" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>As an alternative to using a FHIR CapabilityStatement, the authorization endpoints accepted by a FHIR resource server can be exposed as a Well-Known Uniform Resource Identifiers (URIs) <a href="https://tools.ietf.org/html/rfc5785">(RFC5785)</a> JSON document.</p>
+
+<p>FHIR endpoints requiring authorization SHALL serve a JSON document at the location formed by appending <code class="highlighter-rouge">/.well-known/smart-configuration</code> to their base URL.
+Contrary to RFC5785 Appendix B.4, the <code class="highlighter-rouge">.well-known</code> path component may be appended even if the FHIR endpoint already contains a path component.</p>
+
+<h3 id="request">Request<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#request" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>请求示例:</p>
+
+<h4 id="base-url-fhirehrexamplecom">Base URL “fhir.ehr.example.com”<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#base-url-fhirehrexamplecom" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /.well-known/smart-configuration HTTP/1.1
+Host: fhir.ehr.example.com
+</code></pre></div></div>
+
+<h4 id="base-url-wwwehrexamplecomapisfhir">Base URL “www.ehr.example.com/apis/fhir”<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#base-url-wwwehrexamplecomapisfhir" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /apis/fhir/.well-known/smart-configuration HTTP/1.1
+Host: www.ehr.example.com
+</code></pre></div></div>
+
+<h3 id="response">请求响应<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#response" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>必须返回一个使用了<code class="highlighter-rouge">application/json</code>格式的JSON文档。</p>
+
+<h4 id="metadata">元数据<a class="anchorjs-link" href="./conformance.html#metadata" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>组成</th>
+      <th>可选性</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>authorization_endpoint</td>
+      <td><strong>必选</strong></td>
+      <td>指向OAuth2授权服务端点的URL地址。</td>
+    </tr>
+    <tr>
+      <td>token_endpoint</td>
+      <td><strong>必选</strong></td>
+      <td>指向OAuth2的token服务端点的URL地址。</td>
+    </tr>
+    <tr>
+      <td>token_endpoint_auth_methods</td>
+      <td><strong>可选</strong></td>
+      <td>array of client authentication methods supported by the token endpoint. The options are “client_secret_post” and “client_secret_basic”.</td>
+    </tr>
+    <tr>
+      <td>registration_endpoint</td>
+      <td><strong>可选</strong></td>
+      <td>if available, URL to the OAuth2 dynamic registration endpoint for this FHIR server.</td>
+    </tr>
+    <tr>
+      <td>scopes_supported</td>
+      <td><strong>建议</strong></td>
+      <td>array of scopes a client may request. See <a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#quick-start">scopes and launch context</a>.</td>
+    </tr>
+    <tr>
+      <td>response_types_supported</td>
+      <td><strong>建议</strong></td>
+      <td>array of OAuth2 <code class="highlighter-rouge">response_type</code> values that are supported</td>
+    </tr>
+    <tr>
+      <td>management_endpoint</td>
+      <td><strong>建议</strong></td>
+      <td>URL where an end-user can view which applications currently have access to data and can make adjustments to these access rights.</td>
+    </tr>
+    <tr>
+      <td>introspection_endpoint</td>
+      <td><strong>建议</strong></td>
+      <td>URL to a server’s introspection endpoint that can be used to validate a token.</td>
+    </tr>
+    <tr>
+      <td>revocation_endpoint</td>
+      <td><strong>建议</strong></td>
+      <td>URL to a server’s revoke endpoint that can be used to revoke a token.</td>
+    </tr>
+    <tr>
+      <td>capabilities</td>
+      <td><strong>必选</strong></td>
+      <td>array of strings representing SMART capabilities (例如, <code class="highlighter-rouge">single-sign-on</code> or <code class="highlighter-rouge">launch-standalone</code>) that the server supports.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sample-response">响应示例<a class="anchorjs-link " href="./conformance.html#sample-response" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "authorization_endpoint": "https://ehr.example.com/auth/authorize",
+  "token_endpoint": "https://ehr.example.com/auth/token",
+  "token_endpoint_auth_methods_supported": ["client_secret_basic"],
+  "registration_endpoint": "https://ehr.example.com/auth/register",
+  "scopes_supported": ["openid", "profile", "launch", "launch/patient", "patient/*.*", "user/*.*", "offline_access"],
+  "response_types_supported": ["code", "code id_token", "id_token", "refresh_token"],
+  "management_endpoint": "https://ehr.example.com/user/manage"
+  "introspection_endpoint": "https://ehr.example.com/user/introspect"
+  "revocation_endpoint": "https://ehr.example.com/user/revoke",
+  "capabilities": ["launch-ehr", "client-public", "client-confidential-symmetric", "context-ehr-patient", "sso-openid-connect"]
+}
+</code></pre></div></div>
+
+<h3 id="well-known-uri-registry">Well-Known URI Registry<a class="anchorjs-link " href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#well-known-uri-registry" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<ul>
+  <li>URI Suffix: smart-configuration</li>
+</ul>
+
+
+
+
+</div>
+
+
+				</div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+<!-- back to top arrow -->
+
+<a id="back-to-top" href="http://hl7.org/fhir/smart-app-launch/conformance/index.html#" class="btn btn-info btn-lg back-to-top" role="button" title="" data-toggle="tooltip" data-placement="left" data-original-title="Click to return on the top page" style="display: inline;"><span class="glyphicon glyphicon-chevron-up"></span></a><div class="tooltip fade left in" style="top: -11px; left: -190px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Click to return on the top page</div></div>
+
+
+<!-- end back to top arrow -->
+
+
+    <div id="segment-footer" class="segment">  <!-- segment-footer -->
+  		<div class="container">  <!-- container -->
+  			<div class="inner-wrapper">
+  				<p>Smart App Launch Framework Version: 1.0.0
+          © Boston Children's Hospital and Health Level Sevel International. This content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"><!-- <img height=auto  alt="CC BY 4.0" src="../dist/CC-BY_icon.svg"/> -->CC BY 4.0</a>.  Generated 2018-11-13 01:23:56 +1100.
+          <span style="color: #FFFF77"> |
+            <a style="color: #81BEF7" target="_blank" href="http://hl7.org/fhir/smart-app-launch/history.cfml">History</a>
+            | <a style="color: #81BEF7" target="_blank" href="https://github.com/HL7/smart-app-launch/issues">Propose a change</a>
+          </span>
+          </p>
+  			</div>  <!-- /inner-wrapper -->
+  		</div>  <!-- /container -->
+  	</div>  <!-- /segment-footer -->
+
+
+	<div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+		<div class="container">  <!-- container -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-post-footer -->
+
+      <!-- JS and analytics only. -->
+      <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+<script src="./media/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+<script src="./media/bootstrap.min.js"> </script>
+<script src="./media/respond.min.js"> </script>
+<script src="./media/anchor.min.js"> </script>
+<script src="./media/fhir.js"> </script>
+<script src="./media/topofpage.js"> </script>
+
+
+<!--   end added for profile tabs -->
+
+
+  <!-- Analytics Below
+================================================== -->
+<!-- add anchors before the closing body tag. no sure why the hover is not working?-->
+<script> anchors.options = {
+  visible: 'always'
+}; anchors.add('h2, h3, h4, h5, h6,.anchored')
+</script>
+
+
+
+<div id="syno-nsc-ext-comp-1008" class=" x-tip-invalid" style="position: absolute; z-index: 11000; visibility: hidden; display: none;"><div class="x-tip-invalid-tl"><div class="x-tip-invalid-tr"><div class="x-tip-invalid-tc"><div class="x-tip-invalid-header x-unselectable" id="syno-nsc-ext-gen4"><span class="x-tip-invalid-header-text"></span></div></div></div></div><div class="x-tip-invalid-bwrap" id="syno-nsc-ext-gen5"><div class="x-tip-invalid-ml"><div class="x-tip-invalid-mr"><div class="x-tip-invalid-mc" id="syno-nsc-ext-gen8"><div class="x-tip-invalid-body" id="syno-nsc-ext-gen6" style="height: auto;"></div></div></div></div><div class="x-tip-invalid-bl x-panel-nofooter" id="syno-nsc-ext-gen7"><div class="x-tip-invalid-br"><div class="x-tip-invalid-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="syno-nsc-ext-gen9" style="z-index: 11001;"></div></div></body></html>

@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)./ -->
+<html class="  ext-strict"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>SMART App Launch Framework</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="http://hl7.org/fhir" name="author">
+
+  <style class="anchorjs"></style><link rel="stylesheet" href="./media/fhir.css">
+  <link rel="Prev" href="./history/index.md">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="./media/bootstrap.css">
+    <link rel="stylesheet" href="./media/bootstrap-fhir.css">
+    <link rel="stylesheet" href="./media/bootstrap-glyphicons.css">
+
+    <!-- Project extras -->
+    <link rel="stylesheet" href="./media/project.css">
+    <link rel="stylesheet" href="./media/pygments-manni.css">
+    <link rel="stylesheet" href="./media/jquery-ui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- [if lt IE 9]>
+  <script src="./assets/js/html5shiv.js"></script>
+  <script src="./assets/js/respond.min.js"></script>
+  <![endif] -->
+
+    <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="./dist/apple-touch-icon-144-precomposed.png">
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="./dist/apple-touch-icon-114-precomposed.png">
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="./dist/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="./dist/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="./dist/favicon.png"><style type="text/css" media="screen">
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }
+
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }</style><style type="text/css" media="print">
+	.page-break	{ display:block; page-break-before:always; }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }</style><style type="text/css" media="all">
+	.page-break	{ display:none; }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1170px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 940px;
+  }
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12 {
+    float: left;
+  }
+  .col-lg-1 {
+    width: 8.333333333333332%;
+  }
+  .col-lg-2 {
+    width: 16.666666666666664%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333333333333%;
+  }
+  .col-lg-5 {
+    width: 41.66666666666667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.333333333333336%;
+  }
+  .col-lg-8 {
+    width: 66.66666666666666%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333333333334%;
+  }
+  .col-lg-11 {
+    width: 91.66666666666666%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-offset-1 {
+    margin-left: 8.333333333333332%;
+  }
+  .col-offset-2 {
+    margin-left: 16.666666666666664%;
+  }
+  .col-offset-3 {
+    margin-left: 25%;
+  }
+  .col-offset-4 {
+    margin-left: 33.33333333333333%;
+  }
+  .col-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .col-offset-6 {
+    margin-left: 50%;
+  }
+  .col-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .col-offset-8 {
+    margin-left: 66.66666666666666%;
+  }
+  .col-offset-9 {
+    margin-left: 75%;
+  }
+  .col-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .col-offset-11 {
+    margin-left: 91.66666666666666%;
+  }
+
+  .container {
+    max-width: 1100px;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: none !important;
+  }
+  tr.visible-md {
+    display: none !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: none !important;
+  }
+  .visible-lg {
+    display: block !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: block !important;
+  }
+  tr.hidden-md {
+    display: table-row !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: table-cell !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+  tr.hidden-lg {
+    display: none !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: none !important;
+  }</style>
+
+</head>
+<body class=" ext-webkit ext-chrome ext-mac" id="syno-nsc-ext-gen3">
+	<div id="segment-header" class="segment">  <!-- segment-header -->
+<!-- ======================== Title Bar ======================= -->
+    <div class="container"><!-- container -->
+
+  <!-- hl7 logo -->
+      <a no-external="true" href="http://hl7.org/fhir">
+        <img alt="FHIR Homepage" class="img-responsive logo" src="./media/fhir-logo-www.png">
+      </a>
+  <!-- end hl7 logo -->
+
+
+   <!-- org logo -->
+
+
+
+            <a id="project-logo" no-external="true" href="https://smarthealthit.org/">
+              <img alt="visit the SMART website" class="img-responsive project-logo" src="./media/smart-logo.png">
+           </a>
+
+
+
+   				 <a id="project-logo" no-external="true" href="http://www.hl7.org/">
+              <img alt="visit the hl7 website" class="img-responsive project-logo" src="./media/hl7-logo.png">
+   				</a>
+
+
+    <!-- end org logo -->
+
+
+        <div id="project-status" class="project-status"> <!-- ig title text -->
+
+        
+        <strong>SMART Application Launch Framework Implementation Guide Release 1.0.0</strong>
+        
+
+      </div><!-- end ig title text -->
+
+    </div><!-- end container -->
+    <!-- ======================== End Title Bar ======================= -->
+
+
+		<div class="container">  <!-- container -->
+	</div></div>  <!-- /segment-header -->
+
+	<div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+		<div id="stripe"> </div>
+		<div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+
+			<nav class="navbar navbar-inverse">
+				<div class="container">
+					<button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+					</button>
+					<a class="navbar-brand hidden" href="./#">Navbar</a>
+						<div class="nav-collapse collapse navbar-inverse-collapse">
+							<ul class="nav navbar-nav">
+								<li>
+									<a class="nav-link" href="./index.html">启动与认证</a>
+                </li>
+								<li>
+									<a class="nav-link" href="./scopes-and-launch-context.html">范围与内容</a>
+								</li>
+								<li class="dropdown">
+									<a href="./#" data-toggle="dropdown" class="dropdown-toggle">一致性<b class="caret">
+										</b>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a class="nav-link" href="./conformance.html">声明一致性</a>
+										</li>
+										<li>
+											<a class="nav-link" href="./fhir-conformance-artifacts.html">一致性: FHIR一致性Artifacts</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a class="nav-link" href="./download.html">下载</a>
+								</li>
+							</ul>
+						</div>
+						<!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+			</nav>  <!-- /.navbar -->
+
+
+  <!-- /HEADER CONTENT -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-navbar -->
+
+	<div id="segment-content" class="segment">  <!-- segment-content -->
+	<div class="container">  <!-- container -->
+            <div class="row">
+            	<div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+
+<div class="col-12">
+
+<!--status-bar-->
+<p id="publish-box">
+
+This is the   Version 1.0.0 Release  of the SMART Application Launch Framework Implementation Guide,  based on <a href="http://hl7.org/fhir/STU3/index.html">FHIR Version 3.0.1</a>.  See the <a href="./history.cfml">Directory of published versions</a>
+
+</p>
+
+
+<h1>SMART应用启动框架</h1>
+
+<p>The SMART App Launch Framework connects third-party applications to Electronic
+Health Record data, allowing apps to launch from inside or outside the user
+interface of an EHR system. The framework supports apps for use by clinicians,
+patients, and others via a PHR or Patient Portal or any FHIR system where a user can give permissions to launch an app. It provides a reliable, secure authorization protocol for
+a variety of app architectures, including apps that run on an end-user’s device
+as well as apps that run on a secure server.  The Launch Framework supports the
+<a href="http://argonautwiki.hl7.org/images/4/4c/Argonaut_UseCasesV1.pdf">four uses
+cases</a> defined for Phase 1 of the
+<a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut Project</a>:</p>
+
+<ol>
+  <li>独立启动的患者应用</li>
+  <li>门户启动的患者应用</li>
+  <li>独立启动的提供商应用</li>
+  <li>门户启动的提供商应用</li>
+</ol>
+
+<h2 id="profile-audience-and-scope">读者与范围<a class="anchorjs-link " href="./#profile-audience-and-scope" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>
+This profile is intended to be used by developers of apps that need to access
+FHIR resources by requesting access tokens from OAuth 2.0兼容的认证服务器。It is compatible with FHIR DSTU2 and above, and includes
+explicit definitions for extensions in DSTU2 and STU3.</p>
+
+<p>OAuth 2.0授权服务器配置为根据一组规则来调解访问，这些规则被配置为实施机构策略，其中可能包括请求最终用户授权。此配置文件不指示授权服务器中实施的机构策略。
+
+OAuth 2.0认证服务器are configured to mediate access based on
+a set of rules configured to enforce institutional policy, which may
+include requesting end-user authorization.  This profile
+does not dictate the institutional policies that are implemented in the
+authorization server.</p>
+
+<p>The profile defines a method through which an app requests
+authorization to access a FHIR resource, and then uses that authorization
+to retrieve the resource. Synchronization of patient context is not addressed.  
+In other words, if the patient chart is changed during the session, the application will not inherently be updated.  
+Other security mechanisms, such as those mandated by HIPAA in the US (end-user authentication, session time-out, security auditing,
+and accounting of disclosures) are outside the scope of this profile.
+
+该配置文件定义了一种方法，通过该方法，应用请求授权访问一个FHIR资源，然后使用该授权来获取资源。没有解决患者上下文的同步问题。
+换句话说，如果在会话期间更改患者图表，则不会固有地更新应用程序。其他安全机制，例如美国HIPAA规定的安全机制(终端用户认证、会话超时、安全审计以及账户披露)超出了此配置文件的范围。
+</p>
+
+<h2 id="app-protection">App protection<a class="anchorjs-link " href="./#app-protection" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>The app is responsible for protecting itself from potential misbehaving or
+malicious values passed to its redirect URL (e.g., values injected with
+executable code, such as SQL) and for protecting authorization codes, access
+tokens, and refresh tokens from unauthorized access and use.  The app
+developer must be aware of potential threats, such as malicious apps running
+on the same platform, counterfeit authorization servers, and counterfeit
+resource servers, and implement countermeasures to help protect both the app
+itself and any sensitive information it may hold. For background, see the
+<a href="https://tools.ietf.org/html/rfc6819">OAuth 2.0 Threat Model and Security
+Considerations</a>.</p>
+
+<ul>
+  <li>
+    <p>Apps SHALL ensure that sensitive information (authentication secrets,
+authorization codes, tokens) is transmitted ONLY to authenticated servers,
+over TLS-secured channels.</p>
+  </li>
+  <li>
+    <p>Apps SHALL generate an unpredictable <code class="highlighter-rouge">state</code> parameter for each user
+session.  An app SHALL validate the <code class="highlighter-rouge">state</code> value for any request sent to its
+redirect URL; include <code class="highlighter-rouge">state</code> with all authorization requests; and validate
+the <code class="highlighter-rouge">state</code> value included in access tokens it receives.</p>
+  </li>
+  <li>
+    <p>An app SHALL NOT execute any inputs it receives as code.</p>
+  </li>
+  <li>
+    <p>An app SHALL NOT forward values passed back to its redirect URL to any
+other arbitrary or user-provided URL (a practice known as an “open
+redirector”).</p>
+  </li>
+  <li>
+    <p>An app SHALL NOT store bearer tokens in cookies that are transmitted
+in the clear.</p>
+  </li>
+  <li>
+    <p>Apps should persist tokens and other sensitive data in app-specific
+storage locations only, not in system-wide-discoverable locations.</p>
+  </li>
+</ul>
+
+<h2 id="support-for-public-and-confidential-apps">Support for “public” and “confidential” apps<a class="anchorjs-link " href="./#support-for-public-and-confidential-apps" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>Within this profile we differentiate between the two types of apps defined in the <a href="https://tools.ietf.org/html/rfc6749#section-2.1">OAuth 2.0 specification: confidential and public</a>. The differentiation is based upon whether the execution environment within which the app runs
+enables the app to protect secrets.   Pure client-side apps
+(for example, HTML5/JS browser-based apps, iOS mobile
+apps, or Windows desktop apps) can provide adequate security, but they may be unable to “keep a secret” in the OAuth2 sense.  In other words, any “secret” key, code, or
+string that is statically embedded in the app can potentially be extracted by an end-user
+or attacker. Hence security for these apps cannot depend on secrets embedded at
+install-time.</p>
+
+<p>For strategies and best practices to protecting a client secret refer to:</p>
+
+<ul>
+  <li>OAuth 2.0风险模型和安全考量: <a href="https://tools.ietf.org/html/rfc6819#section-4.1.1">4.1.1. Threat: Obtaining Client Secrets</a></li>
+  <li>针对于原生应用的OAuth 2.0: <a href="https://tools.ietf.org/html/draft-ietf-oauth-native-apps-12#section-8.5">8.5. Client Authentication</a></li>
+  <li><a href="https://tools.ietf.org/html/rfc7591">OAuth 2.0 Dynamic Client Registration Protocol</a></li>
+</ul>
+
+<h4 id="use-the-confidential-app--profile-if-your-app-is-able-to-protect-a-client_secret">Use the <span class="label label-primary">confidential app</span>  profile if your app is <em>able</em> to protect a <code class="highlighter-rouge">client_secret</code><a class="anchorjs-link " href="./#use-the-confidential-app--profile-if-your-app-is-able-to-protect-a-client_secret" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>例如:</p>
+
+<ul>
+  <li>App runs on a trusted server with only server-side access to the secret</li>
+  <li>App is a native app that uses additional technology (such as dynamic client registration and universal redirect_uris) to protect the <code class="highlighter-rouge">client_secret</code></li>
+</ul>
+
+<h4 id="use-the-public-app-profile-if-your-app-is-unable-to-protect-a-client_secret">Use the <span class="label label-primary">public app</span> profile if your app is <em>unable</em> to protect a <code class="highlighter-rouge">client_secret</code><a class="anchorjs-link " href="./#use-the-public-app-profile-if-your-app-is-unable-to-protect-a-client_secret" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>例如:</p>
+
+<ul>
+  <li>你的应用是一个HTML5应用或者在浏览器中使用JS脚本的应用，它们都会暴露<code>客户密钥</code></li>
+  <li>你的应用虽然是个原生应用，但是仅能分配静态的<code class="highlighter-rouge">客户密钥</code></li>
+</ul>
+
+<h2 id="registering-a-smart-app-with-an-ehr">Registering a SMART App with an EHR<a class="anchorjs-link " href="./#registering-a-smart-app-with-an-ehr" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>Before a SMART app can run against an EHR, the app must be registered with that
+EHR’s authorization service.  SMART does not specify a standards-based registration process, but we
+encourage EHR implementers to consider the <a href="https://tools.ietf.org/html/rfc7591">OAuth 2.0 Dynamic Client
+Registration Protocol</a>
+for an out-of-the-box solution.</p>
+
+<p>No matter how an app registers with an EHR’s authorization service, at registration time <strong>every SMART app must</strong>:</p>
+
+<ul>
+  <li>Register zero or more fixed, fully-specified launch URL with the EHR’s authorization server</li>
+  <li>Register one or more fixed, fully-specified <code class="highlighter-rouge">redirect_uri</code>s with the EHR’s authorization server.  Note: In the case of native clients following the OAuth 2.0 for Native Apps specification <a href="https://tools.ietf.org/html/rfc8252">(RFC 8252)</a>, it may be appropriate to leave the port as a dynamic variable in an otherwise fixed redirect URI.</li>
+</ul>
+
+<h2 id="smart-authorization--fhir-access-overview">SMART授权及FHIR访问: 概述<a class="anchorjs-link " href="./#smart-authorization--fhir-access-overview" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>应用可以在现有的EHR或患者门户的会话中启动，这被称为EHR启动模式；另外，它还可以采用独立启动模式。</p>
+
+<p>在<span class="label label-primary">EHR启动模式</span>下，EHR上下文的不透明句柄可以作为启动URL的一部分传递给应用。
+稍后，当应用请求授权访问资源时，该应用将此上下文句柄作为请求参数之一。请注意，供EHR用户使用的所有应用的完整网址已在EHR授权服务器中注册。</p>
+
+<p>在<span class="label label-primary">独立启动模式</span>下，应用从EHR会话外部启动，
+应用可以在下面描述的授权过程中从EHR授权服务器请求上下文。</p>
+
+<p>应用收到启动请求后，会通过浏览器导航到EHR的授权端点来请求授权访问FHIR资源。
+根据预定义的规则和可能的终端用户授权，EHR授权服务器通过向应用的重定向URL返回授权代码来允许请求，或拒绝请求。
+应用通过授权码获取到访问令牌， 然后将访问令牌传给EHR的资源服务器以访问所请求的FHIR资源。
+如果与访问令牌一起返回刷新令牌，则一旦访问令牌到期，应用可以使用刷新令牌来重新请求具有相同范围的新访问令牌。</p>
+
+<h2 id="smart-launch-sequence">SMART的“启动顺序”<a class="anchorjs-link " href="./#smart-launch-sequence" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>下面描述了两种可替换的启动顺序:</p>
+
+<h3 id="ehr-launch-sequence">EHR启动模式顺序图<a class="anchorjs-link " href="./#ehr-launch-sequence" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<div>
+<img class="spec-image" src="./media/cdraw">
+</div>
+
+<p>In SMART’s <span class="label label-primary">EHR launch</span> flow (shown above),
+a user has established an EHR session, and then decides to launch an app. This
+could be a single-patient app (which runs in the context of a patient record), or
+a user-level app (like an appointment manager or a population dashboard). The EHR
+initiates a “launch sequence” by opening a new browser instance (or <code class="highlighter-rouge">iframe</code>)
+pointing to the app’s registered launch URL and passing some context.</p>
+
+<p>包含如下参数:</p>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="3">参数</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><code>iss</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>标识EHR系统的FHIR服务端点，应用可以使用该端点获取有关EHR系统的其他详细信息，包括其授权URL。</td>
+    </tr>
+    <tr>
+      <td><code>launch</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>此特定启动的不透明标识符以及与之关联的任何EHR上下文。 必须通过传递<code>launch</code>参数(参见下面的示例)，在授权时将此参数传递回EHR。
+      Opaque identifier for this specific launch, and any EHR context associated
+with it. This parameter must be communicated back to the EHR  at authorization
+time by passing along a <code>launch</code> parameter (see example below).
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="for-example"><em>例如:</em><a class="anchorjs-link " href="./#for-example" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<p>A launch might cause the browser to navigate to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Location: https://app/launch?iss=https%3A%2F%2Fehr%2Ffhir&amp;launch=xyz123
+</code></pre></div></div>
+
+<p>当接收到启动通知后，应用会On receiving the launch notification, the app would query the issuer’s <code class="highlighter-rouge">/metadata/</code> endpoint or
+<a href="./conformance.html#using-well-known">.well-known/smart-configuration.json</a> endpoint which contains (among other details) the EHR’s identifying the OAuth <code class="highlighter-rouge">authorize</code> and <code class="highlighter-rouge">token</code>
+endpoint URLs for use in requesting authorization to access FHIR
+resources.</p>
+
+<p>Later, when the app prepares a list of access scopes to request from
+the EHR authorization server, it will be associated with the existing EHR context by
+including the launch notification in the scope.</p>
+
+<h3 id="standalone-launch-sequence">Standalone launch sequence<a class="anchorjs-link " href="./#standalone-launch-sequence" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<div>
+<img class="spec-image" src="./media/cdraw(1)">
+</div>
+
+<p>Alternatively, in SMART’s <span class="label label-primary">standalone
+launch</span> flow (shown above), a user selects an app from outside the EHR,
+for example by tapping an app icon on a mobile phone home screen. This app
+will launch from its registered URL without a launch id.</p>
+
+<p>In order to obtain launch context and request authorization to access FHIR
+resources, the app discovers the EHR authorization server’s OAuth
+<code class="highlighter-rouge">authorize</code> and <code class="highlighter-rouge">token</code> endpoint URLs by querying their
+<a href="./conformance/index.html#using-well-known">.well-known/smart-configuration.json</a> file.</p>
+
+<p>The app then can declare its launch context requirements
+by adding specific scopes to the request it sends to the EHR’s authorization
+server.  The <code class="highlighter-rouge">authorize</code> endpoint
+will acquire the context the app needs and make it available.</p>
+
+<h4 id="for-example-1"><em>For example:</em><a class="anchorjs-link " href="./#for-example-1" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>If the app needs patient context, the EHR’s authorization server
+may provide the end-user with a
+patient selection widget.  For full details, see <a href="./scopes-and-launch-context/index.html">SMART launch context parameters</a>.</p>
+
+<ul>
+  <li>launch/patient - to indicate that the app needs to know a patient ID</li>
+  <li>launch/encounter - to indicate the app needs an encounter</li>
+</ul>
+
+<h2 id="smart-authorization-and-resource-retrieval">SMART authorization and resource retrieval<a class="anchorjs-link " href="./#smart-authorization-and-resource-retrieval" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="smart-authorization-sequence"><em>SMART authorization sequence</em><a class="anchorjs-link " href="./#smart-authorization-sequence" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<div>
+<img class="spec-image" src="./media/cdraw(2)">
+</div>
+
+<p><a id="step-1"></a></p>
+
+<h4 id="step-1-app-asks-for-authorization">Step 1: App asks for authorization<a class="anchorjs-link " href="./#step-1-app-asks-for-authorization" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>At launch time, the app constructs a request for authorization by adding the
+following parameters to the query component of the EHR’s “authorize” endpoint
+URL.:</p>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="3">参数</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><code>response_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Fixed value: <code>code</code>. </td>
+    </tr>
+    <tr>
+      <td><code>client_id</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>客户端标识. </td>
+    </tr>
+    <tr>
+      <td><code>redirect_uri</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Must match one of the client's pre-registered redirect URIs.</td>
+    </tr>
+    <tr>
+      <td><code>launch</code></td>
+      <td><span class="label label-info">optional</span></td>
+      <td>When using the <span class="label label-primary">EHR launch</span>flow, this must match the launch value received from the EHR.</td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+
+Must describe the access that the app needs, including clinical data scopes like
+<code>patient/*.read</code>, <code>openid</code> and <code>fhirUser</code> (if app
+needs authenticated patient identity) and either:
+
+<ul>
+<li> a <code>launch</code> value indicating that the app wants to receive already-established launch context details from the EHR </li>
+<li> a set of launch context requirements in the form <code>launch/patient</code>, which asks the EHR to establish context on your behalf.</li>
+</ul>
+
+See <a href="./scopes-and-launch-context/index.html">SMART on FHIR Access Scopes</a> details.
+
+      </td>
+    </tr>
+    <tr>
+      <td><code>state</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+
+An opaque value used by the client to maintain state between the request and
+callback. The authorization server includes this value when redirecting the
+user-agent back to the client. The parameter SHALL be used for preventing
+cross-site request forgery or session fixation attacks.
+
+      </td>
+    </tr>
+     <tr>
+      <td><code>aud</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+
+URL of the EHR resource server from which the app wishes to retrieve FHIR data.
+This parameter prevents leaking a genuine bearer token to a counterfeit
+resource server. (Note: in the case of an <span class="label label-primary">EHR launch</span>
+flow, this <code>aud</code> value is the same as the launch's <code>iss</code> value.)
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The app SHALL use an unpredictable value for the state parameter
+with at least 122 bits of entropy (e.g., a properly configured random uuid is suitable). The app SHALL validate the value
+of the state parameter upon return to the redirect URL and SHALL ensure
+that the state value is securely tied to the user’s current session
+(e.g., by relating the state value to a session identifier issued
+by the app). The app SHOULD limit the grants, scope, and period of
+time requested to the minimum necessary.</p>
+
+<p>If the app needs to authenticate the identity of the end-user, it should
+include two OpenID Connect scopes:  <code class="highlighter-rouge">openid</code> and <code class="highlighter-rouge">fhirUser</code>.   When these scopes
+are requested, and the request is granted, the app will receive an id_token
+along with the access token.  For full details, see <a href="./scopes-and-launch-context/index.html">SMART launch context
+parameters</a>.</p>
+
+<h5 id="for-example-2"><em>例如:</em><a class="anchorjs-link " href="./#for-example-2" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
+<p>If an app needs demographics and observations for a single
+patient, and also wants information about the current logged-in user, the app  can request:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">patient/Patient.read</code></li>
+  <li><code class="highlighter-rouge">patient/Observation.read</code></li>
+  <li><code class="highlighter-rouge">openid fhirUser</code></li>
+</ul>
+
+<p>If the app was launched from an EHR, the app adds a <code class="highlighter-rouge">launch</code> scope and a
+<code class="highlighter-rouge">launch={launch id}</code> URL parameter, echoing the value it received from the EHR
+to be associated with the EHR context of this launch notification.</p>
+
+<p><em>Apps using the <span class="label label-primary">standalone launch</span> flow
+won’t have a <code class="highlighter-rouge">launch</code> id at this point.  These apps can declare launch context
+requirements by adding specific scopes to the authorization request: for
+example, <code class="highlighter-rouge">launch/patient</code> to indicate that the app needs a patient ID, or
+<code class="highlighter-rouge">launch/encounter</code> to indicate it needs an encounter.  The EHR’s “authorize”
+endpoint will take care of acquiring the context it needs (making it available to the app).<br>
+For example, if your app needs patient context, the EHR may
+provide the end-user with a patient selection widget.  For full details, see <a href="./scopes-and-launch-context/index.html">SMART launch
+context parameters</a>.</em></p>
+
+<p>The app then causes the browser to navigate the browser to the EHR’s <strong>authorization URL</strong> as
+determined above. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Location: https://ehr/authorize?
+            response_type=code&amp;
+            client_id=app-client-id&amp;
+            redirect_uri=https%3A%2F%2Fapp%2Fafter-auth&amp;
+            launch=xyz123&amp;
+            scope=launch+patient%2FObservation.read+patient%2FPatient.read+openid+fhirUser&amp;
+            state=98wrghuwuogerg97&amp;
+            aud=https://ehr/fhir
+</code></pre></div></div>
+
+<p><a id="step-2"></a></p>
+
+<h4 id="step-2-ehr-evaluates-authorization-request-asking-for-end-user-input">Step-2: EHR evaluates authorization request, asking for end-user input<a class="anchorjs-link " href="./#step-2-ehr-evaluates-authorization-request-asking-for-end-user-input" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>The authorization decision is up to the EHR authorization server,
+which may request authorization from the end-user. The EHR authorization
+server will enforce access rules based on local policies and optionally direct
+end-user input.</p>
+
+<p>The EHR decides whether to grant or deny access.  This decision is
+communicated to the app when the EHR authorization server returns an
+authorization code (or, if denying access, an error response).  Authorization codes are short-lived, usually expiring
+within around one minute.  The code is sent when the EHR authorization server
+causes the browser to navigate to the app’s <code>redirect_uri</code>, with the
+following URL parameters:</p>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="3">Parameters</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><code>code</code></td>
+      <td><span class="label label-success">required</span></td>
+
+      <td>
+
+The authorization code generated by the authorization server. The
+authorization code *must* expire shortly after it is issued to mitigate the
+risk of leaks.
+
+      </td>
+    </tr>
+    <tr>
+      <td><code>state</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>The exact value received from the client.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="for-example-3"><em>For example</em><a class="anchorjs-link " href="./#for-example-3" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
+
+<p>Based on the <code class="highlighter-rouge">client_id</code>, current EHR user, configured policy, and perhaps
+direct user input, the EHR makes a decision to approve or deny access.  This
+decision is communicated to the app by causing the browser to navigate to the app’s registered
+<code class="highlighter-rouge">redirect_uri</code>. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Location: https://app/after-auth?
+  code=123abc&amp;
+  state=98wrghuwuogerg97
+</code></pre></div></div>
+
+<p><a id="step-3"></a></p>
+
+<h4 id="step-3-app-exchanges-authorization-code-for-access-token">Step-3: App exchanges authorization code for access token<a class="anchorjs-link " href="./#step-3-app-exchanges-authorization-code-for-access-token" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>After obtaining an authorization code, the app trades the code for an access
+token via HTTP <code class="highlighter-rouge">POST</code> to the EHR authorization server’s token endpoint URL,
+using content-type <code class="highlighter-rouge">application/x-www-form-urlencoded</code>, as described in
+<a href="https://tools.ietf.org/html/rfc6749#section-4.1.3">section 4.1.3 of RFC6749</a>.</p>
+
+<p>对于<span class="label label-primary">public apps</span>, authentication is not
+possible (and thus not required), since a client with no secret cannot prove its
+identity when it issues a call. (The end-to-end system can still be secure
+because the client comes from a known, https protected endpoint specified and
+enforced by the redirect uri.)  For <span class="label label-primary">confidential apps</span>, an <code class="highlighter-rouge">Authorization</code> header using HTTP
+Basic authentication is required, where the username is the app’s <code class="highlighter-rouge">client_id</code>
+and the password is the app’s <code class="highlighter-rouge">client_secret</code> (see
+<a href="./basic-auth-example/index.html">example</a>).</p>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="3">Parameters</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><code>grant_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Fixed value: <code>authorization_code</code></td>
+    </tr>
+    <tr>
+      <td><code>code</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Code that the app received from the authorization server</td>
+    </tr>
+    <tr>
+      <td><code>redirect_uri</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>The same redirect_uri used in the initial authorization request</td>
+    </tr>
+    <tr>
+      <td><code>client_id</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>Required for <span class="label label-primary">public apps</span>. Omit for <span class="label label-primary">confidential apps</span>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The EHR authorization server SHALL return a JSON object that includes an access token
+or a message indicating that the authorization request has been denied. The JSON structure
+includes the following parameters:</p>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="3">Parameters</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><code>access_token</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>The access token issued by the authorization server</td>
+    </tr>
+    <tr>
+      <td><code>token_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Fixed value: <code>Bearer</code></td>
+    </tr>
+    <tr>
+      <td><code>expires_in</code></td>
+      <td><span class="label label-info">recommended</span></td>
+      <td>Lifetime in seconds of the access token, after which the token SHALL NOT be accepted by the resource server</td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Scope of access authorized. Note that this can be different from the scopes requested by the app.</td>
+    </tr>
+    <tr>
+      <td><code>id_token</code></td>
+      <td><span class="label label-info">optional</span></td>
+      <td>Authenticated patient identity and user details, if requested</td>
+    </tr>
+      <tr>
+      <td><code>refresh_token</code></td>
+      <td><span class="label label-info">optional</span></td>
+      <td>Token that can be used to obtain a new access token, using the same or a subset of the original authorization grants</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition, if the app was launched from within a patient context,
+parameters to communicate the context values MAY BE included. For example,
+a parameter like <code class="highlighter-rouge">"patient": "123"</code> would indicate the FHIR resource
+https://[fhir-base]/Patient/123. Other context parameters may also
+be available. For full details see <a href="./scopes-and-launch-context/index.html">SMART launch context parameters</a>.</p>
+
+<p>The parameters are included in the entity-body of the HTTP response, as
+described in section 5.1 of <a href="https://tools.ietf.org/html/rfc6749">RFC6749</a>.</p>
+
+<p>The access token is a string of characters as defined in
+<a href="https://tools.ietf.org/html/rfc6749">RFC6749</a> and
+<a href="http://tools.ietf.org/html/rfc6750">RFC6750</a>.  The token is essentially
+a private message that the authorization server
+passes to the FHIR Resource Server, telling the FHIR server that the
+“message bearer” has been authorized to access the specified resources.<br>
+Defining the format and content of the access token is left up to the
+organization that issues the access token and holds the requested resource.</p>
+
+<p>The authorization server’s response SHALL
+include the HTTP “Cache-Control” response header field with a value
+of “no-store,” as well as the “Pragma” response header field with a
+value of “no-cache.”</p>
+
+<p>The EHR authorization server decides what <code class="highlighter-rouge">expires_in</code> value to assign to an
+access token and whether to issue a refresh token, as defined in section 1.5
+of <a href="https://tools.ietf.org/html/rfc6749#page-10">RFC6749</a>, along with the
+access token.  If the app receives a refresh token along with the access
+token, it can exchange this refresh token for a new access token when the
+current access token expires (see step 5 below).  A refresh token SHALL
+BE bound to the same <code class="highlighter-rouge">client_id</code> and SHALL contain the same, or a subset of,
+the set of claims authorized for the access token with which it is associated.</p>
+
+<p>Apps SHOULD store tokens in app-specific storage locations only, not in
+system-wide-discoverable locations.  Access tokens SHOULD have a valid
+lifetime no greater than one hour.  Confidential
+clients may be issued longer-lived tokens than public clients.</p>
+
+<p><em>A large range of threats to access tokens can be mitigated by digitally
+signing the token as specified in <a href="https://tools.ietf.org/html/rfc7515">RFC7515</a>
+or by using a Message Authentication Code (MAC) instead.  Alternatively,
+an access token can contain a reference to authorization information,
+rather than encoding the information directly into the token itself.<br>
+To be effective, such references must be infeasible for an attacker to
+guess.  Using a reference may require an extra interaction between the
+resource server and the authorization server; the mechanics of such an
+interaction are not defined by this specification.</em></p>
+
+<h5 id="for-example-4"><em>For example</em><a class="anchorjs-link " href="./#for-example-4" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
+
+<p>Given an authorization code, the app trades it for an access token via HTTP
+<code class="highlighter-rouge">POST</code>.</p>
+
+<h6 id="request-for">Request for<a class="anchorjs-link " href="./#request-for" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /token HTTP/1.1
+Host: ehr
+Authorization: Basic bXktYXBwOm15LWFwcC1zZWNyZXQtMTIz
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&amp;
+code=123abc&amp;
+redirect_uri=https%3A%2F%2Fapp%2Fafter-auth
+</code></pre></div></div>
+
+<h6 id="response">Response<a class="anchorjs-link " href="./#response" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "access_token": "i8hweunweunweofiwweoijewiwe",
+  "token_type": "bearer",
+  "expires_in": 3600,
+  "scope": "patient/Observation.read patient/Patient.read",
+  "intent": "client-ui-name",
+  "patient":  "123",
+  "encounter": "456"
+}
+</code></pre></div></div>
+
+<p><a href="./example-request-token-post/index.html">See full payload example</a>.</p>
+
+<p>At this point, <strong>the authorization flow is complete</strong>. Follow steps below to work with
+data and refresh access tokens, as shown in the following sequence diagram.</p>
+
+<h4 id="smart-retrieval-and-refresh-sequence"><em>SMART retrieval and refresh sequence</em><a class="anchorjs-link " href="./#smart-retrieval-and-refresh-sequence" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<div>
+<img class="spec-image" src="./media/cdraw(3)">
+</div>
+
+<p><a id="step-4"></a></p>
+
+<h4 id="step-4-app-accesses-clinical-data-via-fhir-api">Step 4: App accesses clinical data via FHIR API<a class="anchorjs-link " href="./#step-4-app-accesses-clinical-data-via-fhir-api" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>With a valid access token, the app can access protected EHR data by issuing a
+FHIR API call to the FHIR endpoint on the EHR’s resource server. The request includes an
+<code class="highlighter-rouge">Authorization</code> header that presents the <code class="highlighter-rouge">access_token</code> as a “Bearer” token:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Authorization: Bearer {{access_token}}
+</code></pre></div></div>
+
+<p>(Note that in a real request, <code class="language-text highlighter-rouge">{{access_token}}</code> is replaced
+with the actual token value.)</p>
+
+<h5 id="for-example-5"><em>For example</em><a class="anchorjs-link " href="./#for-example-5" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
+<p>With this response, the app knows which patient is in-context, and has an
+OAuth2 bearer-type access token that can be used to fetch clinical data:</p>
+
+<h6 id="request">Request<a class="anchorjs-link " href="./#request" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h6>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET https://ehr/fhir/Patient/123
+Authorization: Bearer i8hweunweunweofiwweoijewiwe
+</code></pre></div></div>
+
+<h6 id="response-1">Response<a class="anchorjs-link " href="./#response-1" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h6>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "resourceType": "Patient",
+  "birthTime": ...
+}
+</code></pre></div></div>
+
+<p><a href="./example-request-patient/index.html">See full payload example</a>.</p>
+
+<p>The resource server SHALL validate the access token and ensure that it has not expired and that its scope covers the requested resource.  The
+resource server also validates that the <code class="highlighter-rouge">aud</code> parameter associated with the
+authorization (see <a href="./#step-1">above</a>) matches the resource server’s own FHIR
+endpoint.  The method used by the EHR to validate the access token is beyond
+the scope of this specification but generally involves an interaction or
+coordination between the EHR’s resource server and the authorization server.</p>
+
+<p>On occasion, an app may receive a FHIR resource that contains a “reference” to
+a resource hosted on a different resource server.  The app SHOULD NOT blindly
+follow such references and send along its access_token, as the token may be
+subject to potential theft.   The app SHOULD either ignore the reference, or
+initiate a new request for access to that resource.</p>
+
+<p><a id="step-5"></a></p>
+
+<h4 id="step-5-later-app-uses-a-refresh-token-to-obtain-a-new-access-token">Step 5: (Later…) App uses a refresh token to obtain a new access token<a class="anchorjs-link " href="./#step-5-later-app-uses-a-refresh-token-to-obtain-a-new-access-token" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>Refresh tokens are issued to enable sessions to last longer than the validity period of an access token.  The app can use the <code class="highlighter-rouge">expires_in</code> field from the token response (see <a href="./#step-3">step 3</a>) to determine when its access token will expire.  EHR implementers are also encouraged to consider using the <a href="https://tools.ietf.org/html/rfc7662">OAuth 2.0 Token Introspection Protocol</a> to provide an introspection endpoint that clients can use to examine the validity and meaning of tokens. An app with “online access” can continue to get new access tokens as long as the end-user remains online.  Apps with “offline access” can continue to get new access tokens without the user being interactively engaged for cases where an application should have long-term access extending beyond the time when a user is still interacting with the client.</p>
+
+<p>The app requests a refresh token in its authorization request via the <code class="highlighter-rouge">online_access</code> or <code class="highlighter-rouge">offline_access</code> scope (see <a href="./scopes-and-launch-context/index.html">SMART on FHIR Access Scopes</a> for details).  A server can decide which client types (public or confidential) are eligible for offline access and able to receive a refresh token.  If granted, the EHR supplies a refresh_token in the token response.  After an access token expires, the app requests a new access token by providing its refresh token to the EHR’s token endpoint.  An HTTP <code class="highlighter-rouge">POST</code> transaction is made to the EHR authorization server’s token URL, with content-type <code class="highlighter-rouge">application/x-www-form-urlencoded</code>. The decision about how long the refresh token lasts is determined by a mechanism that the server chooses.  For clients with online access, the goal is to ensure that the user is still online.</p>
+
+<ul>
+  <li>For <span class="label label-primary">public apps</span>, authentication is not possible (and thus not required). For <span class="label label-primary">confidential apps</span>, an <code class="highlighter-rouge">Authorization</code> header using HTTP</li>
+</ul>
+
+<p>The following request parameters are defined:</p>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="3">Parameters</th>
+  </tr></thead>
+  <tbody>
+
+    <tr>
+      <td><code>grant_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Fixed value: <code>refresh_token</code>. </td>
+    </tr>
+    <tr>
+      <td><code>refresh_token</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>The refresh token from a prior authorization response</td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-info">optional</span></td>
+      <td>
+The scopes of access requested. If present, this value must be a strict sub-set
+of the scopes granted in the original launch (no new permissions can be
+obtained at refresh time). A missing value indicates a request for the same
+scopes granted in the original launch.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>The response is a JSON object containing a new access token, with the following claims:</p>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="3">JSON Object property name</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><code>access_token</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>New access token issued by the authorization server.</td>
+    </tr>
+    <tr>
+      <td><code>token_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Fixed value: bearer</td>
+    </tr>
+    <tr>
+      <td><code>expires_in</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>The lifetime in seconds of the access token. For example, the value 3600 denotes that the access token will expire in one hour from the time the response was generated.</td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>Scope of access authorized. Note that this will be the same as the scope of the original access token, and it can be different from the scopes requested by the app.</td>
+    </tr>
+    <tr>
+      <td><code>refresh_token</code></td>
+      <td><span class="label label-info">optional</span></td>
+      <td>The refresh token issued by the authorization server. If present, the app should discard any previosu <code>refresh_token</code> associated with this launch, replacing it with this new value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition, if the app was launched from within a patient context,
+parameters to communicate the context values MAY BE included. For example,
+a parameter like <code class="highlighter-rouge">"patient": "123"</code> would indicate the FHIR resource
+https://[fhir-base]/Patient/123. Other context parameters may also
+be available. For full details see <a href="./scopes-and-launch-context/index.html">SMART launch context parameters</a>.</p>
+
+<h5 id="for-example-6"><em>For example</em><a class="anchorjs-link " href="./#for-example-6" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h5>
+<p>If the EHR supports refresh tokens, an app may be able to replace an expired
+access token programatically, without user interaction:</p>
+
+<h6 id="request-1">Request<a class="anchorjs-link " href="./#request-1" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /token HTTP/1.1
+Host: ehr
+Authorization: Basic bXktYXBwOm15LWFwcC1zZWNyZXQtMTIz
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&amp;
+refresh_token=a47txjiipgxkvohibvsm
+</code></pre></div></div>
+
+<h6 id="response-2">Response<a class="anchorjs-link " href="./#response-2" aria-label="Anchor" data-anchorjs-icon="" style="opacity: 1; font: 1em/1 anchorjs-icons; padding-left: 0.375em;"></a></h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "access_token": "m7rt6i7s9nuxkjvi8vsx",
+  "token_type": "bearer",
+  "expires_in": 3600,
+  "scope": "patient/Observation.read patient/Patient.read",
+  "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA"
+}
+</code></pre></div></div>
+
+<p><a href="./example-request-refresh/index.html">See full payload example</a>.</p>
+
+
+
+
+</div>
+
+
+				</div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+<!-- back to top arrow -->
+
+<a id="back-to-top" href="./#" class="btn btn-info btn-lg back-to-top" role="button" title="" data-toggle="tooltip" data-placement="left" data-original-title="Click to return on the top page"><span class="glyphicon glyphicon-chevron-up"></span></a><div class="tooltip fade left in" style="top: -11px; left: -190px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Click to return on the top page</div></div>
+
+
+<!-- end back to top arrow -->
+
+
+    <div id="segment-footer" class="segment">  <!-- segment-footer -->
+  		<div class="container">  <!-- container -->
+  			<div class="inner-wrapper">
+  				<p>Smart App Launch Framework Version: 1.0.0
+          © Boston Children's Hospital and Health Level Sevel International. This content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"><!-- <img height=auto  alt="CC BY 4.0" src="dist/CC-BY_icon.svg"/> -->CC BY 4.0</a>.  Generated 2018-11-13 01:23:56 +1100.
+          <span style="color: #FFFF77"> |
+            <a style="color: #81BEF7" target="_blank" href="./history.cfml">History</a>
+            | <a style="color: #81BEF7" target="_blank" href="https://github.com/HL7/smart-app-launch/issues">Propose a change</a>
+          </span>
+          </p>
+  			</div>  <!-- /inner-wrapper -->
+  		</div>  <!-- /container -->
+  	</div>  <!-- /segment-footer -->
+
+
+	<div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+		<div class="container">  <!-- container -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-post-footer -->
+
+      <!-- JS and analytics only. -->
+      <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+<script src="./media/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+<script src="./media/bootstrap.min.js"> </script>
+<script src="./media/respond.min.js"> </script>
+<script src="./media/anchor.min.js"> </script>
+<script src="./media/fhir.js"> </script>
+<script src="./media/topofpage.js"> </script>
+
+
+<!--   end added for profile tabs -->
+
+
+  <!-- Analytics Below
+================================================== -->
+<!-- add anchors before the closing body tag. no sure why the hover is not working?-->
+<script> anchors.options = {
+  visible: 'always'
+}; anchors.add('h2, h3, h4, h5, h6,.anchored')
+</script>
+
+
+
+<div id="syno-nsc-ext-comp-1008" class=" x-tip-invalid" style="position: absolute; z-index: 11000; visibility: hidden; display: none;"><div class="x-tip-invalid-tl"><div class="x-tip-invalid-tr"><div class="x-tip-invalid-tc"><div class="x-tip-invalid-header x-unselectable" id="syno-nsc-ext-gen4"><span class="x-tip-invalid-header-text"></span></div></div></div></div><div class="x-tip-invalid-bwrap" id="syno-nsc-ext-gen5"><div class="x-tip-invalid-ml"><div class="x-tip-invalid-mr"><div class="x-tip-invalid-mc" id="syno-nsc-ext-gen8"><div class="x-tip-invalid-body" id="syno-nsc-ext-gen6" style="height: auto;"></div></div></div></div><div class="x-tip-invalid-bl x-panel-nofooter" id="syno-nsc-ext-gen7"><div class="x-tip-invalid-br"><div class="x-tip-invalid-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="syno-nsc-ext-gen9" style="z-index: 11001;"></div></div></body></html>
