@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://hl7.org/fhir/documents.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN" class="ext-strict translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>文件 -  FHIR v4.0.0</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="http://hl7.org/fhir">
+
+  <link rel="stylesheet" href="./media//fhir.css">
+  <link rel="Prev" href="http://hl7.org/fhir/documents.html">
+
+    <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./media//bootstrap.css">
+  <link rel="stylesheet" href="./media//bootstrap-fhir.css">
+
+    <!-- Project extras -->
+  <link rel="stylesheet" href="./media//project.css">
+  <link rel="stylesheet" href="./media//pygments-manni.css">
+	<link rel="stylesheet" href="./media//jquery-ui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- [if lt IE 9]>
+  <script src="./assets/js/html5shiv.js"></script>
+  <script src="./assets/js/respond.min.js"></script>
+  <![endif] -->
+
+    <!-- Favicons -->
+  <link sizes="144x144" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-144-precomposed.png">
+  <link sizes="114x114" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link sizes="72x72" rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="http://hl7.org/fhir/assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="http://hl7.org/fhir/assets/ico/favicon.png">
+
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./media//translateelement.css"><style type="text/css" media="screen">
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }
+
+  .navbar-brand {
+    float: left;
+    margin-left: -15px;
+    margin-right: 5px;
+  }
+  .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar-nav > li {
+    float: left;
+  }
+  .navbar-nav > li > a {
+    border-radius: 0;
+  }
+  .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-control .glyphicon,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  .carousel-indicators {
+    bottom: 20px;
+  }
+
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: 6px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }</style><style type="text/css" media="print">
+	.page-break	{ display:block; page-break-before:always; }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }
+
+  * {
+    text-shadow: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page  {
+    margin: 2cm .5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  .navbar {
+    display: none;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  .label {
+    border: 1px solid #000;
+  }
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+
+  .visible-print {
+    display: block !important;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+  tr.hidden-print {
+    display: none !important;
+  }
+  th.hidden-print,
+  td.hidden-print {
+    display: none !important;
+  }</style><style type="text/css" media="all">
+	.page-break	{ display:none; }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: block !important;
+  }
+  tr.visible-md {
+    display: table-row !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+  .visible-lg {
+    display: none !important;
+  }
+  tr.visible-lg {
+    display: none !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: none !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: none !important;
+  }
+  tr.hidden-md {
+    display: none !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: none !important;
+  }
+  .hidden-lg {
+    display: block !important;
+  }
+  tr.hidden-lg {
+    display: table-row !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: table-cell !important;
+  }
+
+  .lead {
+    font-size: 21px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .container {
+    max-width: 728px;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-1 {
+    width: 8.333333333333332%;
+  }
+  .col-sm-2 {
+    width: 16.666666666666664%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333333333333%;
+  }
+  .col-sm-5 {
+    width: 41.66666666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.333333333333336%;
+  }
+  .col-sm-8 {
+    width: 66.66666666666666%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333333333334%;
+  }
+  .col-sm-11 {
+    width: 91.66666666666666%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-push-1 {
+    left: 8.333333333333332%;
+  }
+  .col-push-2 {
+    left: 16.666666666666664%;
+  }
+  .col-push-3 {
+    left: 25%;
+  }
+  .col-push-4 {
+    left: 33.33333333333333%;
+  }
+  .col-push-5 {
+    left: 41.66666666666667%;
+  }
+  .col-push-6 {
+    left: 50%;
+  }
+  .col-push-7 {
+    left: 58.333333333333336%;
+  }
+  .col-push-8 {
+    left: 66.66666666666666%;
+  }
+  .col-push-9 {
+    left: 75%;
+  }
+  .col-push-10 {
+    left: 83.33333333333334%;
+  }
+  .col-push-11 {
+    left: 91.66666666666666%;
+  }
+  .col-pull-1 {
+    right: 8.333333333333332%;
+  }
+  .col-pull-2 {
+    right: 16.666666666666664%;
+  }
+  .col-pull-3 {
+    right: 25%;
+  }
+  .col-pull-4 {
+    right: 33.33333333333333%;
+  }
+  .col-pull-5 {
+    right: 41.66666666666667%;
+  }
+  .col-pull-6 {
+    right: 50%;
+  }
+  .col-pull-7 {
+    right: 58.333333333333336%;
+  }
+  .col-pull-8 {
+    right: 66.66666666666666%;
+  }
+  .col-pull-9 {
+    right: 75%;
+  }
+  .col-pull-10 {
+    right: 83.33333333333334%;
+  }
+  .col-pull-11 {
+    right: 91.66666666666666%;
+  }
+
+  .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .form-horizontal .control-label {
+    text-align: right;
+  }
+
+  .visible-sm {
+    display: none !important;
+  }
+  tr.visible-sm {
+    display: none !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: none !important;
+  }
+  .visible-md {
+    display: block !important;
+  }
+  tr.visible-md {
+    display: table-row !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+  .visible-lg {
+    display: none !important;
+  }
+  tr.visible-lg {
+    display: none !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: none !important;
+  }
+  .hidden-sm {
+    display: block !important;
+  }
+  tr.hidden-sm {
+    display: table-row !important;
+  }
+  th.hidden-sm,
+  td.hidden-sm {
+    display: table-cell !important;
+  }
+  .hidden-md {
+    display: none !important;
+  }
+  tr.hidden-md {
+    display: none !important;
+  }
+  th.hidden-md,
+  td.hidden-md {
+    display: none !important;
+  }
+  .hidden-lg {
+    display: block !important;
+  }
+  tr.hidden-lg {
+    display: table-row !important;
+  }
+  th.hidden-lg,
+  td.hidden-lg {
+    display: table-cell !important;
+  }
+
+    // make tabs act like nav-stacked
+    // (mostly) copied from bootstrap/navs.less
+    .nav-tabs > li {
+        float: none;
+    }
+    .nav-tabs > li > a {
+        margin-right: 0; // no need for the gap between nav items
+    }
+    .nav-tabs {
+        border-bottom: 0;
+    }
+    .nav-tabs > li > a {
+        border: 1px solid #ddd;        
+        .border-top-radius(0);
+        .border-right-radius(0);
+        .border-bottom-radius(0);
+        .border-left-radius(0);
+    }
+    .nav-tabs > .active > a,
+    .nav-tabs > .active > a:hover {
+        border: 1px solid #ddd;
+    }
+    .nav-tabs > li:first-child > a {
+        .border-top-radius(4px);
+    }
+    .nav-tabs > li:last-child > a {
+        .border-bottom-radius(4px);
+    }
+    .nav-tabs > li > a:hover,
+    .nav-tabs > li > a:focus {
+        border-color: #ddd;
+        z-index: 2;
+    }</style></head>
+<body class=" ext-webkit ext-chrome ext-mac" id="syno-nsc-ext-gen3">
+	<div id="segment-header" class="segment">  <!-- segment-header -->	
+		<div class="container">  <!-- container -->
+			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./media//fhir-logo-www.png" alt="logo fhir"> </a>
+			<div id="hl7-status">
+				<b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FHIR R4</font></font></b>
+			</div>       	
+			
+			<div id="hl7-nav">
+				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org/">
+					<img src="./media//hl7-logo.png" width="42" alt="访问hl7网站" height="50">
+				</a> 
+			</div>       	
+			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://hl7.org/fhir/search.cfm"><img src="./media//search.png" alt="搜索FHIR"></a></div> 
+		</div>
+		<div class="container">  <!-- container -->
+	</div></div>  <!-- /segment-header -->	
+
+
+	<div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+		<div id="stripe"> </div>
+		<div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+ 	      		 	      		      		
+			<nav class="navbar navbar-inverse">
+				<div class="container">
+					<button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+					</button>
+					<a href="http://hl7.org/fhir/index.html" class="navbar-brand hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FHIR</font></font></a>
+					<div class="nav-collapse collapse navbar-inverse-collapse">
+						<ul class="nav navbar-nav">
+              <li><a href="http://hl7.org/fhir/index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">家</font></font></a></li>
+              <li><a href="http://hl7.org/fhir/modules.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门</font></font></a></li>
+              <li><a href="http://hl7.org/fhir/documentation.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></li>
+              <li><a href="http://hl7.org/fhir/resourcelist.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">资源</font></font></a></li>
+              <li><a href="http://hl7.org/fhir/profilelist.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">简介</font></font></a></li>
+              <li><a href="http://hl7.org/fhir/extensibility-registry.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></a></li>
+              <li><a href="http://hl7.org/fhir/operationslist.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作</font></font></a></li>
+              <li><a href="http://hl7.org/fhir/terminologies-systems.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">术语</font></font></a></li>
+						</ul>
+					</div>  <!-- /.nav-collapse -->
+				</div>  <!-- /.container -->
+			</nav>  <!-- /.navbar -->
+      		
+  <!-- /HEADER CONTENT -->				
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-navbar -->
+	
+
+	<div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+		<div class="container">  <!-- container -->	
+			<ul class="breadcrumb">
+        <li><a href="http://hl7.org/fhir/exchange-module.html"><img src="./media//exchange.png"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 交换</font></font></a></li>
+        <li><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件</font></font></b></li>          <!-- documents.html / page / -->
+
+			</ul>	
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-breadcrumb -->
+	
+
+	<div id="segment-content" class="segment">  <!-- segment-content -->
+	<div class="container">  <!-- container -->
+            <div class="row">
+            	<div class="inner-wrapper">
+  <!-- CONTENT CONTENT -->
+
+
+<div class="col-12">
+
+<h1 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3</font></font><a name="3.3"> </a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> FHIR文件</font></font><a href="http://hl7.org/fhir/documents.html#3.3" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h1>
+<table class="colstu"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FHIR基础设施</font></font><img src="./media//external.png" style="text-align: baseline"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">工作组</font></font></td><td id="fmm"><a href="http://hl7.org/fhir/versions.html#maturity"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">成熟度等级</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：3</font></font></td><td id="ballot"><a href="http://hl7.org/fhir/versions.html#std-process"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标准状态</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：   </font><a href="http://hl7.org/fhir/versions.html#std-process"><font style="vertical-align: inherit;">试用</font></a></font><!-- !ns! --><a href="http://hl7.org/fhir/versions.html#std-process"><font style="vertical-align: inherit;"></font></a></td></tr></tbody></table>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+FHIR资源可用于构建代表组合的文档：一组连贯的关联信息，是医疗保健信息的陈述，包括临床观察和服务。</font><font style="vertical-align: inherit;">文档是一组由人、组织和设备创建、证实的不可变的资源的固定表达形式。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+以这种方式构建的文档可以在系统之间交换并保存在文档存储和管理系统中，包括像IHE XDS之类的系统。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+声称符合此框架的申请声称符合“FHIR文件”（参见</font></font><a href="http://hl7.org/fhir/conformance-rules.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">符合性</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+FHIR文件可能是“临床”（专注于患者医疗保健信息），但也可能用于非临床目的（例如FHIR实施指南，实践指南，患者讲义等）.HL7将在未来制定概况，为适当的代表提供额外指导一般临床文件以及特定类型的临床文件（例如综合CDA）。
+</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+请注意，FHIR定义了此文档格式和</font></font><a href="http://hl7.org/fhir/documentreference.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档引用资源</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">FHIR文档适用于在FHIR中创作和汇编的文档，而文档参考资源用于对预先存在的文档进行一般性引用。
+</font></font></p>
+<ul>
+ <li><a href="http://hl7.org/fhir/document-example-dischargesummary.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">出院摘要示例</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="http://hl7.org/fhir/document-example-dischargesummary.xml.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XML</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><a href="http://hl7.org/fhir/document-example-dischargesummary.json.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JSON</font></font></a></li>
+</ul>
+
+<a name="content"></a>
+
+<h2 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.1</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件内容</font></font><a href="http://hl7.org/fhir/documents.html#content" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+所有文档都具有相同的结构：</font><font style="vertical-align: inherit;">“文档” </font><a href="http://hl7.org/fhir/bundle-definitions.html#Bundle.type"><font style="vertical-align: inherit;">类型</font></a><font style="vertical-align: inherit;"> 
+的资源</font></font><a href="http://hl7.org/fhir/bundle.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font><font style="vertical-align: inherit;">其中包含</font><a href="http://hl7.org/fhir/composition.html"><font style="vertical-align: inherit;">Composition</font></a><font style="vertical-align: inherit;">资源作为包中的第一个资源，后跟一系列其他资源，从</font><a href="http://hl7.org/fhir/bundle-definitions.html#Bundle.type"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font><a href="http://hl7.org/fhir/composition.html"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font><code>Composition</code><font style="vertical-align: inherit;"></font><a href="http://www.w3.org/Style/CSS/Overview.en.html"><font style="vertical-align: inherit;"></font><img src="./media//external.png" style="text-align: baseline"></a><font style="vertical-align: inherit;"></font><a href="http://hl7.org/fhir/provenance.html"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font><font style="vertical-align: inherit;">
+资源</font><font style="vertical-align: inherit;">引用</font><font style="vertical-align: inherit;">，为文档提供支持证据。</font><font style="vertical-align: inherit;">该捆绑包将文档的所有内容收集到单个XML或JSON文档中，可以根据需要对其进行签名和管理。</font><font style="vertical-align: inherit;">资源包括人类可读和计算机可处理的部分。</font><font style="vertical-align: inherit;">此外，捆绑包可能包括</font><a href="http://www.w3.org/Style/CSS/Overview.en.html"><font style="vertical-align: inherit;">CSS样式表</font></a><font style="vertical-align: inherit;">，
+ </font><a href="http://hl7.org/fhir/provenance.html"><font style="vertical-align: inherit;">原产地</font></a><font style="vertical-align: inherit;">声明和签名。
+</font></font>
+</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+组成资源是临床文件的基础。</font><font style="vertical-align: inherit;">它：
+</font></font></p>
+<ul>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提供身份及其目的，并设置文档的上下文</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含主题和作者等关键信息，以及证明该文档的人员</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将文档分成一系列部分，每个部分都有自己的叙述</font></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+组装文档时，下面列出的组合引用的资源应包含在软件包中：
+</font></font></p>
+<ul>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.subject"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.subject</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.encounter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.encounter</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.author"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.author</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.attester.party"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.attester.party</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.custodian"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.custodian</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.event.detail"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.event.detail</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.section.author"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.section.author</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.section.focus"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.section.focus</font></font></a></li>
+ <li><a href="http://hl7.org/fhir/composition-definitions.html#Composition.section.entry"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.section.entry</font></font></a></li>
+</ul>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+如果文档构造系统选择这样做，则这些引用的资源所引用的其他资源也可以包括在捆绑中。</font><font style="vertical-align: inherit;">包括这些额外的资源将使文档更大，但如果在处理文档时需要检索链接的资源，则可以节省应用程序。</font><font style="vertical-align: inherit;">因此，是否应包括这些链接的资源取决于实施环境。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+文档包应仅包括：
+</font></font></p>
+<ol>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition资源，以及直接或间接（例如递归地）从中引用的任何资源</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含样式表的二进制资源（如下所述）</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">原型资源具有组合目标或文档中包含的其他资源</font></font></li>
+</ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+文档中有两个关键标识符：
+</font></font></p>
+<ul>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档标识符（必填）。</font><font style="vertical-align: inherit;">这可以在</font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bundle.identifier</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中找到，</font><font style="vertical-align: inherit;">并且对于此文档实例是全局唯一的，并且永远不会被重复使用，包括从相同组合派生的其他文档</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">组合标识符（可选）。</font><font style="vertical-align: inherit;">这可以在</font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.identifier</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中找到</font><font style="vertical-align: inherit;">，并且对于从此组合派生的所有文档都是相同的</font></font></li>
+</ul>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+该文件有几个日期：
+</font></font></p>
+<ul>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件日期（强制性）。</font><font style="vertical-align: inherit;">这可以在</font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bundle.meta.lastUpdated</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中找到，</font><font style="vertical-align: inherit;">并确定何时从底层资源组装文档包</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作文日期（必填）。</font><font style="vertical-align: inherit;">这可以在</font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.date</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中找到</font><font style="vertical-align: inherit;">，这是作者在逻辑上编写文档的时候</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">证明日期（可选）。</font><font style="vertical-align: inherit;">这可以在</font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.attester.time</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中找到，</font><font style="vertical-align: inherit;">并且是证明者见证文档的时间。</font><font style="vertical-align: inherit;">这通常与组成日期或之后同时进行</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作文最后修改时间（可选）。</font><font style="vertical-align: inherit;">这可以在</font></font><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition.meta.lastUpdated</font></font></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中找到，</font><font style="vertical-align: inherit;">并且是组合物的最后更改日期。</font><font style="vertical-align: inherit;">这必须&gt; =组成日期</font></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+可以按照</font></font><a href="http://hl7.org/fhir/signatures.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数字签名</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">页面中</font><font style="vertical-align: inherit;">规定的规则使用数字签名对文档包进行</font><a href="http://hl7.org/fhir/signatures.html"><font style="vertical-align: inherit;">签名</font></a><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">签名应该由列出的文档提供者提供，签名应该包含一个</font></font><a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">KeyInfo元素</font></font><img src="./media//external.png" style="text-align: baseline"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，该</font><a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_blank"><font style="vertical-align: inherit;">元素</font></a><font style="vertical-align: inherit;">包含一个KeyName元素，该元素的值是与</font><font style="vertical-align: inherit;">匹配的证明者资源</font><font style="vertical-align: inherit;">的</font></font><a href="http://hl7.org/fhir/bundle-definitions.html#Bundle.entry.fullUri"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">fullUri</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">匹配的URI </font><font style="vertical-align: inherit;">。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+一旦组装成一个包，文档就是不可变的 - 它的内容永远不会被改变，文档id永远不能被重用。</font><font style="vertical-align: inherit;">请注意，文档可以用XML或JSON表示，并在这些文档之间进行相互转换或更改其字符编码，同时保持相同的文档。</font><font style="vertical-align: inherit;">然而，文档中直接引用的内容和文档的呈现不能显着改变（使得它改变内容的临床意义）。</font><font style="vertical-align: inherit;">从相同组合派生的任何其他文档都应具有不同的文档ID。
+</font></font></p>
+
+<a name="presentation"></a>
+<h3 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.1.1</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件介绍</font></font><a href="http://hl7.org/fhir/documents.html#presentation" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+当文件被呈现供人类消费时，应用程序应该按顺序呈现整理的叙述部分：
+</font></font></p>
+<ol>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><a href="http://hl7.org/fhir/composition-definitions.html#Composition.subject"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主题资源</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">叙事</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><a href="http://hl7.org/fhir/composition.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">组合</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">资源叙事</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该</font></font><a href="http://hl7.org/fhir/composition-definitions.html#Composition.section.text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">section.text</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">叙事</font></font></li>
+</ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+该文档的呈现称为文档的“证明内容”。</font><font style="vertical-align: inherit;">附加资源可以包含在捆绑中（例如，从List中引用的资源，表示section.content应该在捆绑中，并且可以包括它们引用的其他资源），但是这些（以及任何叙述）都不是证明的内容。</font><font style="vertical-align: inherit;">具体而言，</font></font><code>Composition.attester</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">证明了文件的呈现形式。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+组合资源叙述应总结文档标题的重要部分，这些部分是为文档建立临床上下文所必需的（除了主题，它本身就显示）。</font><font style="vertical-align: inherit;">要真正构建组合叙事，只需将所有叙述性&lt;div&gt;片段附加在一起即可。   </font></font><!-- todo: title -->
+</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+如果文档的显示顺序与上面给出的顺序不同，则可能不代表原始证明的内容。</font><font style="vertical-align: inherit;">实施指南可能会进一步限制文档叙述和显示行为。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+该</font></font><a href="http://hl7.org/fhir/downloads.html#refimpl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XML工具的参考实现</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包括XSLT转换一种转换XML文档转换成浏览器的准备XHTML。
+</font></font></p>
+
+
+<a name="css"></a>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+除了</font><font style="vertical-align: inherit;">必须遵循的</font></font><a href="http://hl7.org/fhir/narrative.html#css"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于叙事</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的</font><a href="http://hl7.org/fhir/narrative.html#css"><font style="vertical-align: inherit;">基本样式规则</font></a><font style="vertical-align: inherit;">之外</font><font style="vertical-align: inherit;">，文档还可以引用或包含一个或多个样式表，其中包含适用于整理叙述的其他样式。</font><font style="vertical-align: inherit;">这是通过在Feed上声明样式表链接来完成的：
+</font></font></p>
+<pre class="xml"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;Bundle xmlns =“http://hl7.org/fhir”&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;！ - 元数据和类型 - &gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt;link&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;relation value =“stylesheet”/&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    &lt;url value =“[uri]”/&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  &lt; / link&gt; </font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+&lt;/ Bundle&gt;</font></font>
+</pre>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+它</font></font><code>url</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以是对CSS样式表的绝对引用，也可以是对带有CSS样式表的二进制资源的相对引用。</font><font style="vertical-align: inherit;">样式表引用只能引用CSS样式表 - 其他形式的样式表是不可接受的。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+相对（内部）引用应该用于样式表，因为由于技术问题或本地策略决策，查看者可能无法在查看时解析外部内容。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+引用或使用的任何样式表不得以改变内容临床含义的方式改变演示文稿。
+</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+除非在当地贸易伙伴协议中另有约定，否则显示整理叙述的应用程序应该使用文档指定的样式表（请参阅</font></font><a href="http://hl7.org/fhir/security.html#stylesheet"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安全说明</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font><font style="vertical-align: inherit;">签订贸易协议的缔约方应非常认真地考虑该行动对其长期文件交换范围的影响。</font><font style="vertical-align: inherit;">如果双方同意使用未包含在文档中的样式表，则可能是他们永远无法在更一般的环境中安全地共享其文档，例如区域或国家EHR或全球个人健康记录。
+</font></font></p>
+
+<a name="profiles"></a>
+
+<h2 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.2</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档配置文件</font></font><a href="http://hl7.org/fhir/documents.html#profiles" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+
+<p>
+<a href="http://hl7.org/fhir/profiling.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档配置文件</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于描述特定用途的文档。</font><font style="vertical-align: inherit;">文档配置文件可以制定以下规则
+</font></font></p>
+<ul>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composition资源的内容，包括</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">组成部分的结构</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捆绑包中包含哪些资源以及Document资源中直接引用的资源</font></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+应用程序应考虑发布</font><font style="vertical-align: inherit;">标识其支持的文档类型的</font></font><a href="http://hl7.org/fhir/capabilitystatement.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能语句</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">文档可以通过在</font></font><code>Bundle.meta.profile</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+元素中</font><font style="vertical-align: inherit;">放置配置文件标识符来标识它们符合的配置文件</font><font style="vertical-align: inherit;">- </font><font style="vertical-align: inherit;">有关此实用程序的讨论，</font><font style="vertical-align: inherit;">请参阅</font></font><a href="http://hl7.org/fhir/resource.html#meta"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置文件标记</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+
+<a name="obligations"></a>
+
+<h2 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.3</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件处理义务</font></font><a href="http://hl7.org/fhir/documents.html#obligations" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+临床文件的作者/构造者和处理者，无论是人类还是软件，都有他们必须满足的义务。
+</font></font></p>
+
+<h3 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.3.1</font></font><a name="3.3.3.1"> </a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作者/构造者义务</font></font><a href="http://hl7.org/fhir/documents.html#3.3.3.1" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+文档构造函数是创建文档的应用程序。</font><font style="vertical-align: inherit;">作者是使用构造函数创建文档的人，组织或设备。</font><font style="vertical-align: inherit;">在它们之间，构造器和作者可以在执行其任务时创建新的内容资源和/或组合已经存在的内容资源。</font><font style="vertical-align: inherit;">他们还有以下责任：
+</font></font></p>
+<ul>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保文档应包含符合此处描述的规则且仅链接到其他有效资源的有效组合</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保文档内容符合任何声明的</font></font><a href="http://hl7.org/fhir/profiling.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置文件</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（见下文）。</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保证明者正确地了解他们所证明的文件的陈述</font></font></li>
+</ul>
+
+<h3 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.3.2</font></font><a name="3.3.3.2"> </a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">处理器义务</font></font><a href="http://hl7.org/fhir/documents.html#3.3.3.2" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+文档处理器是应用程序和/或人类用户，其接收文档并从中提取数据或由于它们而做出决定。</font><font style="vertical-align: inherit;">文档可以直接从文档构造器接收，通过文档管理系统访问或由第三方转发。</font><font style="vertical-align: inherit;">文档处理器负责确保根据本规范处理和/或呈现所接收的文档。</font><font style="vertical-align: inherit;">文档处理者有义务确保遵循以下规则：
+</font></font></p>
+<ul>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在存储/传输文档时，可以使用任何方法，只要捆绑的文档可以（重新）组装，具有足够的完整性以验证数字签名。</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在介绍文件的叙述时，应遵循上述规则</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以提取来自文档的资源或数据以用于其他用途，但是文档作者不再认为这些数据被证明</font></font></li>
+ <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无论将文档中的数据显示给用户，应该始终为用户提供访问原始文档的表示的方式。</font></font></li>
+
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+除了这些义务之外，文件接收者还应该仔细跟踪取代现有文件的新文件的文件来源，特别是当文件代表已经收回的文件时。</font><font style="vertical-align: inherit;">更换文件后，他们应该撤回从被取代文件中提取的数据，或者在用户查看文件或从中取出数据时发出警告。
+</font></font></p>
+
+<a name="bundle"></a>
+<h2 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.4</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件终点</font></font><a href="http://hl7.org/fhir/documents.html#bundle" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h2>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+处理文档时使用了几个不同的RESTful端点。</font><font style="vertical-align: inherit;">通过考虑发布给他们的后果，可以最好地描述各种终点的使用：
+</font></font></p>
+<table class="grid">
+ <tbody><tr> <td><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">终点</font></font></b></td> <td><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内容类型</font></font></b></td> <td><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">描述</font></font></b></td> </tr>
+ <tr> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[baseURL时] /捆绑</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件包</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这类似于管理资源类型的正常终点，但它适用于整个文档包 - 即读取操作返回包，更新获取包，搜索返回捆绑包。</font><font style="vertical-align: inherit;">请注意，如果文档使用</font></font><a href="http://hl7.org/fhir/http.html#create"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">交互进行POST，则Bundle.id将更改，但Bundle.identifier不会。</font><font style="vertical-align: inherit;">请参阅</font></font><a href="http://hl7.org/fhir/bundle.html#rest"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用RESTful API提供服务包以</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获取进一步的评论</font></font></td></tr>
+ <tr> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[baseURL时] /排版</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作文资源</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">管理组合资源的正常终点。</font><font style="vertical-align: inherit;">这可以在构建文档时或在将文档分解为其组成资源之后或在与文档分开使用组合时使用</font></font></td> </tr>
+
+ <tr> <td><a href="http://hl7.org/fhir/binary.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[baseURL时] /二进制</font></font></a></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件包</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">只需将整个文档存储为一个字节序列，并在请求时返回该序列。</font><font style="vertical-align: inherit;">无法在/ Binary端点中查找内容，因此通常会将其与</font></font><a href="http://hl7.org/fhir/documentreference.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档参考</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">相关联，</font><font style="vertical-align: inherit;">以便应用程序可以查找和处理文档，但这不是必需的</font></font></td> </tr>
+
+ <tr> <td><a href="http://hl7.org/fhir/http.html#transaction"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[baseurl]</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（例如交易）</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件包</font></font></td> <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">忽略捆绑包是文档并将其包含的所有资源作为单独资源进行处理的事实。</font><font style="vertical-align: inherit;">客户端不应该期望接收使用此方法提交的文档的服务器能够准确地重新组合文档。</font><font style="vertical-align: inherit;">（即使服务器可以重新组合文档（见下文），也不能期望结果具有相同的顺序等。因此，文档签名很可能无效。）。</font><font style="vertical-align: inherit;">有关</font><font style="vertical-align: inherit;">更多详细信息，</font><font style="vertical-align: inherit;">请参阅</font></font><a href="http://hl7.org/fhir/http.html#other-bundles"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接受其他Bundle类型</font></font></a><font style="vertical-align: inherit;"></font></td> </tr>
+
+</tbody></table>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+注意：虽然这些端点定义为与文档相关的资源和文档包一起使用，但没有必要使用它们。</font><font style="vertical-align: inherit;">可以使用任何所需的方法在系统之间传输文档。</font><font style="vertical-align: inherit;">此外，服务器和/或规范可以定义</font><font style="vertical-align: inherit;">
+用于处理超出上述选项的文档的</font><font style="vertical-align: inherit;">附加</font></font><a href="http://hl7.org/fhir/operations.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+
+<h3 class="self-link-parent"><span class="sectioncount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.4.1</font></font><a name="3.3.4.1"> </a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">生成文档</font></font><a href="http://hl7.org/fhir/documents.html#3.3.4.1" title="链接到这里" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+客户端可以要求服务器从合成资源生成完全捆绑的文档。</font><font style="vertical-align: inherit;">有关详细信息，请参阅</font></font><a href="http://hl7.org/fhir/composition-operations.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">生成文档操作</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+
+
+</div>
+
+
+				</div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+        
+    </div>  <!-- /segment-content -->
+
+
+	<div id="segment-footer" class="segment">  <!-- segment-footer -->
+		<div class="container">  <!-- container -->
+			<div class="inner-wrapper">
+				<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        ®©HL7.org 2011+。</font><font style="vertical-align: inherit;">FHIR Release 4（v4.0.0）于2018年12月27日星期四生成</font></font><a style="color: #ffffff" href="http://hl7.org/fhir/qa.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.QA页面</font></font></a>
+        <br>
+        <span style="color: #FFFF77"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        链接：</font></font><a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜索</font></font><img src="./media//external.png" style="text-align: baseline"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+               </font></font><a style="color: #b8dcf9" href="http://hl7.org/fhir/history.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本历史</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+               </font></font><a style="color: #b8dcf9" href="http://hl7.org/fhir/toc.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目录</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+               </font></font><a style="color: #b8dcf9" href="http://hl7.org/fhir/credits.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">积分</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+               </font></font><a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fdocuments.html&amp;doc2=http%3A%2F%2Fhl7.org%2Ffhir%2Fdocuments.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与R3</font></font><img src="./media//external.png" style="text-align: baseline"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> |                
+                </font><a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FSTU3%2Fdocuments.html&amp;doc2=http%3A%2F%2Fhl7.org%2Ffhir%2Fdocuments.html"><font style="vertical-align: inherit;">比较 </font></a></font><a rel="license" style="color: #b8dcf9" href="http://hl7.org/fhir/license.html"><img src="./media//cc0.png" alt="CC0" style="border-style: none;"></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">| 
+               </font></font><a style="color: #b8dcf9" href="http://hl7.org/fhir-issues" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提出改变</font></font><img src="./media//external.png" style="text-align: baseline"></a>   
+        </span>
+        </p>
+			</div>  <!-- /inner-wrapper -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->        
+	
+	<div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+		<div class="container">  <!-- container -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-post-footer -->
+    
+      <!-- JS and analytics only. -->
+      <!-- Bootstrap core JavaScript
+================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+<script src="./media//jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+<script src="./media//bootstrap.min.js"> </script>
+<script src="./media//respond.min.js"> </script>
+
+<script src="./media//fhir.js"> </script>
+
+  <!-- Analytics Below
+================================================== -->
+
+
+
+
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./media//translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div id="syno-nsc-ext-comp-1008" class=" x-tip-invalid" style="position: absolute; z-index: 11000; visibility: hidden; display: none;"><div class="x-tip-invalid-tl"><div class="x-tip-invalid-tr"><div class="x-tip-invalid-tc"><div class="x-tip-invalid-header x-unselectable" id="syno-nsc-ext-gen4"><span class="x-tip-invalid-header-text"></span></div></div></div></div><div class="x-tip-invalid-bwrap" id="syno-nsc-ext-gen5"><div class="x-tip-invalid-ml"><div class="x-tip-invalid-mr"><div class="x-tip-invalid-mc" id="syno-nsc-ext-gen8"><div class="x-tip-invalid-body" id="syno-nsc-ext-gen6" style="height: auto;"></div></div></div></div><div class="x-tip-invalid-bl x-panel-nofooter" id="syno-nsc-ext-gen7"><div class="x-tip-invalid-br"><div class="x-tip-invalid-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="syno-nsc-ext-gen9" style="z-index: 11001;"></div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
