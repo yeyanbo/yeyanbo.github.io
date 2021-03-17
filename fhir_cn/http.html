@@ -2045,23 +2045,14 @@ CapabilityStatement resource.
 <a name="transaction"></a>
 <h3 class="self-link-parent"><span class="sectioncount">3.1.0.11</span> batch/transaction <a href="./http.html#transaction" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The <code>batch</code> and <code>transaction</code> interactions submit a set of actions to perform on a server in a single HTTP request/response.
-The actions may be performed independently as a "batch", or as a single atomic "transaction" where
-the entire set of changes succeed or fail as a single entity. Multiple actions on multiple resources
-of the same or different types may be submitted, and they may be a mix of other interactions defined
-on this page (e.g. <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc.), or using the <a href="./operations.html">operations</a>
-framework.
+<code>批处理</code>和<code>事务</code>操作在单个HTTP请求/响应中提交一组要在服务器上执行的操作。这些操作可以作为“批处理”独立执行，也可以作为单个原子型“事务”执行，其中整个提交集作为单个实体同时成功或失败。可以提交相同或不同类型的多个资源上的多个操作，这些操作可以是本页上定义的其他操作的混合（例如，<code>读取</code>、<code>查询</code>、<code>创建</code>、<code>更新</code>、<code>删除</code>等），也可以使用<a href="./operations.html">Operation</a>框架。
 </p>
 <p>
-The <code>transaction</code> mode is especially useful where one would otherwise need multiple interactions, possibly
-with a risk of loss of referential integrity if a later interaction fails (e.g. when storing
-a Provenance resource and its corresponding target resource, or and <a href="https://wiki.ihe.net/index.php/MHD_Implementation_Guide">IHE-MHD transaction "Provide Document Resources" <img src="./media/external.png" style="text-align: baseline"></a> 
-with a DocumentManifest, and some number of DocumentReference, List, and Binary resources).
+<code>事务</code>模式在需要多次交互的情况下尤其有用，如果后面的交互失败，则可能会有失去引用完整性的风险（例如，在存储Provenance资源及其相应的目标资源时，或者进行<a href="https://wiki.ihe.net/index.php/MHD_Implementation_Guide">IHE-MHD事务"提供文档资源"<img src="./media/external.png" style="text-align: baseline"></a>时，DocumentManifest、DocumentReference、List和Binary资源的关联）。
 </p>
 <p>
-Note that transactions and conditional create/update/delete are complex interactions and it is
-not expected that every server will implement them. Servers that don't support the batches
-or transactions SHOULD return an HTTP <code>400</code> error and MAY include an <a href="./operationoutcome.html">OperationOutcome</a>.
+请注意，事务和条件创建、条件更新、条件删除是复杂的交互，不希望每个服务器都实现它们。不支持批处理或事务的服务器应返回HTTP <code>400</code>错误，并且可能包含<a href="./operationoutcome.html">OperationOutcome</a>资源。
+批处理或事务交互由HTTP POST命令执行，如下所示：
 </p>
 <p>
 A <code>batch</code> or <code>transaction</code> interaction is performed by an HTTP <code>POST</code> command as shown:
