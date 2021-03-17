@@ -1487,9 +1487,7 @@ to explicitly mark such resources.
 <a name="update"></a>
 <h3 class="self-link-parent"><span class="sectioncount">3.1.0.4</span> 更新 <a href="./http.html#update" title="link to here" class="self-link"><svg viewBox="0 0 1792 1792" width="20" class="self-link" height="20"><path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z" fill="navy"></path></svg></a></h3>
 <p>
-The <code>update</code> interaction creates a new current version for an existing resource or
-creates an initial version if no resource already exists for the given id.
-The <code>update</code> interaction is performed by an HTTP <code>PUT</code> command as shown:
+<code>更新</code>操作用于创建已存在资源的新版本内容。当指定id的资源不存在时，新建一个初始版本的资源。该操作使用HTTP的<code>PUT</code>动词，格式如下:
 </p>
 <pre class="http">  PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
@@ -1502,12 +1500,7 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
 from doing so (参见<a href="./resource.html#meta">元数据描述</a> for further information). 注意，不支持对历史版本的更新操作 - 请见<a href="./http.html#history">history</a>操作的备注.
 </p>
 <p>
-A server SHOULD accept the resource as submitted when it accepts the update, and return the same
-content when it is subsequently read. However systems might not be able to do this; see
-the note on <a href="./http.html#transactional-integrity">transactional integrity</a> for discussion.
-Also, see <a href="./updates.html">Variations between Submitted data and Retrieved data</a> for additional discussion
-around update behavior. Note that <code>update</code> generally updates the whole content of the resource. For partial
-updates, see <a href="./http.html#patch"><code>patch</code></a> below.
+服务器应在接受更新时接受提交的资源，并在随后读取时返回相同的内容。但是，系统可能无法做到这一点；相关讨论请参阅关于<a href="./http.html#transactional-integrity">事务完整性</a>的说明。另外，有关更新行为的更多讨论，请参见<a href="./updates.html">提交数据和获取数据之间的不同</a>。注意，<code>更新</code>操作通常会更新资源的全部内容。有关部分更新，请参见后面的<a href="./http.html#patch"><code>patch</code></a>操作。
 </p>
 <p>
 如果资源被成功更新则服务器应返回<code>200 OK</code>状态码，如果资源被新建、重返生命周期或被重建则返回<code>201 Created</code>状态码；且应携带<code>Last-Modified</code>消息头，和含有资源新版本标识的<code>ETag</code>消息头。如果资源被新建，即反馈状态码为<code>201 Created</code>，服务器应返回<code>Location</code>消息头(this is for HTTP conformance; it's not otherwise needed). 反馈消息描述在<a href="./http.html#return">管理返回内容</a>中。
@@ -1732,11 +1725,7 @@ Patch is not defined for all resources - see <a href="./binary.html#patch">not a
 请求的信息体必须为空。
 </p>
 <p>
-A delete interaction means that subsequent <a href="./http.html#read">non-version specific reads</a> of a resource
-return a <code>410</code> HTTP status code and that the resource is no longer found through <a href="./http.html#search">search</a>
-interactions. Upon successful deletion, or if the resource does not exist at all, the server should return either a
-<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload,
-or a <code>202 Accepted</code> if the server wishes to be non-commital about the outcome of the delete.
+删除操作意味着随后对资源的<a href="./http.html#read">非特定版本读取</a>应返回HTTP <code>410</code>状态码，并且不再能通过<a href="./http.html#search">查询</a>操作找到该资源。在成功删除后，或者如果资源根本不存在，服务器应该返回<code>200 OK</code>（如果响应包含有效负载），或者<code>204 No Content</code>（没有响应有效负载），或者<code>202 Accepted</code>（如果服务器希望对删除的结果不做承诺）。
   <!-- , or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL NOT include any errors. -->
 </p>
@@ -1747,29 +1736,19 @@ If the server refuses to delete resources of that type as a blanket policy, then
 Method not allowed status code. If the server refuses to delete a resource because of reasons specific
 to that resource, such as referential integrity, it should return the <code>409</code> Conflict status code.
 Note that the servers MAY choose to enforce business rules regarding deletion of resources that are being referenced by other resources, but they also MAY NOT do so.
-Performing this interaction on a resource that is already deleted has no effect, and the server should return either a
-<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
-Resources that have been deleted may be "brought back to life" by a subsequent <a href="./http.html#href"><code>update</code></a>
-interaction using an HTTP <code>PUT</code>.
+究竟是支持delete，还是支持特定资源类型或特定实例的delete，由服务器根据在其上下文中应用的策略和业务规则来决定。如果服务器拒绝作为一揽子策略删除该类型的资源，那么它应该返回405 Method not allowed状态代码。如果服务器由于特定于某个资源的原因（如引用完整性）而拒绝删除该资源，则应返回409冲突状态代码。请注意，服务器可能会选择强制执行有关删除其他资源所引用的资源的业务规则，但也可能不会这样做。
 </p>
 <p>
-Many resources have a status element that overlaps with the idea of deletion. Each resource type
-defines what the semantics of the deletion interactions are. If no documentation is provided, the
-deletion interaction should be understood as deleting the record of the resource, with nothing
-about the state of the real-world corresponding resource implied.
+在已删除的资源上执行此操作没有任何效果，并且如果响应包含有效负载，则服务器应返回<code>200 OK</code>，或者返回<code>204 No Content</code>（没有响应有效负载）。已删除的资源可能会通过使用HHTTP <code>PUT</code>的后续<a href="./http.html#href"><code>更新</code></a>操作“复活”。
 </p>
 <p>
-For servers that maintain a version history, the <code>delete</code> interaction does not 
-remove a resource's version history. From a version history respect,
-deleting a resource is the equivalent of creating a special kind of history entry that has
-no content and is marked as deleted. Note that
-there is no support for deleting past versions - see notes on the <a href="./http.html#history">history</a> interaction.
-Since deleted resources may be brought back to life, servers MAY include an <code>ETag</code> on the delete response
-to allow version contention management when a resource is brought back to life.
+许多资源的状态元素与删除的概念重叠。每个资源类型定义了删除操作的语义。如果没有提供说明，那么删除操作则应被理解为删除资源的记录，而不暗示真实世界中相应资源的状态。
 </p>
 <p>
-Note that irrespective of this rule, servers are free to completely delete the resource and it's history 
-if policy or business rules make this the appropriate action to take.
+对于维护版本历史记录的服务器，<code>删除</code>操作不会删除资源的版本历史记录。从版本历史的角度来看，删除资源相当于创建一种特殊的历史条目，它没有内容，并且被标记为已删除。请注意，不支持删除以前的版本-请参阅有关<a href="./http.html#history">历史查询</a>操作的说明。由于删除的资源可以被重新恢复，服务器可以在删除响应上包括<code>ETag</code>，以便在资源被重新恢复时允许版本竞争管理。
+</p>
+<p>
+请注意，不管此规则如何，如果策略或业务规则将此作为要采取的适当操作，服务器都可以自由地完全删除资源及其历史记录。
 </p>
 
 <div class="draft-content">
